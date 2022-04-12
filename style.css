@@ -1,0 +1,16 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 auto;
+    background-color: red;
+    min-width: 500px;
+    min-height: 500px;
+}
+
+.options-bar {
+    
+}
