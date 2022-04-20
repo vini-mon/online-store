@@ -21,15 +21,16 @@ nav {
     text-align: right;
 }
 
-nav ul {
+ul {
     display: inline-block;
     list-style-type: none;
 }
 
-nav ul li {
+ul li {
     display: inline-block;
     margin-right: 20px;
     position: relative;
+    transition: all 0.4s ease-in-out;
 }
 
 .line::after {
@@ -100,4 +101,33 @@ p {
 
 .header {
     background: radial-gradient(#fff, #fbc2eb);
+}
+
+.account{
+
+    position: relative;
+
+}
+
+.dropdown-content{
+
+    display: none;
+    position: absolute;
+    background-color: red;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+}
+
+.dropdown-content li {
+
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+
+}
+
+.account:hover .dropdown-content {
+    display: block;
 }
