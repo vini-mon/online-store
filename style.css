@@ -131,3 +131,173 @@ p {
 .account:hover .dropdown-content {
     display: block;
 }
+
+/* CART CONTAINER */
+.cart-container {
+    background-color: #fbc2eb;  
+    margin: 100px 15% 0px;
+    display: flex;
+    justify-content: center;
+}
+.cart-page table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.cart-page img{
+    height: 64px;
+    width: 64px;
+    margin-right: 10px;
+}
+.cart-page th{
+    padding: 10px;
+    text-align: left;
+    color: black;
+    background-color: #f755c9;
+}
+.cart-page a{
+    color: red;
+}
+.cart-page td{
+    padding: 20px 10px;
+}
+.cart-page td input{
+    width: 90px;
+    height: 32px;
+    padding: 10px;
+}
+.cart-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+.cart-total{
+    background-color: #fbc2eb;
+    margin: 0 15%;
+    padding-bottom: 100px;
+    display: flex;
+    justify-content: flex-end;
+}
+.cart-total table{
+    border-top: 4px solid #f755c9;
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 0;
+}
+
+/* ABOUT US */
+.about{
+    margin-top: 80px;
+    padding: 20px;
+    width: 40%;
+}
+.about .title{
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+.about h3{
+    margin-top: 10px;
+    color: #555;
+    font-size: 24px;
+}
+.about p{
+    margin-top: 5px;
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.about .button{
+    margin: 20px 0px;
+}
+.about .button a{
+    background-color: #555;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+.about .button a:hover{
+    background-color: #ff00b7;
+    color: #555;
+}
+.about .social{
+    margin-top: 30px;
+}
+.about .social i{
+    color: #555;
+    font-size: 32px;
+    padding: 0 10px;
+}
+.about .social i:hover{
+    color:#ff00b7;
+}
+
+/* CONTACT */
+.contact{
+    margin: 20px 15% 100px;
+    border: 3px solid grey;
+    max-width: 850px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.contact .esquerda{
+    height: 100%;
+    background: url("images/PetStore.png") no-repeat center;
+    background-size: cover;
+}
+.contact .direita{
+    padding: 20px 40px;
+}
+.contact h2{
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.contact h2:after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 40px;
+    border-radius: 2px;
+    background-color: #ff00b7;
+}
+.contact .field{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: rgba(230, 230, 230, 0.6);
+    outline: none;
+    border: 3px solid rgba(0, 0, 0, 0);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+.contact .field:hover{
+    background-color: 3px solid rgba(0, 0, 0, 0.1);
+}
+.contact .field:focus{
+    background-color: #fff;
+    border: 3px solid grey;
+}
+.contact .area{
+    min-height: 150px;
+    max-height: 150px;
+    min-width: 350px;
+    max-width: 350px;
+}
+.contact .btn{
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 5px;
+    color: #555;
+    cursor: pointer;
+}
+.contact .btn:hover{
+    background-color: #fff;
+    border: 3px solid grey;
+}
