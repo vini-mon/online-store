@@ -300,15 +300,19 @@ p {
 .contact .field{
     width: 100%;
     padding: 0.5rem 1rem;
-    background-color: rgba(230, 230, 230, 0.6);
+    background-color: #EEE;
     outline: none;
     border: 3px solid rgba(0, 0, 0, 0);
     font-size: 1.1rem;
     margin-bottom: 20px;
     transition: 0.3s;
+    color: #5E6697;
+}
+.contact .field::placeholder{
+    color: #ff00b7;  
 }
 .contact .field:hover{
-    background-color: 3px solid rgba(0, 0, 0, 0.1);
+    background-color: rgba(218, 166, 230, 0.3);
 }
 .contact .field:focus{
     background-color: #fff;
@@ -321,16 +325,16 @@ p {
     max-width: 350px;
 }
 .contact .btn{
-    border: none;
     outline: none;
     width: 100%;
     padding: 5px;
-    color: #555;
+    color: #ff00b7;
     cursor: pointer;
+    margin: 5px;
 }
 .contact .btn:hover{
-    background-color: #fff;
-    border: 3px solid grey;
+    background-color: rgba(218, 166, 230, 0.5);
+    transition: all 0.4s ease-in-out;
 }
 
 .categories {
