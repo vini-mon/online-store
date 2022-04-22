@@ -45,18 +45,14 @@ ul li {
 }
 
 li:hover {
-    
 	transition: all 0.4s ease-in-out;
     transform: translateY(-2px);
-
 }
 
 li:hover .line::after{
-    
     transform: translateY(2px);
     width: 100%;
     left: 0;
-
 }
 
 a {
@@ -105,42 +101,32 @@ p {
 }
 
 .account{
-
     position: relative;
-
 }
 
 .dropdown-content{
-
     display: none;
     position: absolute;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     text-align: center;
     margin-left: -20px;
     margin-top: 5px;
-
 }
 
 .dropdown-content li {
-
     text-decoration: none;
     display: block;
     margin: 0;
     padding: 10px;
     margin: 10px;
-
 }
 
 .line2{
-
     margin-right: 0;
-
 }
 
 .account:hover .dropdown-content {
-
     display: block;
-
 }
 
 .line2::after {
@@ -155,12 +141,9 @@ p {
     padding: 0;
 }
 
-
 .dropdown-content li:hover .line2::after{
-    
     transform: translateY(2px);
     width: 100%;
-    
 }
 
 /* CART CONTAINER */
@@ -170,36 +153,44 @@ p {
     display: flex;
     justify-content: center;
 }
+
 .cart-page table {
     width: 100%;
     border-collapse: collapse;
 }
+
 .cart-page img{
     height: 64px;
     width: 64px;
     margin-right: 10px;
 }
+
 .cart-page th{
     padding: 10px;
     text-align: left;
     color: black;
     background-color: #f755c9;
 }
+
 .cart-page a{
     color: red;
 }
+
 .cart-page td{
     padding: 20px 10px;
 }
+
 .cart-page td input{
     width: 90px;
     height: 32px;
     padding: 10px;
 }
+
 .cart-info {
     display: flex;
     flex-wrap: wrap;
 }
+
 .cart-total{
     background-color: #fbc2eb;
     margin: 0 15%;
@@ -207,6 +198,7 @@ p {
     display: flex;
     justify-content: flex-end;
 }
+
 .cart-total table{
     border-top: 4px solid #f755c9;
     width: 100%;
@@ -218,26 +210,31 @@ p {
 .about{
     margin-top: 80px;
     padding: 20px;
-    width: 40%;
+    width: 100%;
 }
+
 .about .title{
     text-transform: uppercase;
     font-size: 1.5em;
 }
+
 .about h3{
     margin-top: 10px;
     color: #555;
     font-size: 24px;
 }
+
 .about p{
     margin-top: 5px;
     color: #555;
     font-size: 16px;
     line-height: 1.5;
 }
+
 .about .button{
     margin: 20px 0px;
 }
+
 .about .button a{
     background-color: #555;
     padding: 10px;
@@ -246,19 +243,50 @@ p {
     font-size: 16px;
     letter-spacing: 1px;
 }
+
 .about .button a:hover{
     background-color: #ff00b7;
     color: #555;
 }
-.about .social{
-    margin-top: 30px;
+
+.about .content {
+    text-align: center;
 }
-.about .social i{
+
+.col-3 {
+    flex-basis: 30%;
+    padding: 10px;
+    min-width: 200px;
+    margin-bottom: 50px;
+    transition: all 0.4s ease-in-out;
+}
+
+.col-3 img {
+    width: 80%;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.col-3:hover {
+    transform: translateY(-5px);
+}
+
+.people {
+    margin: 70px 0;
+}
+
+.social{
+    margin-top: 20px;
+}
+
+.social i {
     color: #555;
     font-size: 32px;
-    padding: 0 10px;
+    padding: 0 15px;
+    transition: all 0.6s ease-in-out;
 }
-.about .social i:hover{
+
+.social i:hover{
     color:#ff00b7;
 }
 
@@ -273,19 +301,23 @@ p {
     align-items: center;
     text-align: center;
 }
+
 .contact .esquerda{
     height: 100%;
     background: url("images/PetStore.png") no-repeat center;
     background-size: cover;
 }
+
 .contact .direita{
     padding: 20px 40px;
 }
+
 .contact h2{
     position: relative;
     padding-bottom: 10px;
     margin-bottom: 10px;
 }
+
 .contact h2:after{
     content: '';
     position: absolute;
@@ -297,6 +329,7 @@ p {
     border-radius: 2px;
     background-color: #ff00b7;
 }
+
 .contact .field{
     width: 100%;
     padding: 0.5rem 1rem;
@@ -308,40 +341,32 @@ p {
     transition: 0.3s;
     color: #5E6697;
 }
+
 .contact .field::placeholder{
     color: #ff00b7;  
 }
+
 .contact .field:hover{
     background-color: rgba(218, 166, 230, 0.3);
 }
+
 .contact .field:focus{
     background-color: #fff;
     border: 3px solid grey;
 }
+
 .contact .area{
     min-height: 150px;
     max-height: 150px;
     min-width: 350px;
     max-width: 350px;
 }
-.contact .btn{
-    outline: none;
-    width: 100%;
-    padding: 5px;
-    color: #ff00b7;
-    cursor: pointer;
-    margin: 5px;
-}
-.contact .btn:hover{
-    background-color: rgba(218, 166, 230, 0.5);
-    transition: all 0.4s ease-in-out;
-}
 
 .categories {
     margin: 70px 0;
 }
 
-.col-3 {
+.col-4 {
     flex-basis: 25%;
     padding: 10px;
     min-width: 200px;
@@ -349,12 +374,30 @@ p {
     transition: all 0.4s ease-in-out;
 }
 
-.col-3 img {
+.col-4 img {
     width: 100%;
 }
 
-.col-3:hover {
+.col-4:hover {
     transform: translateY(-5px);
+}
+
+.cart-btn {
+    margin-left: 10%;
+    width: 80%;
+    padding: 5px;
+    cursor: pointer;
+    background-color: rgb(247, 240, 245);
+    border: 2px solid #d2bdff;
+}
+
+.cart-btn:hover {
+    background-color: rgba(223, 111, 217, 0.5);
+    transition: all 0.8s ease-in-out;
+}
+
+.cart-btn .fa-cart-plus {
+    margin-left: 10px;
 }
 
 .small-container {
