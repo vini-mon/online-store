@@ -301,3 +301,54 @@ p {
     background-color: #fff;
     border: 3px solid grey;
 }
+
+.categories {
+    margin: 70px 0;
+}
+
+.col-3 {
+    flex-basis: 25%;
+    padding: 10px;
+    min-width: 200px;
+    margin-bottom: 50px;
+    transition: all 0.4s ease-in-out;
+}
+
+.col-3 img {
+    width: 100%;
+}
+
+.col-3:hover {
+    transform: translateY(-5px);
+}
+
+.small-container {
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.title {
+    text-align: center;
+    margin: 0 auto 80px;
+    position: relative;
+    line-height: 60px;
+    color: #555;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 70px;
+    border-radius: 2px;
+    background-color: #ff00b7;
+}
+
+.rating {
+    color: #cc1a9a;
+}
