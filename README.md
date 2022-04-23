@@ -8,7 +8,7 @@ Este é um projeto de uma loja online para a disciplina SCC0219 - Introdução a
 | ------ | ------ |
 | João Pedro Rodrigues Freitas | 11316552 |
 | Vinícius Santos Monteiro | 11932463 |
-| NOME | NUSP |
+| Gabriel Akio Urakawa | 11795912 |
 ## Project Report
 
 #### Requirements
