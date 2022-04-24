@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;500&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/7214877794.js" crossorigin="anonymous"></script>
+
+        <title>Dashboard</title>
+    </head>
+    <body>
+        <div class="header">
+            <div class="container">
+                <div class="navbar">
+                    <div class="logo">
+                        <a href="index.html"><img src="images/PetLogo.png" width="150"></a>
+                    </div>
+        
+                    <nav>
+                        
+                        <ul>
+                            <li><a href="index.html" class="line">Home</a></li>
+                            <li><a href="products.html" class="line">Products</a></li>
+                            <li><a href="services.html" class="line">Services</a></li>
+                            <li><a href="about.html" class="line">About</a></li>
+                            <li><a href="userAccount.html" class="line">User Account</a></li>
+                            <li><a href="adminAccount.html" class="line">Admin Account</a></li>
+                            <li><a href="login.html" class="line">Login</a></li>
+                            <li><a href="register.html" class="line">Register</a></li>
+                            <li><a href="cart.html" class="line"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                        </ul>
+
+                    </nav>
+                </div>
+
+            </div>
+            
+        </div>
+
+        <div class="small-container dashboard-admin">
+
+            <h2 class="title admin-title">Dashboard Admin</h2>
+
+            <div class="col-2">
+
+                <table cellspacing="5" class="admin-table">
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Função</th>
+                        <th>Ações</th>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>1</td>
+                        <td>João Pedro</td>
+                        <td>Produtos</td>
+                        <td><i class="fas fa-edit"></i>&nbsp;<i class="fas fa-trash"></i></td>
+
+                    </tr>
+
+                    <tr class="tr-colored">
+
+                        <td>2</td>
+                        <td>Vinícius Monteiro</td>
+                        <td>Serviços</td>
+                        <td><i class="fas fa-edit"></i>&nbsp;<i class="fas fa-trash"></i></td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+            
+        </div>
+
+        <div class="dashboard-products">
+
+            <div class="small-container">
+
+                <h2 class="title admin-title">Tabela de produtos</h2>
+
+
+                <div class="col-2">
+
+                    <table cellspacing="5" class="admin-table">
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Nome do produto</th>
+                            <th>Estoque</th>
+                            <th>Preço</th>
+                            <th>Ações</th>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>1</td>
+                            <td>Óculos fashion</td>
+                            <td>7</td>
+                            <td>R$ 30,00</td>
+                            <td><i class="fas fa-edit"></i>&nbsp;<i class="fas fa-trash"></i></td>
+
+                        </tr>
+
+                        <tr class="tr-colored">
+
+                            <td>2</td>
+                            <td>Arranhador Bastão</td>
+                            <td>9</td>
+                            <td>R$ 90,00</td>
+                            <td><i class="fas fa-edit"></i>&nbsp;<i class="fas fa-trash"></i></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>3</td>
+                            <td>Caminha média</td>
+                            <td>1</td>
+                            <td>R$ 130,00</td>
+                            <td><i class="fas fa-edit"></i>&nbsp;<i class="fas fa-trash"></i></td>
+
+                        </tr>
+
+                        <tr class="tr-colored">
+
+                            <td>4</td>
+                            <td>Coleira para gato</td>
+                            <td>20</td>
+                            <td>R$ 40,00</td>
+                            <td><i class="fas fa-edit"></i>&nbsp;<i class="fas fa-trash"></i></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>5</td>
+                            <td>Bolinha</td>
+                            <td>69</td>
+                            <td>R$ 45,00</td>
+                            <td><i class="fas fa-edit"></i>&nbsp;<i class="fas fa-trash"></i></td>
+
+                        </tr>
+
+                        <tr class="tr-colored">
+
+                            <td>6</td>
+                            <td>Osso médio</td>
+                            <td>3</td>
+                            <td>R$ 15,00</td>
+                            <td><i class="fas fa-edit"></i>&nbsp;<i class="fas fa-trash"></i></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>7</td>
+                            <td>Ração Premium Cat</td>
+                            <td>8</td>
+                            <td>R$ 65,00</td>
+                            <td><i class="fas fa-edit"></i>&nbsp;<i class="fas fa-trash"></i></td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+                
+            </div>
+            
+        </div>
+
+        <div class="dashboard-services">
+
+            <div class="small-container">
+
+                <h2 class="title admin-title">Tabela de serviços</h2>
+
+                <div class="col-2">
+
+                    <table cellspacing="5" class="admin-table">
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Serviço</th>
+                            <th>Preço mínimo</th>
+                            <th>Preço máximo</th>
+                            <th>Ações</th>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>1</td>
+                            <td>Banho e tosa</td>
+                            <td>R$ 30,00</td>
+                            <td>R$ 120,00</td>
+                            <td><i class="fas fa-edit"></i>&nbsp;<i class="fas fa-trash"></i></td>
+
+                        </tr>
+
+                        <tr class="tr-colored">
+
+                            <td>2</td>
+                            <td>Tosa higiênica</td>
+                            <td>R$ 25,00</td>
+                            <td>R$ 70,00</td>
+                            <td><i class="fas fa-edit"></i>&nbsp;<i class="fas fa-trash"></i></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>3</td>
+                            <td>Hidratação</td>
+                            <td>R$ 15,00</td>
+                            <td>R$ 50,00</td>
+                            <td><i class="fas fa-edit"></i>&nbsp;<i class="fas fa-trash"></i></td>
+
+                        </tr>
+
+                        <tr class="tr-colored">
+
+                            <td>4</td>
+                            <td>Vacinacão</td>
+                            <td>R$ 50,00</td>
+                            <td>R$ 250,00</td>
+                            <td><i class="fas fa-edit"></i>&nbsp;<i class="fas fa-trash"></i></td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+                
+            </div>
+            
+        </div>
+
+    </body>
+</html>
