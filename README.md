@@ -27,11 +27,24 @@ O sistema será responsivo e proverá uma boa acessibilidade e usabilidade.\
 O objetivo deste projeto é criar uma sistema de vendas online de um PetShop com foco em produtos e serviços para animais domésticos.\
 A primeira deste projeto foi implementada utilizando-se HTML e CSS.
 
-![Diagrama de navegação](mockup/DiagramaNavegacao.png)
+![Diagrama de navegação](/mockup/DiagramaNavegacao.png)
+
+A seguir, as imagens das páginas de `mockup`, que também estão em `/mockup`:
+
+-[Home](/mockup/)
+-[Products](/mockup/)
+-[Services](/mockup/)
+-[About](/mockup/)
+-[User account](/mockup/)
+-[Admin account](/mockup/)
+-[Login](/mockup/)
+-[Register](/mockup/)
+-[Cart](/mockup/)
 
 ## Comments About the Code
 
 ## Test Plan
+Nós pretendemos utilizar o Postman para testar o backend
 
 ## Test Results
 
