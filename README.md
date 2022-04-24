@@ -25,7 +25,7 @@ Como funcionalidade extra, nosso sistema reproduzirá o som dos brinquedos dos p
 O sistema será responsivo e proverá uma boa acessibilidade e usabilidade.\
 
 #### Project Description
-O objetivo deste projeto é criar uma sistema de vendas online de um PetShop com foco em produtos e serviços para animais domésticos.
+O objetivo deste projeto é criar uma sistema de vendas online de um PetShop com foco em produtos e serviços para animais domésticos.\
 A primeira deste projeto foi implementada utilizando-se HTML e CSS.
 
 ![Diagrama de navegação](mockup/DiagramaNavegacao.png)
