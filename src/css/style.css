@@ -137,11 +137,9 @@ p {
     margin: 50px auto;
     padding-left: 25px;
     padding-right: 25px;
-
-    border: 2px solid rgb(221, 63, 213);
+    border: 2px solid #ff8ae2;
     border-radius: 20px;
     padding: 20px;
-
 }
 
 .field {
@@ -149,16 +147,16 @@ p {
     padding: 5px;
     padding-top: 15px;
     padding-bottom: 15px;
-    border-radius: 15px;
-    border: 0.5px solid pink;
+    border-radius: 8px;
+    border: 0.5px solid #ff8ae2;
     max-width: 400px;
     width: 350px;
     height: 50px;
-
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.field::placeholder{
-    color: red;
+.field:focus {
+    outline: none;
 }
 
 .input .btn {
@@ -303,7 +301,6 @@ p {
     padding: 20px 30px 20px 30px;
 }
 
-
 .login-img{
     max-width: 150px;
     margin-top: 20px;
@@ -321,7 +318,11 @@ p {
 }
 
 .login-field::placeholder{
-    text-align: center;;
+    text-align: center;
+}
+
+.login-field:focus {
+    outline: none;
 }
 
 .login-input .btn{
@@ -338,10 +339,8 @@ p {
 }
 
 .profile-img{
-
     width: 200px;
     border-radius: 100%;
-
 }
 
 /* CART CONTAINER */
@@ -359,7 +358,6 @@ p {
 
 .cart-page img{
     height: 64px;
-    width: 64px;
     margin-right: 10px;
 }
 
@@ -467,80 +465,58 @@ p {
 /* Admin Account */
 
 .admin-title{
-
     margin-top: 60px;
-
 }
 
 .admin-table{
-
     width: 800px;
     margin: 0 auto;
     text-align: center;
     border: 2px solid #ff8ae2;
     border-radius: 15px;
     padding: 5px;
-
 }
 
 .admin-table th{
-
     background-color: #ff8ae2;
     border-radius: 10px;
     margin-left: 15px;
     margin-right: 15px;
-
 }
 
 .admin-table th, .admin-table td{
-
     padding: 20px 5px 20px 5px;
-
 }
 
 .tr-colored{
-
     background-color: rgba(254, 196, 245, 0.666);
-
 }
 
 .tr-colored td{
-
     border-radius: 15px;
-
 }
 
 .fa-edit{
-
     color: rgb(0, 94, 255);
     cursor: pointer;
-
 }
 
 .fa-trash{
-
     color: red;
     cursor: pointer;
-
 }
 
 .dashboard-admin{
-
     padding-bottom: 100px;
-
 }
 
 .dashboard-products{
-
     background: radial-gradient(#fff, #fbc2eb);
     padding-top: 10px;
     padding-bottom: 50px;
-
 }
 
 .dashboard-services{
-
     padding-top: 10px;
     padding-bottom: 100px;
-
 }

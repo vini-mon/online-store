@@ -31,15 +31,15 @@ A primeira deste projeto foi implementada utilizando-se HTML e CSS.
 
 A seguir, as imagens das páginas de `mockup`, que também estão em `/mockup`:
 
--[Home](/mockup/)
--[Products](/mockup/)
--[Services](/mockup/)
--[About](/mockup/)
--[User account](/mockup/)
--[Admin account](/mockup/)
--[Login](/mockup/)
--[Register](/mockup/)
--[Cart](/mockup/)
+-[Home](/mockup/Index.png)
+-[Products](/mockup/Products.png)
+-[Services](/mockup/Services.png)
+-[About](/mockup/About.png)
+-[User account](/mockup/UserAccount.png)
+-[Admin account](/mockup/AdminAccount.png)
+-[Login](/mockup/Login.png)
+-[Register](/mockup/Register.png)
+-[Cart](/mockup/Cart.png)
 
 ## Comments About the Code
 
