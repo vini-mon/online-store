@@ -2,7 +2,7 @@ import styles from './Product.module.css'
 import {FaStar} from 'react-icons/fa'
 import {FaStarHalfAlt} from 'react-icons/fa'
 // import {FaCartPlus} from 'react-icons/fa'
-import Button from './Button';
+import Button from './Button'
 
 function Product({source, name, description, price}){
     return(
