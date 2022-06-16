@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useState } from "react";
 import styles from './Forms.module.css';
 import userIcon from '../../img/account/login.png';
@@ -76,9 +76,9 @@ function FormsRegister(){
 
                     <p><b>Já possui conta? Então faça o</b>&nbsp;
 
-                        <Link to="/Login">
+                        <NavLink to="/login">
                             Login
-                        </Link>
+                        </NavLink>
 
                     </p>
 
