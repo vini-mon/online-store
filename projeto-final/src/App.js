@@ -13,7 +13,7 @@ import Account from './components/pages/Account';
 
 // Components
 import Navbar from './components/layout/Navbar';
-// import Button from './components/Button';
+import Footer from './components/layout/Footer';
 
 function App() {
     return (
@@ -35,6 +35,8 @@ function App() {
                 <Route path='/cart' element={<Home/>}></Route>
                 
             </Routes>
+
+            <Footer/>
 
         </Router>
 
