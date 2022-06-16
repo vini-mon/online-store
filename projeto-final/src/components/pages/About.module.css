@@ -1,0 +1,23 @@
+.about{
+    margin-top: 80px;
+    padding: 20px;
+    width: 100%;
+}
+
+.about h1{
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+
+.about h3{
+    margin-top: 10px;
+    color: #555;
+    font-size: 24px;
+}
+
+.about p{
+    margin-top: 5px;
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+}

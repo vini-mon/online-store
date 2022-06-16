@@ -1,0 +1,16 @@
+.display{
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    height: 300px;
+}
+
+.box{
+    margin: 70px 0;
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
