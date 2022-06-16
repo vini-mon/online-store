@@ -7,7 +7,7 @@ import Button from './Button';
 function Product({source, name, description, price}){
     return(
         <div className={styles.box}>
-            <img src={source} alt="Foto do Produto"/>
+            <img src={source} alt="Foto do Produto" className={styles.image}/>
             <div className={styles.star}>
                 <FaStar/>
                 <FaStar/>
