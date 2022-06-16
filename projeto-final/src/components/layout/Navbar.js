@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-import Container from './Container'
 import styles from './Navbar.module.css';
 import logo from '../../img/PetLogo.png'
 
@@ -25,71 +24,33 @@ function Navbar(){
 
         // </div>
 
-        // <div className={styles.navbar}>
-        //     <div className={styles.logo}>
-        //         <Link to="/">
-        //             <img src="images/PetLogo.png" alt="Logo da PetStore" width="150" />
-        //         </Link>
-        //     </div>
-
-        //     <ul className={styles.list}>
-        //         <li className={styles.item}>
-        //             <Link to="/">Home</Link>
-        //         </li>
-        //         <li className={styles.item}>
-        //             <Link to="/products">Products</Link>
-        //         </li>
-        //         <li className={styles.item}>
-        //             <Link to="/services">Services</Link>
-        //         </li>
-        //         <li className={styles.item}>
-        //             <Link to="/about">About</Link>
-        //         </li>
-        //         <li className={styles.item}>
-        //             <Link to="/login">Login</Link>
-        //         </li>
-        //         <li className={styles.item}>
-        //             <Link to="/cart">Cart</Link>
-        //         </li>
-        //     </ul>
-
-        // </div>
-
         <nav>
             <div className={styles.logo}>
-                <Link to="/"  >
+                <NavLink to="/"  >
                     <img src={logo} alt="Logo da PetStore" width="150" />
-                </Link>
+                </NavLink>
             </div>
 
             <ul className={styles.nav_list} >
-
                 <li className={styles.item}>
-                    <Link to="/" className={styles.link}>Home</Link>
+                    <NavLink to="/" className={({ isActive }) => isActive ? styles.link_active : styles.link } >Home</NavLink>
                 </li>
                 <li className={styles.item}>
-                    <Link to="/products" className={styles.link}>Products</Link>
+                    <NavLink to="/products" className={({ isActive }) => isActive ? styles.link_active : styles.link } >Products</NavLink>
                 </li>
                 <li className={styles.item}>
-                    <Link to="/services" className={styles.link}>Services</Link>
+                    <NavLink to="/services" className={({ isActive }) => isActive ? styles.link_active : styles.link } >Services</NavLink>
                 </li>
                 <li className={styles.item}>
-                    <Link to="/about" className={styles.link}>About</Link>
+                    <NavLink to="/about" className={({ isActive }) => isActive ? styles.link_active : styles.link } >About</NavLink>
                 </li>
                 <li className={styles.item}>
-                    <Link to="/login" className={styles.link}>Login</Link>
+                    <NavLink to="/login" className={({ isActive }) => isActive ? styles.link_active : styles.link } >Login</NavLink>
                 </li>
                 <li className={styles.item}>
-                    <Link to="/cart" className={styles.link}>Cart</Link>
+                    <NavLink to="/cart" className={({ isActive }) => isActive ? styles.link_active : styles.link } >Cart</NavLink>
                 </li>
             </ul>
-
-{/* 
-            <Container>
-                <Link to="/">
-                    <img src={logo} alt="Logo da PetStore" width="150" />
-                </Link>
-            </Container> */}
         </nav>
     )
 }

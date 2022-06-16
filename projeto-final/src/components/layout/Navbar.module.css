@@ -1,5 +1,5 @@
 nav {
-    background-color: pink;
+    background: radial-gradient(#fff, #fbc2eb);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -27,6 +27,13 @@ nav {
     display: inline-block;
     color: #555;
     
+}
+
+.link_active {
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+    color: red;
 }
 
 .link::after {
