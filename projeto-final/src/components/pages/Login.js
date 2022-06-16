@@ -1,4 +1,7 @@
-import { useStates } from 'react'; 
+import { Link } from 'react-router-dom';
+import { useState } from "react";
+import styles from './Forms.module.css';
+import userIcon from '../../img/account/login.png';
 
 function FormsLogin(){
 
@@ -7,48 +10,54 @@ function FormsLogin(){
         event.preventDefault();
 
         console.log(email);
+        console.log(password);
 
     }
 
-    const [email, setEmail] = useStates();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
 
     return(
 
-        <article>
+        <div>
 
-            <div className="small-container">
+            <h2 className={styles.title}>Faça login</h2>
 
-                <h2 className="title">Faça login</h2>
+            <div className={styles.loginBox}>
 
-                <div className="login-box">
+                <img src={userIcon} alt="Icone de Login" className={styles.loginImg}/>
 
-                    <img src="images/account/login.png" alt="Icone de Login" className="login-img"/>
+                <div className={styles.loginInput}>
 
-                    <div className="login-input">
+                    <form onSubmit={Login}>
 
-                        <form onSubmit={Login}>
+                        <input id="email" type="email" placeholder="E-mail"
+                        onChange={(event)=>setEmail(event.target.value)}
+                        className={styles.loginField} /> <br/>
 
-                            <label>E-mail:</label>
-                            <input id="email" onChange={(event)=>setEmail(event.target.value)} type="email" placeholder="Digite seu e-mail" /> <br/>
+                        <input id="password" type="password" placeholder="Senha"
+                        onChange={(event)=>setPassword(event.target.value)}
+                        className={styles.loginField}  /> <br/>
 
-                            <label>Senha</label>
-                            <input id="password" type="password" placeholder="Digite sua senha" /> <br/>
+                        <button className={styles.btn}>Login</button><br/>
 
-                        </form>
+                    </form>
 
-                        <input name="email" type="email" className="login-field" placeholder="Email"/><br/>
-                        <input name="senha" type="password" className="login-field" placeholder="Senha"/><br/>
-                        <button className="btn">Login</button><br/>
+                    <p><b>Não possui conta?</b>&nbsp;
 
-                        Não possui conta? <a href="register.html">Registre-se</a>
+                        <Link to="/register">
+                            Registre-se
+                        </Link>
 
-                    </div>
+                    </p>
 
                 </div>
 
             </div>
 
-        </article>
+            <div className={styles.space}></div>
+
+        </div>
 
     );
 
