@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import styles from './Navbar.module.css';
 import logo from '../../img/PetLogo.png'
 
-function Navbar(){
+function Navbar() {
 
     return (
         
