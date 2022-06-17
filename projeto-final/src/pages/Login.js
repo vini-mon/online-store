@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from "react";
 import styles from './Forms.module.css';
-import userIcon from '../../img/account/login.png';
+import userIcon from '../img/account/login.png';
 import userData from "../json/users.json";
 
 function FormsLogin(){
