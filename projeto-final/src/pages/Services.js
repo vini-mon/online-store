@@ -1,10 +1,10 @@
-import Service from '../Service'
+import Service from '../components/Service'
 import styles from './Services.module.css'
-import capa from '../../img/services/Tosacapa.png'
-import service1 from '../../img/services/hidratacao.png'
-import service2 from '../../img/services/higienica.png'
-import service3 from '../../img/services/tosa.png'
-import service4 from '../../img/services/vacinacao.png'
+import capa from '../img/services/Tosacapa.png'
+import service1 from '../img/services/hidratacao.png'
+import service2 from '../img/services/higienica.png'
+import service3 from '../img/services/tosa.png'
+import service4 from '../img/services/vacinacao.png'
 
 function Services() {
     return(

@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import './App.css';
 
 // Routes
-import Home from './components/pages/Home';
-import About from './components/pages/About';
-import Services from './components/pages/Services';
-import Products from './components/pages/Products';
-import Login from './components/pages/Login';
-import Register from './components/pages/Register';
-import Account from './components/pages/Account';
-import Cart from './components/pages/Cart';
+import Home from './pages/Home';
+import About from './pages/About';
+import Services from './pages/Services';
+import Products from './pages/Products';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Account from './pages/Account';
+import Cart from './pages/Cart';
 
 // Components
 import Navbar from './components/layout/Navbar';

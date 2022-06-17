@@ -1,6 +1,6 @@
 import styles from './About.module.css'
-import contact from '../../img/Contact.png'
-import Button from '../Button'
+import contact from '../img/Contact.png'
+import Button from '../components/Button'
 
 function About() {
     return(

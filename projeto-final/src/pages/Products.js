@@ -1,10 +1,10 @@
-import Product from '../Product';
+import Product from '../components/Product';
 import styles from './Products.module.css';
-import productList from '../productList';
+import productList from '../components/productList';
 
 import { useState } from 'react';
 
-import image from '../../img/products/Products.png';
+import image from '../img/products/Products.png';
 
 function Products() {
     const [cart, setCart] = useState();
