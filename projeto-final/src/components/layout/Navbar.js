@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { BsFillCartFill } from 'react-icons/bs'
 
 import styles from './Navbar.module.css';
 import logo from '../../img/PetLogo.png'
@@ -48,7 +49,7 @@ function Navbar() {
                     <NavLink to="/login" className={({ isActive }) => isActive ? styles.link_active : styles.link } >Login</NavLink>
                 </li>
                 <li className={styles.item}>
-                    <NavLink to="/cart" className={({ isActive }) => isActive ? styles.link_active : styles.link } >Cart</NavLink>
+                    <NavLink to="/cart" className={({ isActive }) => isActive ? styles.link_active : styles.link } >{BsFillCartFill}</NavLink>
                 </li>
             </ul>
         </nav>
