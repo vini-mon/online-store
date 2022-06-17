@@ -17,6 +17,9 @@ function FormsRegister(){
         console.log(password);
         console.log(confirmPassword);
 
+        // WRITE IN A JSON FILE WITH THE USER DATA
+        // const fs = require('fs');
+
     }
 
     const [name, setName] = useState();

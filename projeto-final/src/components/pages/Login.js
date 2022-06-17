@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState } from "react";
 import styles from './Forms.module.css';
 import userIcon from '../../img/account/login.png';
+import userData from "../json/users.json";
 
 function FormsLogin(){
 
@@ -9,8 +10,21 @@ function FormsLogin(){
 
         event.preventDefault();
 
-        console.log(email);
-        console.log(password);
+        {
+            userData && userData.map(user => {
+
+                if(user.email === email && user.password === password){
+
+                    console.log("Login Successful");
+
+                    // SET A SESSION WITH A GLOBAL VARIABLE
+
+
+
+                }
+
+            });
+        }
 
     }
 
@@ -33,11 +47,11 @@ function FormsLogin(){
 
                         <input id="email" type="email" placeholder="E-mail"
                         onChange={(event)=>setEmail(event.target.value)}
-                        className={styles.loginField} /> <br/>
+                        className={styles.loginField} required /> <br/>
 
                         <input id="password" type="password" placeholder="Senha"
                         onChange={(event)=>setPassword(event.target.value)}
-                        className={styles.loginField}  /> <br/>
+                        className={styles.loginField} required  /> <br/>
 
                         <button className={styles.btn}>Login</button><br/>
 
