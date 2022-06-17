@@ -4,7 +4,7 @@ import {FaStarHalfAlt} from 'react-icons/fa'
 // import {FaCartPlus} from 'react-icons/fa'
 import Button from './Button'
 
-function Product({source, name, description, price}){
+function Product({source, name, description, price, event, eventTarget}){
     return(
         <div className={styles.box}>
             <img src={source} alt="Foto do Produto" className={styles.image}/>
@@ -19,7 +19,7 @@ function Product({source, name, description, price}){
             <p>{description}</p>
             <br/>
             <p>{price}</p>
-            <Button text="Add to cart"/>
+            <Button text="Add to cart" event={event} eventTarget={eventTarget}/>
         </div>
     )
 }

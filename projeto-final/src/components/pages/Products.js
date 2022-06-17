@@ -1,15 +1,19 @@
 import Product from '../Product';
-import styles from './Products.module.css'
-import image from '../../img/products/Products.png'
-import product1 from '../../img/products/arranhador.png'
-import product2 from '../../img/products/bolinha.png'
-import product3 from '../../img/products/cama.png'
-import product4 from '../../img/products/coleira.png'
-import product5 from '../../img/products/oculos.jpg'
-import product6 from '../../img/products/osso.png'
-import product7 from '../../img/products/racao.png'
+import styles from './Products.module.css';
+import productList from '../productList';
+
+import { useState } from 'react';
+
+import image from '../../img/products/Products.png';
 
 function Products() {
+    const [cart, setCart] = useState();
+
+    const handleClick = (product) => {
+        setCart(product);
+        console.log(cart)
+    }
+    
     return(
         <div>
             <div className={styles.intro}>
@@ -22,13 +26,16 @@ function Products() {
             <div className={styles.box}>
                 <h2 className={styles.title}>Nossos Produtos</h2>
                 <div className={styles.display}>
-                    <Product source={product1}/>
-                    <Product source={product2}/>
-                    <Product source={product3}/>
-                    <Product source={product4}/>
-                    <Product source={product5}/>
-                    <Product source={product6}/>
-                    <Product source={product7}/>
+                    {productList.map((product) => (
+                        <Product 
+                            name={product.name} 
+                            price={product.price} 
+                            source={product.img} 
+                            key={product.id} 
+                            event={handleClick} 
+                            eventTarget={product}
+                        />
+                    ))}
                 </div>
             </div>
         </div>  

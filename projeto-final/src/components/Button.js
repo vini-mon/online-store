@@ -6,9 +6,9 @@ function event(){
     
 }
 
-function Button({text, event, classe}){
+function Button({text, event, eventTarget, classe}){
     return(
-        <button onClick={event} className={classe}> {text} </button>
+        <button onClick={() => event(eventTarget)} className={classe}> {text} </button>
     )
 }
 
