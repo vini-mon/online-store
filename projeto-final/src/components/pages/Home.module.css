@@ -1,0 +1,20 @@
+.col_2 {
+    flex-basis: 50%;
+    min-width: 300px;
+}
+
+.col_2 img {
+    max-width: 100%;
+}
+
+.col_2 h1 {
+    margin: 25px;
+    padding-top: 30%;
+    font-size: 60px;
+    font-weight: 400;
+}
+
+.col_2 p {
+    margin: 25px;
+    color: #555;
+}

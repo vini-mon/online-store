@@ -10,6 +10,7 @@ import Products from './components/pages/Products';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import Account from './components/pages/Account';
+import Cart from './components/pages/Cart';
 
 // Components
 import Navbar from './components/layout/Navbar';
@@ -32,8 +33,8 @@ function App() {
                 <Route path='/services' element={<Services/>}></Route>
                 
                 <Route path='/account' element={<Account/>}></Route>
-                <Route path='/cart' element={<Home/>}></Route>
-                
+                <Route path='/cart' element={<Cart/>}></Route>
+
             </Routes>
 
             <Footer/>

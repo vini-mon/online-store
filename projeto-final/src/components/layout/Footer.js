@@ -17,7 +17,7 @@ function Footer() {
                 </li>
             </ul>
             <p className={styles.copy_right}>
-                &copy;<span>Copyright. All right reserved.</span>
+                &copy;<span>Copyright. All rights reserved.</span>
             </p>
         </footer>
     )
