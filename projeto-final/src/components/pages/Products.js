@@ -26,15 +26,16 @@ function Products() {
             <div className={styles.box}>
                 <h2 className={styles.title}>Nossos Produtos</h2>
                 <div className={styles.display}>
-                    {productList.map((product) => (
+                    {productList.map((product) => (                   
                         <Product 
                             name={product.name} 
                             price={product.price} 
+                            qnt = {product.qnt}
                             source={product.img} 
                             key={product.id} 
                             event={handleClick} 
                             eventTarget={product}
-                        />
+                        />                        
                     ))}
                 </div>
             </div>

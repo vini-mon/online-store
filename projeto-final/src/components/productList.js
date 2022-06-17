@@ -4,6 +4,7 @@ const productList = [
         name: "Arranhador Bastão",
         description: "",
         price: "R$90.00",
+        qnt: 1,
         img: '../img/products/arranhador.png',
     },
     {
@@ -11,6 +12,7 @@ const productList = [
         name: "Bolinha",
         description: "",
         price: "R$45.00",
+        qnt: 1,
         img: "../../img/products/bolinha.png",
     },
     {
@@ -18,6 +20,7 @@ const productList = [
         name: "Caminha Média",
         description: "",
         price: "R$130.00",
+        qnt: 1,
         img: "../../img/products/cama.png",
     },
     {
@@ -25,6 +28,7 @@ const productList = [
         name: "Coleira para gato",
         description: "",
         price: "R$40.00",
+        qnt: 1,
         img: "../../img/products/coleira.png",
     },
     {
@@ -32,6 +36,7 @@ const productList = [
         name: "Óculos Fashion",
         description: "",
         price: "R$30.00",
+        qnt: 1,
         img: "../../img/products/oculos.jpg",
     },
     {
@@ -39,6 +44,7 @@ const productList = [
         name: "Osso Médio",
         description: "",
         price: "R$15.00",
+        qnt: 1,
         img: "../../img/products/osso.png",
     },
     {
@@ -46,6 +52,15 @@ const productList = [
         name: "Ração Premium Gato",
         description: "",
         price: "R$65.00",
+        qnt: 1,
+        img: "../../img/products/racao.png",
+    },
+    {
+        id: 8,
+        name: "Ração Premium Gato",
+        description: "",
+        price: "R$65.00",
+        qnt: 0,
         img: "../../img/products/racao.png",
     },
 ]
