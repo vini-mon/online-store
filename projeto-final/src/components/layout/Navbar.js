@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom'
-import { BsFillCartFill } from 'react-icons/bs'
 
 import styles from './Navbar.module.css';
 import logo from '../../img/PetLogo.png'

@@ -6,16 +6,15 @@ function event(){
     
 }
 
-function Button({text, event, eventTarget, classe}){
+function Button({text, event, eventTarget}){
     return(
-        <button onClick={() => event(eventTarget)} className={classe}> {text} </button>
+        <button onClick={() => event(eventTarget)} className={styles.btn}> {text} </button>
     )
 }
 
 Button.defaultProps = {
     texto: "Texto Vazio",
     meuEvento: event(),
-    classe: styles.btn
 }
 
 export default Button;

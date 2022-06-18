@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Arranhador Bastão",
         "description": "",
-        "price": "R$90.00",
+        "price": 90,
         "qnt": 1,
         "img": "/img/products/arranhador.png"
     },
@@ -11,15 +11,15 @@
         "id": 2,
         "name": "Bolinha",
         "description": "",
-        "price": "R$45.00",
-        "qnt": 1,
+        "price": 45,
+        "qnt": 2,
         "img": "/img/products/bolinha.png"
     },
     {
         "id": 3,
         "name": "Caminha Média",
         "description": "",
-        "price": "R$130.00",
+        "price": 130,
         "qnt": 1,
         "img": "/img/products/cama.png"
     },
@@ -27,7 +27,7 @@
         "id": 4,
         "name": "Coleira para gato",
         "description": "",
-        "price": "R$40.00",
+        "price": 40,
         "qnt": 1,
         "img": "/img/products/coleira.png"
     },
@@ -35,7 +35,7 @@
         "id": 5,
         "name": "Óculos Fashion",
         "description": "",
-        "price": "R$30.00",
+        "price": 30,
         "qnt": 1,
         "img": "/img/products/oculos.jpg"
     },
@@ -43,7 +43,7 @@
         "id": 6,
         "name": "Osso Médio",
         "description": "",
-        "price": "R$15.00",
+        "price": 15,
         "qnt": 1,
         "img": "/img/products/osso.png"
     },
@@ -51,7 +51,7 @@
         "id": 7,
         "name": "Ração Premium Gato",
         "description": "",
-        "price": "R$65.00",
+        "price": 65,
         "qnt": 1,
         "img": "/img/products/racao.png"
     },
@@ -59,7 +59,7 @@
         "id": 8,
         "name": "Ração Premium Gato",
         "description": "",
-        "price": "R$65.00",
+        "price": 65,
         "qnt": 0,
         "img": "/img/products/racao.png"
     }

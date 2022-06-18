@@ -26,12 +26,7 @@ function Products() {
             <div className={styles.box}>
                 <h2 className={styles.title}>Nossos Produtos</h2>
                 <div className={styles.display}>
-                    {productData.map((product) => ( 
-                        // <div>
-                        //     <p>{"%PUBLIC_URL%"+product.img}</p>   
-                        //     <img src={product.img}></img>
-                        // </div>
-                                       
+                    {productData.map((product) => (              
                         <Product 
                             name={product.name} 
                             price={product.price} 
