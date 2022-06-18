@@ -1,34 +1,61 @@
-import { NavLink } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import styles from './Forms.module.css';
 import userIcon from '../img/account/login.png';
+import useAuth from '../hooks/useAuth';
+
 
 function FormsRegister(){
 
-    function Register(event){
+    // function Register(event){
 
-        event.preventDefault();
+    //     event.preventDefault();
 
-        console.log(name);
-        console.log(end);
-        console.log(tel);
-        console.log(nasc);
-        console.log(email);
-        console.log(password);
-        console.log(confirmPassword);
+    //     console.log(name);
+    //     console.log(end);
+    //     console.log(tel);
+    //     console.log(nasc);
+    //     console.log(email);
+    //     console.log(password);
+    //     console.log(confirmPassword);
 
-        // WRITE IN A JSON FILE WITH THE USER DATA
-        // const fs = require('fs');
+    //     // WRITE IN A JSON FILE WITH THE USER DATA
+    //     // const fs = require('fs');
 
-    }
+    // }
 
-    const [name, setName] = useState();
-    const [end, setEnd] = useState();
-    const [tel, setTel] = useState();
-    const [nasc, setNasc] = useState();
+    // const [name, setName] = useState();
+    // const [end, setEnd] = useState();
+    // const [tel, setTel] = useState();
+    // const [nasc, setNasc] = useState();
+
+    const { signup } = useAuth();
+    const navigate = useNavigate();
+
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [confirmPassword, setConfirmPassword] = useState();
+    const [error, setError] = useState();
+
+    const handleSignup = (e) => {
+        e.preventDefault()
+        if (!email || !password || !confirmPassword) {
+            setError('Preencha todos os campos')
+            return
+        } else if (password !== confirmPassword) {
+            setError('As senhas não conferem')
+            return
+        }
+
+        const res = signup(email, password);
+
+        if (res) {
+            setError(res)
+            return
+        }
+
+        navigate('/login')
+    }
 
     return(
 
@@ -42,9 +69,10 @@ function FormsRegister(){
 
                 <div className={styles.loginInput}>
 
-                    <form onSubmit={Register}>
+                    {/* <form onSubmit={Register}> */}
+                    <form>
 
-                        <input id="name" type="text" placeholder="Nome completo"
+                        {/* <input id="name" type="text" placeholder="Nome completo"
                         onChange={(event)=>setName(event.target.value)}
                         className={styles.loginField} /> <br/>
 
@@ -59,29 +87,31 @@ function FormsRegister(){
                         <input id="nasc" type="date" placeholder="Data de nascimento"
                         min="1920-01-01" max="2020-12-31"
                         onChange={(event)=>setNasc(event.target.value)} 
-                        className={styles.loginField}/> <br/>
+                        className={styles.loginField}/> <br/> */}
 
-                        <input id="email" type="email" placeholder="E-mail"
-                        onChange={(event)=>setEmail(event.target.value)}  
+                        <input id="email" type="email" placeholder="Email"
+                        onChange={(e) => [setEmail(e.target.value), setError('')]}  
                         className={styles.loginField}/> <br/>
 
                         <input id="password" type="password" placeholder="Senha"
-                        onChange={(event)=>setPassword(event.target.value)} 
+                        onChange={(e) => [setPassword(e.target.value), setError('')]} 
                         className={styles.loginField}/> <br/>
 
                         <input id="confirmPassword" type="password" placeholder="Confirmar senha"
-                        onChange={(event)=>setConfirmPassword(event.target.value)} 
+                        onChange={(e) => [setConfirmPassword(e.target.value), setError('')]}
                         className={styles.loginField}/> <br/>
 
-                        <button className={styles.btn}>Registrar</button><br/>
+                        <p>{error}</p> <br/>
+
+                        <button className={styles.btn} onClick={handleSignup}>Registrar</button><br/>
 
                     </form>
 
                     <p><b>Já possui conta? Então faça o</b>&nbsp;
 
-                        <NavLink to="/login">
+                        <Link to="/login">
                             Login
-                        </NavLink>
+                        </Link>
 
                     </p>
 

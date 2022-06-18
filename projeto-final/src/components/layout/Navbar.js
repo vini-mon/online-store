@@ -46,7 +46,7 @@ function Navbar() {
                     <NavLink to="/about" className={({ isActive }) => isActive ? styles.link_active : styles.link } >About</NavLink>
                 </li>
                 <li className={styles.item}>
-                    <NavLink to="/login" className={({ isActive }) => isActive ? styles.link_active : styles.link } >Login</NavLink>
+                    <NavLink to="/account" className={({ isActive }) => isActive ? styles.link_active : styles.link } >Account</NavLink>
                 </li>
                 <li className={styles.item}>
                     <NavLink to="/cart" className={({ isActive }) => isActive ? styles.link_active : styles.link } >{BsFillCartFill}</NavLink>
