@@ -1,17 +1,17 @@
 import Product from '../components/Product';
 import styles from './Products.module.css';
-import productList from '../components/productList';
+import productData from '../json/products.json';
 
 import { useState } from 'react';
 
-import image from '../img/products/Products.png';
+import capa from '../img/products/Products.png';
 
 function Products() {
-    const [cart, setCart] = useState();
+    const [cartProduct, setCart] = useState();
 
     const handleClick = (product) => {
         setCart(product);
-        console.log(cart)
+        console.log(cartProduct)
     }
     
     return(
@@ -21,12 +21,17 @@ function Products() {
                     <h1>Conheça nossos produtos<br/>para seu PET</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
-                <img src={image} alt='imagem' width="350"></img>
+                <img src={capa} alt='capa' width="350"></img>
             </div>
             <div className={styles.box}>
                 <h2 className={styles.title}>Nossos Produtos</h2>
                 <div className={styles.display}>
-                    {productList.map((product) => (                   
+                    {productData.map((product) => ( 
+                        // <div>
+                        //     <p>{"%PUBLIC_URL%"+product.img}</p>   
+                        //     <img src={product.img}></img>
+                        // </div>
+                                       
                         <Product 
                             name={product.name} 
                             price={product.price} 
