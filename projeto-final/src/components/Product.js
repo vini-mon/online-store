@@ -20,9 +20,7 @@ function Product({source, name, description, price, qnt, event, eventTarget}){
             </div>
             <h4>{name}</h4>
             <p>{description}</p>
-            <br/>
             <p>Quantidade em estoque: {qnt}</p>
-            <br/>
             <p>{price}</p>
             <div className={styles.btnBox}>
                 <Button text="Add to cart" event={event} eventTarget={eventTarget}/>

@@ -1,7 +1,7 @@
 import styles from './CartProduct.module.css'
 import Button from './Button'
 
-function CartProduct({source, name, description, price, qnt}){
+function CartProduct({source, name, description, price, qnt, eventAdd, eventRemove}){
     if (qnt <= 0){
         return null;
     }
@@ -15,9 +15,14 @@ function CartProduct({source, name, description, price, qnt}){
                     <span>R${price}.00</span>
                 </div>
                 <p>{description}</p>
-                <p>Quantidade selecionada: {qnt}</p>
+                <div className={styles.add}>
+                    <Button text="-" event={eventRemove}></Button>    
+                    <p>{qnt}</p>
+                    <Button text="+" event={eventAdd}></Button>    
+                </div> 
                 <p>Subtotal: R${qnt * price}.00</p>
-            </div>   
+            </div>  
+            
         </div>
     )
 }

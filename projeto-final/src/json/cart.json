@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Arranhador Bastão",
-        "description": "",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius dapibus ipsum, nec placerat enim sollicitudin et. Praesent ac dolor et ex tempus dignissim. Sed auctor ultrices porttitor. Nunc semper.",
         "price": 90,
         "qnt": 1,
         "img": "/img/products/arranhador.png"
@@ -10,7 +10,7 @@
     {
         "id": 2,
         "name": "Bolinha",
-        "description": "",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius dapibus ipsum, nec placerat enim sollicitudin et. Praesent ac dolor et ex tempus dignissim. Sed auctor ultrices porttitor. Nunc semper.",
         "price": 45,
         "qnt": 2,
         "img": "/img/products/bolinha.png"
@@ -18,7 +18,7 @@
     {
         "id": 3,
         "name": "Caminha Média",
-        "description": "",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius dapibus ipsum, nec placerat enim sollicitudin et. Praesent ac dolor et ex tempus dignissim. Sed auctor ultrices porttitor. Nunc semper.",
         "price": 130,
         "qnt": 1,
         "img": "/img/products/cama.png"
@@ -26,7 +26,7 @@
     {
         "id": 4,
         "name": "Coleira para gato",
-        "description": "",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius dapibus ipsum, nec placerat enim sollicitudin et. Praesent ac dolor et ex tempus dignissim. Sed auctor ultrices porttitor. Nunc semper.",
         "price": 40,
         "qnt": 1,
         "img": "/img/products/coleira.png"
@@ -34,7 +34,7 @@
     {
         "id": 5,
         "name": "Óculos Fashion",
-        "description": "",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius dapibus ipsum, nec placerat enim sollicitudin et. Praesent ac dolor et ex tempus dignissim. Sed auctor ultrices porttitor. Nunc semper.",
         "price": 30,
         "qnt": 1,
         "img": "/img/products/oculos.jpg"
@@ -42,7 +42,7 @@
     {
         "id": 6,
         "name": "Osso Médio",
-        "description": "",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius dapibus ipsum, nec placerat enim sollicitudin et. Praesent ac dolor et ex tempus dignissim. Sed auctor ultrices porttitor. Nunc semper.",
         "price": 15,
         "qnt": 1,
         "img": "/img/products/osso.png"
@@ -50,7 +50,7 @@
     {
         "id": 7,
         "name": "Ração Premium Gato",
-        "description": "",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius dapibus ipsum, nec placerat enim sollicitudin et. Praesent ac dolor et ex tempus dignissim. Sed auctor ultrices porttitor. Nunc semper.",
         "price": 65,
         "qnt": 1,
         "img": "/img/products/racao.png"
@@ -58,7 +58,7 @@
     {
         "id": 8,
         "name": "Ração Premium Gato",
-        "description": "",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius dapibus ipsum, nec placerat enim sollicitudin et. Praesent ac dolor et ex tempus dignissim. Sed auctor ultrices porttitor. Nunc semper.",
         "price": 65,
         "qnt": 0,
         "img": "/img/products/racao.png"
