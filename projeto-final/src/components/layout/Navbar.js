@@ -1,36 +1,19 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 import styles from './Navbar.module.css';
-import logo from '../../img/PetLogo.png'
+import logo from '../../img/PetLogo.png';
+import catLogo from '../../img/CatLogo.png';
 
 function Navbar() {
 
     return (
-        
-        // <div className="navbar">
-
-        //     <div className="logo">
-        //         <a href="index.html"><img src="images/PetLogo.png" alt="Logo da PetStore" width="150" /></a>
-        //     </div>
-
-        //     <nav>
-        //         <ul>
-        //             <li><a href="userAccount.html" className="line">User Account</a></li>
-        //             <li><a href="adminAccount.html" className="line">Admin Account</a></li>
-        //             <li><a href="register.html" className="line">Register</a></li>
-        //             <li><a href="cart.html" className="line"><i className="fa-solid fa-cart-shopping"></i></a></li>
-        //         </ul>
-        //     </nav>
-
-        // </div>
 
         <nav>
             
-            
-
-            <div className={styles.logo}>
+            <div>
                 <NavLink to="/"  >
-                    <img src={logo} alt="Logo da PetStore" width="150" />
+                    <img className={styles.catLogo} src={catLogo} alt="Logo da PetStore" width="150" />
+                    <img className={styles.logo} src={logo} alt="Logo da PetStore" width="150" />
                 </NavLink>
             </div>
 

@@ -44,17 +44,18 @@
 }
 
 .field {
-    box-sizing: border-box;
+    
     margin: 10px;
     padding: 5px;
     padding-top: 15px;
     padding-bottom: 15px;
-    border-radius: 8px;
-    border: 0.5px solid #ff8ae2;
-    max-width: 400px;
-    width: 350px;
-    height: 50px;
-    box-shadow: 2px 2px 2px rgb(0 0 0 / 20%);
+    text-align: center;
+    width: 400px;
+    padding: 15px;
+    cursor: pointer;
+    border: 2px solid #ff8ae2;
+    border-radius: 10px;
+
 }
 
 .field:focus {
@@ -87,3 +88,24 @@
     width: 50%;
     padding: 50px;
 } 
+
+.aboutText{
+
+    padding-left: 15%;
+    padding-right: 15%;
+    
+}
+
+.btn{
+    padding: 10px 25px 10px 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border: 2px solid #d2bdff;
+    border-radius: 5px;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background-color: #fde1f6;
+    transition: all 0.5s ease-in-out;
+}

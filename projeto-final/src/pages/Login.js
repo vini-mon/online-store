@@ -2,32 +2,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import styles from './Forms.module.css';
 import userIcon from '../img/account/login.png';
-// import userData from "../json/users.json";
 import useAuth from "../hooks/useAuth";
 
 function FormsLogin(){
 
-    // function Login(event){
-
-    //     event.preventDefault();
-
-    //     {
-    //         userData && userData.map(user => {
-
-    //             if(user.email === email && user.password === password){
-
-    //                 console.log("Login Successful");
-
-    //                 // SET A SESSION WITH A GLOBAL VARIABLE
-
-
-
-    //             }
-
-    //         });
-    //     }
-
-    // }
+    // variaveis de estado para o login
 
     const {signin} = useAuth()
     const navigate = useNavigate()
@@ -36,21 +15,34 @@ function FormsLogin(){
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
 
+    // função para validar o login
+
     const handleLogin = (e) => {
-        e.preventDefault()
+
+        e.preventDefault();
+
+        // algum dos campo está vazio
+
         if (!email | !password) {
-            setError('Preencha todos os campos')
-            return
+            setError('Preencha todos os campos');
+            return;
         }
+
+        // tenta logar o usuário
 
         const res = signin(email, password);
 
+        // se o usuário não existe, retorna erro
+
         if (res) {
-            setError(res)
-            return
+
+            setError(res);
+            return;
+
         }
 
-        navigate('/account')
+        navigate('/account');
+        
     }
 
     return(
@@ -58,11 +50,15 @@ function FormsLogin(){
         <div>
 
             <h2 className={styles.title}>Faça login</h2>
+
             <div className={styles.loginBox}>
+
                 <img src={userIcon} alt="Icone de Login" className={styles.loginImg}/>
+
                 <div className={styles.loginInput}>
-                    {/* <form onSubmit={Login}> */}
+
                     <form>
+                        
                         <input id="email" type="email" placeholder="Email"
                         onChange={(e) => [setEmail(e.target.value), setError('')]}
                         className={styles.loginField} required /> <br/>

@@ -29,7 +29,7 @@ nav {
     padding: 10px;
     display: inline-block;
     font-size: 1.2em;
-    color: red;
+    color: rgb(255, 0, 208);
 }
 
 .link::after {
@@ -52,4 +52,11 @@ nav {
     transform: translateY(2px);
     width: 100%;
     left: 0;
+}
+
+.catLogo{
+
+    max-width: 60px;
+    margin-bottom: -5px;
+
 }

@@ -20,28 +20,31 @@ import Footer from './components/layout/Footer';
 // Hooks
 import useAuth from './hooks/useAuth';
 
-// const checkAccount = () => {
-//     const isAdmin = false;
-
-//     return isAdmin ? <userAccount/> : <adminDashboard/>;
-// }
-
+// Verificar se o usuário está logado
 const Private = ({ Item }) => {
     const signed = useAuth();
-
-    console.log(signed.signed)
 
     return signed.signed ? <Item/> : <Login/>;
 }
 
 function App() {
-    return (
 
+    return (
         
         <AuthProvider>
+
+            {/* Conjunto de rotas dos componentes relacionados com a Navbar */}
+
             <Router>
+
+                {/* Importação na Navbar */}
+
                 <Navbar/>
+
                 <Routes>
+
+                    {/* Rotas */}
+
                     <Route exact path='/' element={<Home/>}></Route>
                     <Route exact path='/about' element={<About/>}></Route>
                     <Route exact path='/products' element={<Products/>}></Route>
@@ -53,10 +56,17 @@ function App() {
                     <Route exact path='/account' element={<Private Item={UserAccount}/>}></Route>
 
                     <Route path='*' element={<Home/>}></Route>
+
                 </Routes>
+
+                {/* Importação do rodapé */}
+
                 <Footer/>
+
             </Router>
+
         </AuthProvider>
+
     )
 }
 
