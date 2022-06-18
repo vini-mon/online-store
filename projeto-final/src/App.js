@@ -6,7 +6,6 @@ import './App.css';
 // Routes
 import Home from './pages/Home';
 import About from './pages/About';
-import Services from './pages/Services';
 import Products from './pages/Products';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -43,7 +42,6 @@ function App() {
                     <Route exact path='/' element={<Home/>}></Route>
                     <Route exact path='/about' element={<About/>}></Route>
                     <Route exact path='/products' element={<Products/>}></Route>
-                    <Route exact path='/services' element={<Services/>}></Route>
                     <Route exact path='/cart' element={<Cart/>}></Route>
 
                     <Route exact path='/login' element={<Login/>}></Route>

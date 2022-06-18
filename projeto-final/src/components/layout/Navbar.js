@@ -40,9 +40,6 @@ function Navbar() {
                     <NavLink to="/products" className={({ isActive }) => isActive ? styles.link_active : styles.link } >Products</NavLink>
                 </li>
                 <li className={styles.item}>
-                    <NavLink to="/services" className={({ isActive }) => isActive ? styles.link_active : styles.link } >Services</NavLink>
-                </li>
-                <li className={styles.item}>
                     <NavLink to="/about" className={({ isActive }) => isActive ? styles.link_active : styles.link } >About</NavLink>
                 </li>
                 <li className={styles.item}>
