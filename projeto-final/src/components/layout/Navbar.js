@@ -48,11 +48,9 @@ function Navbar() {
                     <NavLink to="/account" className={({ isActive }) => isActive ? styles.link_active : styles.link } >Account</NavLink>
                 </li>
                 <li className={styles.item}>
-                    <NavLink to="/cart" className={({ isActive }) => isActive ? styles.link_active : styles.link } ><i className="fa fa-shopping-cart"></i></NavLink>
+                    <NavLink to="/cart" className={({ isActive }) => isActive ? styles.link_active : styles.link } ><i className="fa-solid fa-cart-shopping"></i></NavLink>
                 </li>
             </ul>
-
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         
         </nav>
     )
