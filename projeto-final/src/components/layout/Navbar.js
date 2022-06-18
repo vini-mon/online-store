@@ -1,10 +1,7 @@
 import { NavLink } from 'react-router-dom'
-import { BsFillCartFill } from 'react-icons/bs'
 
 import styles from './Navbar.module.css';
 import logo from '../../img/PetLogo.png'
-
-import Cart from '../../img/cart/cart.png';
 
 function Navbar() {
 
@@ -28,6 +25,9 @@ function Navbar() {
         // </div>
 
         <nav>
+            
+            
+
             <div className={styles.logo}>
                 <NavLink to="/"  >
                     <img src={logo} alt="Logo da PetStore" width="150" />
@@ -48,9 +48,12 @@ function Navbar() {
                     <NavLink to="/account" className={({ isActive }) => isActive ? styles.link_active : styles.link } >Account</NavLink>
                 </li>
                 <li className={styles.item}>
-                    <NavLink to="/cart" className={({ isActive }) => isActive ? styles.link_active : styles.link } ><img className={styles.iconCart} src={Cart} alt="Icon do carrinho de compras" /></NavLink>
+                    <NavLink to="/cart" className={({ isActive }) => isActive ? styles.link_active : styles.link } ><i className="fa fa-shopping-cart"></i></NavLink>
                 </li>
             </ul>
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        
         </nav>
     )
 }
