@@ -4,6 +4,8 @@ import { BsFillCartFill } from 'react-icons/bs'
 import styles from './Navbar.module.css';
 import logo from '../../img/PetLogo.png'
 
+import Cart from '../../img/cart/cart.png';
+
 function Navbar() {
 
     return (
@@ -46,7 +48,7 @@ function Navbar() {
                     <NavLink to="/account" className={({ isActive }) => isActive ? styles.link_active : styles.link } >Account</NavLink>
                 </li>
                 <li className={styles.item}>
-                    <NavLink to="/cart" className={({ isActive }) => isActive ? styles.link_active : styles.link } >{BsFillCartFill}</NavLink>
+                    <NavLink to="/cart" className={({ isActive }) => isActive ? styles.link_active : styles.link } ><img className={styles.iconCart} src={Cart} alt="Icon do carrinho de compras" /></NavLink>
                 </li>
             </ul>
         </nav>
