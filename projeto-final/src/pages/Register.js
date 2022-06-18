@@ -13,35 +13,36 @@ function FormsRegister(){
     const navigate = useNavigate();
 
     const [name, setName] = useState();
-    const [end, setEnd] = useState();
+    const [adress, setAdress] = useState();
+    const [phone, setPhone] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [confirmPassword, setConfirmPassword] = useState();
     const [error, setError] = useState();
 
     const handleSignup = (e) => {
-
         e.preventDefault();
 
         // algum dos campo está vazio
-
-        if (!name || !end || !email || !password || !confirmPassword ) {
-            
+        if (!name || !adress || !phone || !email || !password || !confirmPassword) {
             setError('Preencha todos os campos')
             return
-
         // senhas não conferem
-
-        }else if (password !== confirmPassword) {
-
+        } else if (password !== confirmPassword) {
             setError('As senhas não conferem')
             return
+        }
 
+        const info = {
+            email,
+            password,
+            name,
+            adress,
+            phone
         }
 
         // tenta registrar o usuário
-
-        const res = signup(email, password);
+        const res = signup(info);
 
         if (res) {
             setError(res)
@@ -49,29 +50,25 @@ function FormsRegister(){
         }
 
         navigate('/login')
-
     }
 
-    return(
-
+    return (
         <div>
-            
             <h2 className={styles.title}>Registre-se</h2>
-
             <div className={styles.loginBox}>
-
                 <img src={userIcon} alt="Icone de Login" className={styles.loginImg}/>
-
                 <div className={styles.loginInput}>
-
                     <form>
-
-                        <input id="Nome" type="text" placeholder="Nome"
+                        <input id="nome" type="text" placeholder="Nome"
                         onChange={(e) => [setName(e.target.value), setError('')]}  
                         className={styles.loginField}/> <br/>
                         
-                        <input id="End" type="text" placeholder="Endereço"
-                        onChange={(e) => [setEnd(e.target.value), setError('')]}  
+                        <input id="adress" type="text" placeholder="Endereço"
+                        onChange={(e) => [setAdress(e.target.value), setError('')]}  
+                        className={styles.loginField}/> <br/>
+
+                        <input id="phone" type="text" placeholder="Telefone"
+                        onChange={(e) => [setPhone(e.target.value), setError('')]}  
                         className={styles.loginField}/> <br/>
 
                         <input id="email" type="email" placeholder="Email"
@@ -89,27 +86,16 @@ function FormsRegister(){
                         <p>{error}</p> <br/>
 
                         <button className={styles.btn} onClick={handleSignup}>Registrar</button><br/>
-
                     </form>
 
                     <p><b>Já possui conta? Então faça o</b>&nbsp;
-
-                        <Link to="/login">
-                            Login
-                        </Link>
-
+                        <Link to="/login">Login</Link>
                     </p>
-
                 </div>
-
             </div>
-
             <div className={styles.space}></div>
-
         </div>
-
     );
-
 }
 
 export default FormsRegister;

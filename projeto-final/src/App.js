@@ -23,8 +23,18 @@ import useAuth from './hooks/useAuth';
 // Verificar se o usuário está logado
 const Private = ({ Item }) => {
     const signed = useAuth();
+    const email = useAuth();
+    const {isAdmin} = useAuth();
 
-    return signed.signed ? <Item/> : <Login/>;
+ 
+    if (signed.signed) {
+        if (isAdmin(email.email)) {
+            return <Admin/>
+        }
+        return <Item/>
+    }
+
+    return <Login/>
 }
 
 function App() {
