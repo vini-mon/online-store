@@ -4,7 +4,7 @@ export const AuthContext = createContext({})
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState()
-    const [id, setId] = useState(0)
+    const [id, setId] = useState(2)
 
     useEffect(() => {
         const userToken = localStorage.getItem('user_token')
@@ -18,11 +18,25 @@ export const AuthProvider = ({ children }) => {
             if (hasUser) setUser(hasUser[0])
         }
 
+        if (!userStorage) {
+            const userAdmin = {
+                email: 'admin',
+                password: 'admin',
+                name: 'Admin',
+                adress: '',
+                phone: '',
+                admin: true,
+                id: 1
+            }
+
+            let newUser = [userAdmin]
+    
+            localStorage.setItem('users_db', JSON.stringify(newUser))
+        }
     }, [])
 
     const signin = (email, password) => {
         const userStorage = JSON.parse(localStorage.getItem('users_db'))
-
         const hasUser = userStorage?.filter((user) => user.email === email)
 
         if (hasUser?.length) {
@@ -43,7 +57,6 @@ export const AuthProvider = ({ children }) => {
 
     const signup = (info) => {
         const userStorage = JSON.parse(localStorage.getItem('users_db'))
-
         const hasUser = userStorage?.filter((user) => user.email === info.email)
 
         if (hasUser?.length) {
@@ -52,7 +65,9 @@ export const AuthProvider = ({ children }) => {
 
         setId(id + 1)
         info['id'] = id
-        info['admin'] = false
+
+        if (info.admin !== true)
+            info['admin'] = false
 
         let newUser
 
@@ -72,7 +87,6 @@ export const AuthProvider = ({ children }) => {
 
     const toggleAdmin = (email) => {
         const userStorage = JSON.parse(localStorage.getItem('users_db'))
-
         if (userStorage === null) return "Problema interno: banco de dados inexistente."
 
         const userIndex = userStorage.findIndex((user) => user.email === email)
@@ -88,7 +102,6 @@ export const AuthProvider = ({ children }) => {
 
     const isAdmin = (email) => {
         const userStorage = JSON.parse(localStorage.getItem('users_db'))
-
         const hasUser = userStorage?.filter((user) => user.email === email)
 
         if (hasUser?.length) {
@@ -103,7 +116,6 @@ export const AuthProvider = ({ children }) => {
 
     const getInfo = (email) => {
         const userStorage = JSON.parse(localStorage.getItem('users_db'))
-
         const hasUser = userStorage?.filter((user) => user.email === email)
 
         if (hasUser?.length) {
@@ -135,8 +147,6 @@ export const AuthProvider = ({ children }) => {
 
         return "Alteração realizada com sucesso."
     }
-
-    
 
     return (
         <AuthContext.Provider value={{user, signed: !!user, email: user?.email, isAdmin, signin, signup, signout, toggleAdmin, getInfo, updateInfo}}>

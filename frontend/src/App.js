@@ -28,7 +28,6 @@ const Private = ({ Item }) => {
     const email = useAuth();
     const {isAdmin} = useAuth();
 
- 
     if (signed.signed) {
         if (isAdmin(email.email)) {
             return <Admin/>
@@ -40,23 +39,15 @@ const Private = ({ Item }) => {
 }
 
 function App() {
-
+    
     return (
-        
         <AuthProvider>
-
             {/* Conjunto de rotas dos componentes relacionados com a Navbar */}
-
             <Router>
-
                 {/* Importação na Navbar */}
-
                 <Navbar/>
-
                 <Routes>
-
                     {/* Rotas */}
-
                     <Route exact path='/' element={<Home/>}></Route>
                     <Route exact path='/about' element={<About/>}></Route>
                     <Route exact path='/products' element={<Products/>}></Route>
@@ -70,17 +61,11 @@ function App() {
                     <Route exact path='/account' element={<Private Item={UserAccount}/>}></Route>
 
                     <Route path='*' element={<Home/>}></Route>
-
                 </Routes>
-
                 {/* Importação do rodapé */}
-
                 <Footer/>
-
             </Router>
-
         </AuthProvider>
-
     )
 }
 
