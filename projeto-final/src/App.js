@@ -12,6 +12,7 @@ import Register from './pages/Register';
 import Admin from './pages/Admin';
 import UserAccount from './pages/UserAccount';
 import Cart from './pages/Cart';
+import Payment from './pages/Payment';
 
 // Components
 import Navbar from './components/layout/Navbar';
@@ -63,6 +64,7 @@ function App() {
                     <Route exact path='/login' element={<Login/>}></Route>
                     <Route exact path='/register' element={<Register/>}></Route>
                     <Route exact path='/admin' element={<Admin/>}></Route>
+                    <Route exact path='/payment' element={<Payment/>}></Route>
                     <Route exact path='/account' element={<Private Item={UserAccount}/>}></Route>
 
                     <Route path='*' element={<Home/>}></Route>
