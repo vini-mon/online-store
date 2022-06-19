@@ -11,6 +11,7 @@ function Products() {
 
     const handleClick = (product) => {
         setCart(product);
+        console.log("Produto adicionado ao Carrinho")
         console.log(cartProduct)
     }
     

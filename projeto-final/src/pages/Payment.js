@@ -1,20 +1,14 @@
 import styles from "./Payment.module.css"
-import cartList from '../json/cart';
 import Button from '../components/Button'
 
 import { useNavigate } from 'react-router-dom';
 
 function Payment(){
-    let total = 0;
-    cartList.map(product => {
-        total += product.qnt * product.price;
-    });
-
     const pay = () => {
-        console.log("pay");
+        console.log("Pagando...");
     }
     const attSupplies = () => {
-        console.log("att")
+        console.log("Atualizando estoque..")
     }
 
     const navigate = useNavigate();
