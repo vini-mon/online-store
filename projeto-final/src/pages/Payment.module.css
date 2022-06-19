@@ -36,10 +36,14 @@
     background-color: #ff00b7;
 }
 
-.btn{
-    color: red;
-    background-color: white;
-    margin-top: 10px;
-    margin-right: 50px;
-    border: none;
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    border: 2px solid #ff8ae2;
+    border-radius: 20px;
+    width: 60%;
+    margin: 5px;
 }
