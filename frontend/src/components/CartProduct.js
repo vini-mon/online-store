@@ -8,7 +8,7 @@ function CartProduct({source, name, description, price, qnt, eventAdd, eventRemo
 
     return(
         <div className={styles.boxProduct}>
-            <img src={source} alt="Foto Produto" className={styles.img}></img>
+            <img src={source} alt={name} className={styles.img}></img>
             <div>
                 <div>
                     <h2>{name}</h2> 

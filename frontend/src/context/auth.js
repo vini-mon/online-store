@@ -116,7 +116,7 @@ export const AuthProvider = ({ children }) => {
 
     const getInfo = (email) => {
         const userStorage = JSON.parse(localStorage.getItem('users_db'))
-        
+
         const hasUser = userStorage?.filter((user) => user.email === email)
 
         if (hasUser?.length) {
@@ -149,8 +149,16 @@ export const AuthProvider = ({ children }) => {
         return "Alteração realizada com sucesso."
     }
 
+    const getUsers = () => {
+        const userStorage = JSON.parse(localStorage.getItem('users_db'))
+
+        if (userStorage === null) return "Problema interno: banco de dados inexistente."
+
+        return userStorage
+    }
+
     return (
-        <AuthContext.Provider value={{user, signed: !!user, email: user?.email, isAdmin, signin, signup, signout, toggleAdmin, getInfo, updateInfo}}>
+        <AuthContext.Provider value={{user, signed: !!user, email: user?.email, isAdmin, signin, signup, signout, toggleAdmin, getInfo, updateInfo, getUsers}}>
             {children}
         </AuthContext.Provider>
     )
