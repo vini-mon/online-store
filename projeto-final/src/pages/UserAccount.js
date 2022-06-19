@@ -53,16 +53,16 @@ function UserAccount() {
             <div className={styles.loginBox}>
                 <img src={userIcon} alt="Icone de Login" className={styles.loginImg}/>
                 <div className={styles.loginInput}>
-                    <form>
-                        <input id="name" type="text" value={name}
+                    <form> 
+                        <input id="name" type="text" value={name} placeholder="Nome"
                         onChange={(e) => [setName(e.target.value), setError('')]}  
                         className={styles.loginField}/> <br/>
                                 
-                        <input id="adress" type="text" value={adress}
+                        <input id="adress" type="text" value={adress} placeholder="Endereço"
                         onChange={(e) => [setAdress(e.target.value), setError('')]}  
                         className={styles.loginField}/> <br/>
 
-                        <input id="phone" type="text" value={phone}
+                        <input id="phone" type="text" value={phone} placeholder="Telefone"
                         onChange={(e) => [setPhone(e.target.value), setError('')]}  
                         className={styles.loginField}/> <br/>
 
