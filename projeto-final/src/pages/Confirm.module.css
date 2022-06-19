@@ -14,6 +14,26 @@
     padding: 0px 10% 40px 10%;
 }
 
+.paymentBox{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    position: relative;
+    line-height: 30px;
+}
+
+.paymentBox::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 100%;
+    border-radius: 2px;
+    background-color: #ff00b7;
+}
+
 .title{
     text-align: center;
     text-transform: uppercase;
