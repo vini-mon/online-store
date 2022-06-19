@@ -20,7 +20,7 @@ import Footer from './components/layout/Footer';
 // Hooks
 import useAuth from './hooks/useAuth';
 
-// Verificar se o usuário está logado
+// Verificar se o usuário está logado e se é admin ou não
 const Private = ({ Item }) => {
     const signed = useAuth();
     const email = useAuth();
