@@ -3,18 +3,25 @@ import cartList from '../json/cart';
 import Button from '../components/Button'
 import CartProduct from '../components/CartProduct'
 
+import { useNavigate } from 'react-router-dom';
+
 function Cart() {
     let total = 0;
     cartList.map(product => {
         total += product.qnt * product.price;
     });
 
+    const navigate = useNavigate();
+    const payment = () => {
+        navigate('/payment');
+    }
+
     const handleAdd = (product) => {
-        console.log("add")
+        console.log("add");
     }
 
     const handleRemove = (product) => {
-        console.log("remove")
+        console.log("remove");
     }
 
     return(
@@ -34,7 +41,7 @@ function Cart() {
                     />                           
                 ))}
                 <div className={styles.end}>
-                    <Button text="Finalizar Compra"></Button>
+                    <Button text="Finalizar Compra" event={payment}></Button>
                     <h1>Total: R${total}.00</h1>  
                 </div>
             </div>
