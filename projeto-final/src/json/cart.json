@@ -54,13 +54,5 @@
         "price": 65,
         "qnt": 1,
         "img": "/img/products/racao.png"
-    },
-    {
-        "id": 8,
-        "name": "Ração Premium Gato",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius dapibus ipsum, nec placerat enim sollicitudin et. Praesent ac dolor et ex tempus dignissim. Sed auctor ultrices porttitor. Nunc semper.",
-        "price": 65,
-        "qnt": 0,
-        "img": "/img/products/racao.png"
     }
 ]

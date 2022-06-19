@@ -13,7 +13,7 @@ function Cart() {
 
     const navigate = useNavigate();
     const payment = () => {
-        navigate('/payment');
+        navigate('/confirm');
     }
 
     const handleAdd = (product) => {
