@@ -5,6 +5,7 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius dapibus ipsum, nec placerat enim sollicitudin et. Praesent ac dolor et ex tempus dignissim. Sed auctor ultrices porttitor. Nunc semper.",
         "price": "R$90.00",
         "qnt": 1,
+        "sold": 0,
         "img": "/img/products/arranhador.png"
     },
     {
@@ -13,6 +14,7 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius dapibus ipsum, nec placerat enim sollicitudin et. Praesent ac dolor et ex tempus dignissim. Sed auctor ultrices porttitor. Nunc semper.",
         "price": "R$45.00",
         "qnt": 1,
+        "sold": 0,
         "img": "/img/products/bolinha.png"
     },
     {
@@ -21,6 +23,7 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius dapibus ipsum, nec placerat enim sollicitudin et. Praesent ac dolor et ex tempus dignissim. Sed auctor ultrices porttitor. Nunc semper.",
         "price": "R$130.00",
         "qnt": 1,
+        "sold": 0,
         "img": "/img/products/cama.png"
     },
     {
@@ -29,6 +32,7 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius dapibus ipsum, nec placerat enim sollicitudin et. Praesent ac dolor et ex tempus dignissim. Sed auctor ultrices porttitor. Nunc semper.",
         "price": "R$40.00",
         "qnt": 1,
+        "sold": 0,
         "img": "/img/products/coleira.png"
     },
     {
@@ -37,6 +41,7 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius dapibus ipsum, nec placerat enim sollicitudin et. Praesent ac dolor et ex tempus dignissim. Sed auctor ultrices porttitor. Nunc semper.",
         "price": "R$30.00",
         "qnt": 1,
+        "sold": 0,
         "img": "/img/products/oculos.jpg"
     },
     {
@@ -45,6 +50,7 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius dapibus ipsum, nec placerat enim sollicitudin et. Praesent ac dolor et ex tempus dignissim. Sed auctor ultrices porttitor. Nunc semper.",
         "price": "R$15.00",
         "qnt": 1,
+        "sold": 0,
         "img": "/img/products/osso.png"
     },
     {
@@ -53,6 +59,7 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius dapibus ipsum, nec placerat enim sollicitudin et. Praesent ac dolor et ex tempus dignissim. Sed auctor ultrices porttitor. Nunc semper.",
         "price": "R$65.00",
         "qnt": 1,
+        "sold": 0,
         "img": "/img/products/racao.png"
     },
     {
@@ -61,6 +68,7 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius dapibus ipsum, nec placerat enim sollicitudin et. Praesent ac dolor et ex tempus dignissim. Sed auctor ultrices porttitor. Nunc semper.",
         "price": "R$65.00",
         "qnt": 0,
+        "sold": 0,
         "img": "/img/products/racao.png"
     }
 ]

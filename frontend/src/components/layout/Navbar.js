@@ -4,12 +4,22 @@ import styles from './Navbar.module.css';
 import logo from '../../img/PetLogo.png';
 import catLogo from '../../img/CatLogo.png';
 
+import useAuth from '../../hooks/useAuth';
+
 function Navbar() {
+
+    const { getInfo } = useAuth();
+    const email = useAuth();
+
+    const accountName = () => {
+        if (email.email) return "Ola, " + getInfo(email.email).name;
+
+        return "Login";
+    }
 
     return (
 
         <nav>
-            
             <div>
                 <NavLink to="/"  >
                     <img className={styles.catLogo} src={catLogo} alt="Logo da PetStore" width="150" />
@@ -19,19 +29,19 @@ function Navbar() {
 
             <ul className={styles.nav_list} >
                 <li className={styles.item}>
-                    <NavLink to="/" className={({ isActive }) => isActive ? styles.link_active : styles.link } >Home</NavLink>
+                    <NavLink to="/" className={({ isActive }) => isActive ? styles.link_active : styles.link }>Home</NavLink>
                 </li>
                 <li className={styles.item}>
-                    <NavLink to="/products" className={({ isActive }) => isActive ? styles.link_active : styles.link } >Products</NavLink>
+                    <NavLink to="/products" className={({ isActive }) => isActive ? styles.link_active : styles.link }>Products</NavLink>
                 </li>
                 <li className={styles.item}>
-                    <NavLink to="/about" className={({ isActive }) => isActive ? styles.link_active : styles.link } >About</NavLink>
+                    <NavLink to="/about" className={({ isActive }) => isActive ? styles.link_active : styles.link }>About</NavLink>
                 </li>
                 <li className={styles.item}>
-                    <NavLink to="/account" className={({ isActive }) => isActive ? styles.link_active : styles.link } >Account</NavLink>
+                    <NavLink to="/account" className={({ isActive }) => isActive ? styles.link_active : styles.link }>{accountName}</NavLink>
                 </li>
                 <li className={styles.item}>
-                    <NavLink to="/cart" className={({ isActive }) => isActive ? styles.link_active : styles.link } ><i className="fa-solid fa-cart-shopping"></i></NavLink>
+                    <NavLink to="/cart" className={({ isActive }) => isActive ? styles.link_active : styles.link }><i className="fa-solid fa-cart-shopping"></i></NavLink>
                 </li>
             </ul>
         

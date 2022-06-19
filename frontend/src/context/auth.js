@@ -116,6 +116,7 @@ export const AuthProvider = ({ children }) => {
 
     const getInfo = (email) => {
         const userStorage = JSON.parse(localStorage.getItem('users_db'))
+        
         const hasUser = userStorage?.filter((user) => user.email === email)
 
         if (hasUser?.length) {

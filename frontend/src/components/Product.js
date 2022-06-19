@@ -37,9 +37,9 @@ function Product({source, name, description, price, qnt, event, eventTarget}){
 }
 
 Product.defaultProps = {
-        name: "Sem Nome.",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        price: "Sem preco."
+    name: "Sem Nome.",
+    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: "Sem preco."
 }
 
 export default Product;
