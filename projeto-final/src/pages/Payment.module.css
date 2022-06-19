@@ -1,11 +1,10 @@
 .box{
     display: flex;
     flex-direction: column;
-    border: 2px solid #ff8ae2;
-    border-radius: 20px;
     margin: auto;
     max-width: 1080px;
     margin-top: 40px;
+    margin-bottom: 40px;
     padding: 20px;
 }
 
@@ -39,6 +38,16 @@
 .form{
     display: flex;
     flex-direction: column;
+    text-align: center;
+    border: 2px solid #ff8ae2;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.form h3{
+
+    margin-bottom: 25px;
+
 }
 
 input{
@@ -46,5 +55,47 @@ input{
     border-radius: 20px;
     width: 60%;
     margin: 5px;
-    height: 30px;
+}
+
+.loginField{
+
+    margin: auto;
+    text-align: center;
+    width: 400px;
+    padding: 15px;
+    border: 2px solid #ff8ae2;
+    border-radius: 10px;
+    
+}
+
+.btn{
+
+    margin: auto;
+    max-width: 200px;
+    padding: 10px 25px 10px 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border: 2px solid #d2bdff;
+    background-color: #fbfbfb;
+    border-radius: 5px;
+
+}
+
+.btn:hover{
+    cursor: pointer;
+    background-color: #fde1f6;
+    transition: all 0.5s ease-in-out;
+}
+
+.green{
+
+    color: #009e00;
+
+}
+
+.breadcrumb{
+
+    font-size: 20px;
+    text-align: center;
+
 }

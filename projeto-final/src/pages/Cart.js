@@ -1,19 +1,21 @@
 import styles from './Cart.module.css';
 import cartList from '../json/cart';
-import Button from '../components/Button'
-import CartProduct from '../components/CartProduct'
+import CartProduct from '../components/CartProduct';
 
 import { useNavigate } from 'react-router-dom';
 
-function Cart() {
+function Cart() {  
+
     let total = 0;
-    cartList.map(product => {
+
+    cartList.map((product) => {
         total += product.qnt * product.price;
+        return null;
     });
 
     const navigate = useNavigate();
     const payment = () => {
-        navigate('/confirm');
+        navigate('/payment');
     }
 
     const handleAdd = (product) => {
@@ -25,10 +27,17 @@ function Cart() {
     }
 
     return(
+
         <div>
-        <h1 className={styles.title}>Carrinho</h1>
+
+            <p className={styles.breadcrumb}><span className={styles.green} >Carrinho</span> <i class="fa-solid fa-circle-right"></i> Pagamento </p>
+
+            <h1 className={styles.title}>Carrinho</h1>
+
             <div className={styles.box}>
+
                 {cartList.map((cart) => (
+
                     <CartProduct
                         name={cart.name} 
                         description={cart.description}
@@ -38,11 +47,15 @@ function Cart() {
                         key={cart.id} 
                         eventAdd={handleAdd}
                         eventRemove={handleRemove}
-                    />                           
+                    />      
+
                 ))}
+
                 <div className={styles.end}>
-                    <Button text="Finalizar Compra" event={payment}></Button>
-                    <h1>Total: R${total}.00</h1>  
+                    
+                    <span className={styles.total}> Total: R${total}.00 </span>
+                    <button text="Finalizar Compra" className={styles.btn} onClick={payment}>Finalizar compra</button>
+
                 </div>
             </div>
         </div>

@@ -1,49 +1,60 @@
 import styles from "./Payment.module.css"
-import Button from '../components/Button'
+import cartList from '../json/cart';
 
 import { useNavigate } from 'react-router-dom';
 
 function Payment(){
+    let total = 0;
+    console.log(total);
+    cartList.map(product => {
+        total += product.qnt * product.price;
+        return null;
+    });
+
     const pay = () => {
-        console.log("Pagando...");
+        console.log("pay");
     }
-    const attSupplies = () => {
-        console.log("Atualizando estoque..")
-    }
+    
 
     const navigate = useNavigate();
     const cancel = () => {
-        navigate('/confirm');
+        navigate('/cart');
     }
-    const ahead = () => {
-        attSupplies();
-        navigate('/');
+    const ahead = (e) => {
+        e.preventDefault();
+        alert("Pagamento realizado com sucesso!");
     }
 
 
     return(
+
         <div>
+
+            <p className={styles.breadcrumb}><span className={styles.green} >Carrinho <i class="fa-solid fa-circle-right"></i> Pagamento</span></p>
+
             <h1 className={styles.title}>Finalize seu Pedido</h1>
+
             <div className={styles.box}>
-                <h3>Selecione o Detalhes de Pagamento:</h3>
+
                 <form onSubmit={pay}>
+
                     <div className={styles.form}>
-                        <label>Informações do Cliente:</label>
-                        <input type="text" placeholder="Número do Cartão"/>
-                        <input type="text" placeholder="Email"/>
-                        <input type="text" placeholder="CPF"/>
-                        <label>Informações do Cartão:</label>
-                        <input type="text" placeholder="Nome do Titular"/>
-                        <input type="text" placeholder="Código de Segurança"/>
-                        <input type="text" placeholder="Data de Validade"/>
+
+                        <h3>Selecione o Detalhes de Pagamento:</h3>
+                        <input id="card" type="text" placeholder="Número o cartão" className={styles.loginField} required /> <br/>
+                        <input id="nome" type="text" placeholder="Nome do titular" className={styles.loginField} required /> <br/>
+                        <input id="cdv" type="number" placeholder="Código de segurança" max="999" className={styles.loginField} required /> <br/>
+                        <input id="date" type="text" placeholder="Data de validade" className={styles.loginField} required /> <br/>
+                        <button className={styles.btn} text="Finalizar" onClick={ahead}>Finalizar compra</button>
+
                     </div>
-                        
+
                 </form>
+
+                <button className={styles.btn} text="Voltar" onClick={cancel}>Voltar</button>
+
             </div>
-            <div className={styles.navegation}>
-                <Button text="Voltar" event={cancel}></Button>
-                <Button text="Finalizar" event={ahead}></Button>
-            </div>
+
         </div>
 
         

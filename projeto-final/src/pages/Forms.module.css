@@ -42,7 +42,6 @@
     text-align: center;
     width: 400px;
     padding: 15px;
-    cursor: pointer;
     border: 2px solid #ff8ae2;
     border-radius: 10px;
 }
@@ -61,6 +60,7 @@
     margin-bottom: 25px;
     border: 2px solid #d2bdff;
     border-radius: 5px;
+    background-color: #fbfbfb;
 }
 
 .loginInput .btn:hover{

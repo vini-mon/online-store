@@ -7,6 +7,7 @@ import userIcon from '../img/account/login.png';
 function UserAccount() {
 
     const { signout, getInfo, updateInfo } = useAuth();
+
     const email = useAuth();
     const navigate = useNavigate();
 
@@ -20,6 +21,7 @@ function UserAccount() {
     const [error, setError] = useState();
 
     const handleUpdate = (e) => {
+        
         e.preventDefault();
 
         if (!name || !adress || !phone || !password || !confirmPassword) {

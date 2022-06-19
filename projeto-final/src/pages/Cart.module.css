@@ -11,18 +11,37 @@
 }
 
 .end{
-    height: 80px;
+
     display: flex;
-    justify-content: space-between;
-    position: relative;
+    flex-direction: column;
+    margin: auto;
+    max-width: 1080px;
+    padding: 20px;
+
 }
 
-.end h1{
-    position: absolute;
-    align-self: flex-end;
-    padding-right: 10px;
-    right: 1%;
-    top: 7%;
+.btn{
+    padding: 10px 25px 10px 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border: 2px solid #d2bdff;
+    border-radius: 5px;
+    background-color: #fbfbfb;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background-color: #fde1f6;
+    transition: all 0.5s ease-in-out;
+}
+
+.total{
+
+    font-size: 40px;
+    padding-top: 10px;
+    
 }
 
 .title{
@@ -45,4 +64,17 @@
     width: 70px;
     border-radius: 2px;
     background-color: #ff00b7;
+}
+
+.green{
+
+    color: #009e00;
+
+}
+
+.breadcrumb{
+
+    font-size: 20px;
+    text-align: center;
+
 }

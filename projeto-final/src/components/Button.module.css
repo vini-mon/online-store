@@ -6,10 +6,11 @@
     background-color: rgb(247, 240, 245);
     box-shadow: 2px 2px 2px rga(0, 0, 0, 0.2);
     border: 2px solid #d2bdff;
+    background-color: #fbfbfb;
     border-radius: 8px;
 }
 
 .btn:hover{
-    background-color: rgba(223, 111, 217, 0.5);
+    background-color: #fde1f6;
     transition: all 0.8s ease-in-out;
 }

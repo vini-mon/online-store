@@ -10,12 +10,14 @@
 }
 
 .img{
-    width: 20%;
+    margin: auto;
+    max-height: 200px;
     padding-left: 10px;
     padding-right: 40px;
 }
 
 .add{
+    margin-top: -20px;
     width: 20%;
     display: flex;
     justify-content: space-between;

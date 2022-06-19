@@ -9,8 +9,11 @@ function Product({source, name, description, price, qnt, event, eventTarget}){
     }
 
     return(
+
         <div className={styles.box}>
+
             <img src={source} alt="Foto do Produto" className={styles.image}/>
+
             <div className={styles.star}>
                 <FaStar/>
                 <FaStar/>
@@ -18,12 +21,16 @@ function Product({source, name, description, price, qnt, event, eventTarget}){
                 <FaStar/>
                 <FaStarHalfAlt/>
             </div>
+
             <h4>{name}</h4>
             <p>{description}</p>
             <p>Quantidade em estoque: {qnt}</p>
             <p>{price}</p>
+
             <div className={styles.btnBox}>
+
                 <Button text="Add to cart" event={event} eventTarget={eventTarget}/>
+
             </div>
         </div>
     )

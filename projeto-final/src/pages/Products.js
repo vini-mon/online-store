@@ -7,27 +7,43 @@ import { useState } from 'react';
 import capa from '../img/products/Products.png';
 
 function Products() {
+
     const [cartProduct, setCart] = useState();
 
     const handleClick = (product) => {
+
+        alert("Produto adicionado ao carrinho!");
+
         setCart(product);
-        console.log("Produto adicionado ao Carrinho")
         console.log(cartProduct)
+
     }
     
     return(
+
         <div>
+
             <div className={styles.intro}>
+
                 <div className={styles.text}>
+
                     <h1>Conheça nossos produtos<br/>para seu PET</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                
                 </div>
+
                 <img src={capa} alt='capa' width="350"></img>
+
             </div>
+
             <div className={styles.box}>
+
                 <h2 className={styles.title}>Nossos Produtos</h2>
+
                 <div className={styles.display}>
-                    {productData.map((product) => (              
+
+                    {productData.map((product) => (    
+
                         <Product 
                             name={product.name} 
                             price={product.price} 
@@ -36,10 +52,14 @@ function Products() {
                             key={product.id} 
                             event={handleClick} 
                             eventTarget={product}
-                        />                        
+                        />   
+
                     ))}
+
                 </div>
+                
             </div>
+
         </div>  
     )
     
