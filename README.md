@@ -45,11 +45,13 @@ A seguir, as imagens das páginas de `mockup`, que também estão em `/mockup`:
 
 
 ## Comments About the Code
+O código foi feito utilizando o `React.js`
 
 ## Test Plan
-Nós pretendemos utilizar o Postman para testar o backend
+TODO
 
 ## Test Results
+TODO
 
 ## Build Procedures
 ##### Requisitos
@@ -69,3 +71,4 @@ Durante a primeira etapa do projeto, as páginas login, register, admin account 
 de o usuário estar logado ou não. Ainda, os produtos e serviços estão estáticos por enquanto, posteriormente serão adicionados automaticamente de acordo com o banco de dados.
 
 ## Comments
+TODO
