@@ -4,8 +4,7 @@ import styles from './Forms.module.css';
 import userIcon from '../img/account/login.png';
 import useAuth from '../hooks/useAuth';
 
-
-function FormsRegister(){
+function FormsRegister() {
 
     // variaveis de estado para o registro
 
@@ -59,7 +58,7 @@ function FormsRegister(){
                 <img src={userIcon} alt="Icone de Login" className={styles.loginImg}/>
                 <div className={styles.loginInput}>
                     <form>
-                        <input id="nome" type="text" placeholder="Nome"
+                        <input id="name" type="text" placeholder="Nome"
                         onChange={(e) => [setName(e.target.value), setError('')]}  
                         className={styles.loginField}/> <br/>
                         

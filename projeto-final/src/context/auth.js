@@ -73,18 +73,17 @@ export const AuthProvider = ({ children }) => {
     const toggleAdmin = (email) => {
         const userStorage = JSON.parse(localStorage.getItem('users_db'))
 
-        const hasUser = userStorage?.filter((user) => user.email === email)
+        if (userStorage === null) return "Problema interno: banco de dados inexistente."
 
-        if (hasUser?.length) {
-            if (hasUser[0].email === email) {
-                hasUser[0].admin = !hasUser[0].admin
-                return
-            } else {
-                return "Email incorreto"
-            }
-        } else {
-            return "Usuário não cadastrado"
-        }
+        const userIndex = userStorage.findIndex((user) => user.email === email)
+        
+        if (userIndex === -1) return "Usuário não encontrado"
+
+        let updatedStorage = [...userStorage]
+        updatedStorage[userIndex].admin = !updatedStorage[userIndex].admin
+        localStorage.setItem('users_db', JSON.stringify(updatedStorage))
+
+        return "Alteração realizada com sucesso."
     }
 
     const isAdmin = (email) => {
@@ -102,10 +101,45 @@ export const AuthProvider = ({ children }) => {
         return false
     }
 
+    const getInfo = (email) => {
+        const userStorage = JSON.parse(localStorage.getItem('users_db'))
+
+        const hasUser = userStorage?.filter((user) => user.email === email)
+
+        if (hasUser?.length) {
+            if (hasUser[0].email === email) {
+                return hasUser[0]
+            }
+        }
+        return null;
+    }
+
+    const updateInfo = (info) => {
+        const userStorage = JSON.parse(localStorage.getItem('users_db'))
+
+        if (userStorage === null) return "Problema interno: banco de dados inexistente."
+        
+        const userEmail = user.email
+
+        const userIndex = userStorage.findIndex((user) => user.email === userEmail)
+        
+        if (userIndex === -1) return "Usuário não encontrado"
+
+        let updatedStorage = [...userStorage]
+
+        updatedStorage[userIndex].name = info.name
+        updatedStorage[userIndex].phone = info.phone
+        updatedStorage[userIndex].adress = info.adress
+
+        localStorage.setItem('users_db', JSON.stringify(updatedStorage))
+
+        return "Alteração realizada com sucesso."
+    }
+
     
 
     return (
-        <AuthContext.Provider value={{user, signed: !!user, email: user?.email, isAdmin, signin, signup, signout, toggleAdmin}}>
+        <AuthContext.Provider value={{user, signed: !!user, email: user?.email, isAdmin, signin, signup, signout, toggleAdmin, getInfo, updateInfo}}>
             {children}
         </AuthContext.Provider>
     )

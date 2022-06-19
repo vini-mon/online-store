@@ -4,6 +4,7 @@
     position: relative;
     line-height: 60px;
     color: #555;
+    margin-top: 10vh;
 }
 
 .title::after {
@@ -27,6 +28,7 @@
     border-radius: 8px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
     padding: 20px 30px 20px 30px;
+    margin-bottom: 10vh;
 }
 
 .loginImg{
