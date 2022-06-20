@@ -70,8 +70,7 @@ Para abrir o cliente:
 - No terminal será indicado em qual local o site pode ser acessado.
 
 ## Problems
-Durante a primeira etapa do projeto, as páginas login, register, admin account e user account estão na navbar. Posteriormente, elas serão integradas de acordo com o fato
-de o usuário estar logado ou não. Ainda, os produtos e serviços estão estáticos por enquanto, posteriormente serão adicionados automaticamente de acordo com o banco de dados.
+Como comentado acima, não foi possivel de utilizar o localstorage para o armazenamento do produtos e carrinho do usuário.
 
 ## Comments
 TODO
