@@ -6,32 +6,16 @@ import capa from '../img/products/Products.png';
 
 function Products() {
 
-    let cartProduct = [];
+    let cartList = localStorage.getItem('ProductList');
 
+    // Adiciona no ProductList do localStorage o id do produto e a quantidade
+    // Essa ProductList será utilizada como carrinho
     const handleClick = (id) => {
+        if (cartList === null) cartList = {};
+        
+        cartList[id] = cartList[id] ? cartList[id] + 1 : 1;
 
-        let find = false;
-
-        cartProduct.map(product => {
-
-            if (product === id) {
-
-                find = true;
-
-            }
-
-            return null;
-
-        });
-
-        if (find === false) {
-
-            cartProduct.push(id);
-
-            localStorage.setItem('ProductList', JSON.stringify(cartProduct))
-
-        }
-
+        localStorage.setItem('ProductList', JSON.stringify(cartList))
     }
     
     return (
@@ -48,6 +32,7 @@ function Products() {
             <div className={styles.box}>
                 <h2 className={styles.title}>Nossos Produtos</h2>
                 <div className={styles.display}>
+                    {/* Percorre o json adicionando cada produto em um componente */}
                     {productData.map((product) => (    
                         <Product 
                             name={product.name} 
