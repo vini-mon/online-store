@@ -2,9 +2,16 @@ import styles from './Admin.module.css';
 import UserList from '../components/admin/UserList';
 import ProductList from '../components/admin/ProductList';
 
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import useAuth from "../hooks/useAuth";
+
 
 function Admin () {
+
+    const { signout } = useAuth();
+
+    const navigate = useNavigate();
 
     const [name, setName] = useState('');
     const [text, setText] = useState('');
@@ -24,6 +31,9 @@ function Admin () {
         <div>
             <div className={styles.dashboardAdmin}>
                 <h2 className={styles.adminTitle}>Dashboard Admin</h2>
+                <div className={styles.center}>
+                    <button className={styles.btn} onClick={() => [signout(), navigate('/login')]}>Sair da conta</button><br/> 
+                </div>
                 <div className="col-2">
                     <table cellSpacing="5" className={styles.adminTable}>
                         <thead>

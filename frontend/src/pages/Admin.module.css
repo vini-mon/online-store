@@ -96,3 +96,24 @@ textarea:focus {
     width: 3vw;
     height: 2vh;
 }
+
+.btn{
+    padding: 10px 25px 10px 25px;
+    border: 2px solid #d2bdff;
+    border-radius: 5px;
+    background-color: #fbfbfb;
+    max-width: 20vw;
+    margin: 0 auto;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background-color: #fde1f6;
+    transition: all 0.5s ease-in-out;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5vh;
+}
