@@ -1,10 +1,22 @@
 import styles from './CartProduct.module.css'
 import Button from './Button'
+import cartList from '../json/cart.json';
 
-function CartProduct({source, name, description, price, qnt, eventAdd, eventRemove, eventTarget}){
-    if (qnt <= 0){
-        return null;
-    }
+function CartProduct({ eventAdd, eventRemove, eventTarget, id}){
+    let name = ""
+    let qnt = -1
+    let price = -1
+    let source = ""
+    let description = ""
+    cartList.map( product => {
+        if(product.id === id){
+            name = product.name
+            qnt = product.qnt
+            price = product.price
+            source = product.img
+            description = product.description
+        }
+    })
 
     return(
         <div className={styles.boxProduct}>

@@ -2,20 +2,36 @@ import Product from '../components/Product';
 import styles from './Products.module.css';
 import productData from '../json/products.json';
 
-import { useState } from 'react';
-
 import capa from '../img/products/Products.png';
 
 function Products() {
 
-    const [cartProduct, setCart] = useState();
+    let cartProduct = [];
 
-    if( cartProduct === null ){alert("erro de renderização")}
+    const handleClick = (id) => {
 
-    const handleClick = (productName) => {
-        alert("Produto adicionado ao carrinho: " + productName);
+        let find = false;
 
-        setCart(productName);
+        cartProduct.map(product => {
+
+            if (product === id) {
+
+                find = true;
+
+            }
+
+            return null;
+
+        });
+
+        if (find === false) {
+
+            cartProduct.push(id);
+
+            localStorage.setItem('ProductList', JSON.stringify(cartProduct))
+
+        }
+
     }
     
     return (
@@ -41,7 +57,7 @@ function Products() {
                             sound={product.sound}
                             key={product.id} 
                             event={handleClick} 
-                            eventTarget={product.name}
+                            eventTarget={product.id}
                         />   
                     ))}
                 </div>

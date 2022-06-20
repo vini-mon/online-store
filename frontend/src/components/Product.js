@@ -50,7 +50,7 @@ function Product({source, name, description, price, sound, qnt, event, eventTarg
 
         <div className={styles.box}>
 
-            <img src={source} alt="Foto do Produto" className={styles.image}/>
+            <img width="250px" height="300px" src={source} alt="Foto do Produto" className={styles.image}/>
 
             <div className={styles.star}>
                 <FaStar/>
