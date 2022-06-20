@@ -10,6 +10,8 @@ function Products() {
 
     const [cartProduct, setCart] = useState();
 
+    if( cartProduct === null ){alert("erro de renderização")}
+
     const handleClick = (productName) => {
         alert("Produto adicionado ao carrinho: " + productName);
 
@@ -35,7 +37,8 @@ function Products() {
                             name={product.name} 
                             price={product.price} 
                             qnt = {product.qnt}
-                            source={product.img} 
+                            source={product.img}
+                            sound={product.sound}
                             key={product.id} 
                             event={handleClick} 
                             eventTarget={product.name}

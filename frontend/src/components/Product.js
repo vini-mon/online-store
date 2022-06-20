@@ -3,10 +3,48 @@ import {FaStar} from 'react-icons/fa'
 import {FaStarHalfAlt} from 'react-icons/fa'
 import Button from './Button'
 
-function Product({source, name, description, price, qnt, event, eventTarget}){
+import useSound from 'use-sound';
+
+import borracha from '../components/sounds/brinqBorracha.mp3';
+import sino from '../components/sounds/bolinha.mp3';
+
+function Product({source, name, description, price, sound, qnt, event, eventTarget}){
+    
     if (qnt <= 0){
         return null;
     }
+
+    const BoopButton = (sound) => {
+
+        let toy, vol, playIcon;
+
+        if (sound === "undefined"){
+
+            playIcon = "fa-solid fa-volume-xmark";
+            
+        }else{
+
+            playIcon = "fa-solid fa-play";
+
+        }
+
+        if (sound === "borracha"){
+
+            toy = borracha;
+            vol = 0.25;
+
+        }else if(sound === "sino"){
+
+            toy = sino;
+            vol = 1;
+
+        }
+
+        const [play] = useSound(toy, {volume: vol});
+      
+        return <button style={{marginLeft: "85px"}} onClick={play}><i className={playIcon}></i></button>;
+
+    };
 
     return(
 
@@ -26,6 +64,8 @@ function Product({source, name, description, price, qnt, event, eventTarget}){
             <p>{description}</p>
             <p>Quantidade em estoque: {qnt}</p>
             <p>{price}</p>
+
+            { BoopButton(sound) }
 
             <div className={styles.btnBox}>
 
