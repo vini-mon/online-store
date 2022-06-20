@@ -15,7 +15,7 @@ function CartProduct({source, name, description, price, qnt, eventAdd, eventRemo
                     <span>R${price}.00</span>
                 </div>
                 <p>{description}</p>
-                <div className={styles.add}>
+                <div className={styles.add}>  
                     <Button text="-" event={eventRemove} eventTarget={eventTarget}></Button>    
                     <p>{qnt}</p>
                     <Button text="+" event={eventAdd} eventTarget={eventTarget}></Button>    

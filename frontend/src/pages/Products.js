@@ -10,11 +10,10 @@ function Products() {
 
     const [cartProduct, setCart] = useState();
 
-    const handleClick = (product) => {
-        alert("Produto adicionado ao carrinho!");
+    const handleClick = (productName) => {
+        alert("Produto adicionado ao carrinho: " + productName);
 
-        setCart(product);
-        console.log(cartProduct)
+        setCart(productName);
     }
     
     return (
@@ -39,7 +38,7 @@ function Products() {
                             source={product.img} 
                             key={product.id} 
                             event={handleClick} 
-                            eventTarget={product}
+                            eventTarget={product.name}
                         />   
                     ))}
                 </div>

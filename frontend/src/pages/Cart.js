@@ -7,8 +7,10 @@ import { useNavigate } from 'react-router-dom';
 function Cart() {  
 
     let total = 0;
+    let qnt = [];
 
     cartList.map((product) => {
+        qnt[product.id - 1] = product.qnt;
         total += product.qnt * product.price;
         return null;
     });
@@ -19,12 +21,14 @@ function Cart() {
         navigate('/payment');
     }
 
-    const handleAdd = (name) => {
-        alert("Adicionado uma unidade a: " + name);
+    const handleAdd = (product) => {
+        qnt[product.id - 1] += 1;
+        console.log(qnt[product.id - 1])
     }
 
-    const handleRemove = (name) => {
-        alert("Removido uma unidade a: " + name);
+    const handleRemove = (product) => {
+        qnt[product.id - 1] -= 1;
+        console.log(qnt[product.id - 1])
     }
 
     return (
@@ -37,12 +41,12 @@ function Cart() {
                         name={cart.name} 
                         description={cart.description}
                         price={cart.price} 
-                        qnt = {cart.qnt}
+                        qnt = {qnt[cart.id - 1]}
                         source={cart.img} 
                         key={cart.id} 
                         eventAdd={handleAdd}
                         eventRemove={handleRemove}
-                        eventTarget={cart.name}
+                        eventTarget={cart}
                     />      
                 ))}
                 <div className={styles.end}>
