@@ -6,7 +6,7 @@ import capa from '../img/products/Products.png';
 
 function Products() {
 
-    let cartList = localStorage.getItem('ProductList');
+    let cartList = JSON.parse(localStorage.getItem('ProductList'));
 
     // Adiciona no ProductList do localStorage o id do produto e a quantidade
     // Essa ProductList será utilizada como carrinho

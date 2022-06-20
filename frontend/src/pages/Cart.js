@@ -9,13 +9,13 @@ function Cart() {
     let total = 0;
     let qnt = [];
 
-    const carts = JSON.parse(localStorage.getItem('ProductList'))
-
-    cartList.map((product) => {
-        qnt[product.id - 1] = product.qnt;
-        total += product.qnt * product.price;
-        return null;
-    });
+    const cartStorage = localStorage.getItem('ProductList');
+    const cart = cartStorage ? JSON.parse(cartStorage) : {};
+    
+    for (let productId in cart) {
+        total += cart[productId] * cartList[productId];
+        qnt[productId - 1] = cart[productId];
+    }
 
     const navigate = useNavigate();
     
@@ -38,9 +38,9 @@ function Cart() {
             <p className={styles.breadcrumb}><span className={styles.green}>Carrinho</span> <i className="fa-solid fa-circle-right"></i> Pagamento </p>
             <h1 className={styles.title}>Carrinho</h1>
             <div className={styles.box}>
-                {carts.map((cart) => (
-                    <CartProduct id={cart}/>
-                ))}
+                {Object.keys(cart).map(function(index, key) {
+                    return <CartProduct key={key} id={parseInt(index, 10)}/>
+                })}
                 <div className={styles.end}>
                     <span className={styles.total}> Total: R${total}.00 </span>
                     <button text="Finalizar Compra" className={styles.btn} onClick={payment}>Finalizar compra</button>
