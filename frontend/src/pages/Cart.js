@@ -19,12 +19,12 @@ function Cart() {
         navigate('/payment');
     }
 
-    const handleAdd = () => {
-        console.log("add");
+    const handleAdd = (name) => {
+        alert("Adicionado uma unidade a: " + name);
     }
 
-    const handleRemove = () => {
-        console.log("remove");
+    const handleRemove = (name) => {
+        alert("Removido uma unidade a: " + name);
     }
 
     return (
@@ -42,6 +42,7 @@ function Cart() {
                         key={cart.id} 
                         eventAdd={handleAdd}
                         eventRemove={handleRemove}
+                        eventTarget={cart.name}
                     />      
                 ))}
                 <div className={styles.end}>
