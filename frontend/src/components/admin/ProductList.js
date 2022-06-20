@@ -18,6 +18,7 @@ function ProductList() {
                     <Product key={key}
                         id={p.id}
                         name={p.name}
+                        desc={p.description}
                         stock={p.qnt}
                         price={p.price}
                         sold={p.sold}

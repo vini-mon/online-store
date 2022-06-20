@@ -13,6 +13,7 @@ function Product(props) {
         <tr className={getStyle()}>
             <td>{props.id}</td>
             <td>{props.name}</td>
+            <td>{props.desc}</td>
             <td>{props.stock}</td>
             <td>{props.sold}</td>
             <td>{props.price}</td>
