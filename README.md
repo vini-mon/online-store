@@ -45,13 +45,16 @@ A seguir, as imagens das páginas de `mockup`, que também estão em `/mockup`:
 
 
 ## Comments About the Code
-O código foi feito utilizando o `React.js`
+O código foi feito utilizando o `React.js`.
+No contexto do Milestone2, para o sistema de login dos usuários foi utilizado o local storage com armazenamento de novos usuários. Pela existência de diversos
+produtos e limite de armazenamento do localstorage, os produtos e o carrinho do usuário foram simulados por meio de um .JSON estático, com indicações na tela das
+funcionalidades requisitadas. Será alterado para a entrega final, integrando com o banco de dados.
 
 ## Test Plan
-TODO
+Foram utilizados os navegadores Brave e Chrome para a navegação e teste do projeto. Sendo utilizado os sistemas operacionais Linux e Windowns.
 
 ## Test Results
-TODO
+Para a entrega do Milestone 2, todas as funcionalidades foram testadas e desempenharam seu papel.
 
 ## Build Procedures
 ##### Requisitos
