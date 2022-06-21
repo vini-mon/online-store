@@ -1,5 +1,4 @@
 import styles from "./Payment.module.css"
-import cartList from '../json/cart';
 
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
@@ -12,13 +11,6 @@ function Payment(){
     const [cardExpiry, setCardExpiry] = useState('');
     const [cardCvv, setCardCvv] = useState('');
     const [error, setError] = useState('');
-
-    let total = 0;
-    console.log(total);
-    cartList.map(product => {
-        total += product.qnt * product.price;
-        return null;
-    });
 
     const pay = () => {
         console.log("pay");

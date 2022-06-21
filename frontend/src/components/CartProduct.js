@@ -1,21 +1,36 @@
 import styles from './CartProduct.module.css'
 import Button from './Button'
-import cartList from '../json/cart.json';
+import ProductList from '../json/products.json';
 
 function CartProduct({ eventAdd, eventRemove, eventTarget, id}){
+
     let name = ""
     let qnt = -1
     let price = -1
     let source = ""
     let description = ""
-    cartList.map( product => {
+
+    const cartStorage = localStorage.getItem('ProductList');
+    const cart = cartStorage ? JSON.parse(cartStorage) : {}; 
+
+    console.log(cart);
+
+    ProductList.map( product => {
         if(product.id === id){
+
+            for (let productId in cart) {
+                if( parseInt(productId) === id ){
+                    qnt = cart[productId]
+                }
+            }
+
             name = product.name
-            qnt = product.qnt
             price = product.price
             source = product.img
             description = product.description
+            
         }
+        return null;
     })
 
     return(

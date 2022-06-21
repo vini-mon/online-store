@@ -5,7 +5,7 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "price": "R$90.00",
         "sound": "undefined",
-        "qnt": 1,
+        "qnt": 10,
         "sold": 0,
         "img": "/img/products/arranhador.png"
     },
@@ -15,7 +15,7 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "price": "R$45.00",
         "sound": "undefined",
-        "qnt": 1,
+        "qnt": 15,
         "sold": 0,
         "img": "/img/products/bolinha.png"
     },
@@ -25,7 +25,7 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "price": "R$130.00",
         "sound": "undefined",
-        "qnt": 1,
+        "qnt": 58,
         "sold": 0,
         "img": "/img/products/cama.png"
     },
@@ -35,7 +35,7 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "price": "R$40.00",
         "sound": "sino",
-        "qnt": 1,
+        "qnt": 9,
         "sold": 0,
         "img": "/img/products/coleira.png"
     },
@@ -45,7 +45,7 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "price": "R$30.00",
         "sound": "sino",
-        "qnt": 1,
+        "qnt": 3,
         "sold": 0,
         "img": "/img/products/bolinha.jpg"
     },
@@ -55,7 +55,7 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "price": "R$15.00",
         "sound": "undefined",
-        "qnt": 1,
+        "qnt": 10,
         "sold": 0,
         "img": "/img/products/osso.png"
     },

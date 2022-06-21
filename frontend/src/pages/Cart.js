@@ -13,7 +13,7 @@ function Cart() {
     const cart = cartStorage ? JSON.parse(cartStorage) : {};
     
     for (let productId in cart) {
-        total += cart[productId] * cartList[productId];
+        total += cart[productId] * cartList[productId] ;
         qnt[productId - 1] = cart[productId];
     }
 
@@ -24,13 +24,55 @@ function Cart() {
     }
 
     const handleAdd = (product) => {
-        qnt[product.id - 1] += 1;
-        console.log(qnt[product.id - 1])
+
+        for( let productId in cart ){
+
+            product = parseInt(product);
+            productId = parseInt(productId);
+
+            if( productId === product ){
+
+                if( cart[productId]+1 < cartList.qnt ){
+
+                    console.log("add 1");
+
+                    cart[productId] = parseInt(cart[productId]) + 1;
+                
+                    console.log(cart[productId]);
+
+                    localStorage.setItem('ProductList', JSON.stringify(cart));
+
+                }
+
+            }
+
+        }
     }
 
     const handleRemove = (product) => {
-        qnt[product.id - 1] -= 1;
-        console.log(qnt[product.id - 1])
+
+        for( let productId in cart ){
+
+            product = parseInt(product);
+            productId = parseInt(productId);
+
+            if( productId === product ){
+
+                if( cart[productId]-1 > 0 ){
+
+                    console.log("remove 1");
+
+                    cart[productId] = parseInt(cart[productId]) - 1;
+                
+                    console.log(cart[productId]);
+
+                    localStorage.setItem('ProductList', JSON.stringify(cart));
+
+                }
+
+            }
+
+        }
     }
 
     return (
@@ -39,7 +81,7 @@ function Cart() {
             <h1 className={styles.title}>Carrinho</h1>
             <div className={styles.box}>
                 {Object.keys(cart).map(function(index, key) {
-                    return <CartProduct key={key} id={parseInt(index, 10)}/>
+                    return <CartProduct eventAdd={() => handleAdd(index)} eventRemove={handleRemove} key={key} id={parseInt(index, 10)}/>
                 })}
                 <div className={styles.end}>
                     <span className={styles.total}> Total: R${total}.00 </span>
