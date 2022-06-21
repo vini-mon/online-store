@@ -4,17 +4,17 @@ import productData from '../json/products.json';
 
 import capa from '../img/products/Products.png';
 
+// função que comanda as ações da paginas de produtos
+// realiza a adição de produtos ao carrinho (armazenamento no localstorage)
+// return: HTML da pagina de Products
 function Products() {
-
     let cartList = JSON.parse(localStorage.getItem('ProductList'));
 
     // Adiciona no ProductList do localStorage o id do produto e a quantidade
     // Essa ProductList será utilizada como carrinho
     const handleClick = (id) => {
         if (cartList === null) cartList = {};
-        
         cartList[id] = cartList[id] ? cartList[id] + 1 : 1;
-
         localStorage.setItem('ProductList', JSON.stringify(cartList))
     }
     

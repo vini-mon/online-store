@@ -3,10 +3,11 @@ import styles from './Home.module.css'
 
 import logo from '../img/PetStore.png'
 
+// função que comanda a página Home, página inicial do site
+// return: pagina HTML inicial do site
 function Home() {
     return (
         <Container customClass="min-height">
-            
             <div className={styles.col_2}>
                 <h1>Faça o melhor pelo seu PET</h1>
                 <p>
