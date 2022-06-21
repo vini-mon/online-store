@@ -1,6 +1,8 @@
 import User from './User';
 import useAuth from '../../hooks/useAuth';
 
+//componente que renderiza todos os usuários no dashboard do admin
+//milestone2: as funções so emitem um aviso para simular a função
 function UserList() {
 
     const { getUsers } = useAuth();
