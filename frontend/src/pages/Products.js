@@ -14,6 +14,7 @@ function Products() {
     // Essa ProductList será utilizada como carrinho
     const handleClick = (id) => {
         if (cartList === null) cartList = {};
+        
         cartList[id] = cartList[id] ? cartList[id] + 1 : 1;
         localStorage.setItem('ProductList', JSON.stringify(cartList))
     }

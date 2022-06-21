@@ -10,14 +10,15 @@ function CartProduct({ eventAdd, eventRemove, eventTarget, id}){
     let source = ""
     let description = ""
 
+    // pega o produto do localStorage
     const cartStorage = localStorage.getItem('ProductList');
     const cart = cartStorage ? JSON.parse(cartStorage) : {}; 
 
-    console.log(cart);
-
+    // pega o produto do JSON
     ProductList.map( product => {
-        if(product.id === id){
 
+        // se o produto do json for o mesmo do localStorage, pega os dados
+        if(product.id === id){
             for (let productId in cart) {
                 if( parseInt(productId) === id ){
                     qnt = cart[productId]
@@ -28,7 +29,7 @@ function CartProduct({ eventAdd, eventRemove, eventTarget, id}){
             price = product.price
             source = product.img
             description = product.description
-            
+
         }
         return null;
     })
@@ -39,13 +40,13 @@ function CartProduct({ eventAdd, eventRemove, eventTarget, id}){
             <div>
                 <div>
                     <h2>{name}</h2> 
-                    <span>R${price}.00</span>
+                    <span>{price}</span>
                 </div>
                 <p>{description}</p>
                 <div className={styles.add}>  
                     <Button text="-" event={eventRemove} eventTarget={eventTarget}></Button>    
-                    <p>{qnt}</p>
-                    <Button text="+" event={eventAdd} eventTarget={eventTarget}></Button>    
+                    <p style={{marginRight: "25px"}}>{qnt}</p>
+                    <Button text="+" event={eventAdd} eventTarget={eventTarget}></Button>
                 </div> 
                 <p>Subtotal: R${qnt * price}.00</p>
             </div>  
