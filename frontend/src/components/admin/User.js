@@ -1,7 +1,8 @@
 import styles from '../../pages/Admin.module.css'
 
+//componente utilizado para renderizar a aba de gerenciamento de usuarios
 function User(props) {
-
+    //função para alterar a cor do componente
     function getStyle() {
         if (props.style % 2 === 1) {
             return styles.trColored;

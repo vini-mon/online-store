@@ -8,6 +8,9 @@ import useSound from 'use-sound';
 import borracha from '../components/sounds/brinqBorracha.mp3';
 import sino from '../components/sounds/bolinha.mp3';
 
+//componente com um produto e suas informações
+//reutilizado n vezes para mostrar todos os produtos da loja
+//renderizado apenas se houver mais de uma unidade
 function Product({source, name, description, price, sound, qnt, event, eventTarget}){
     
     if (qnt <= 0){
