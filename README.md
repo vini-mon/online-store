@@ -46,12 +46,11 @@ A seguir, as imagens das páginas de `mockup`, que também estão em `/mockup`:
 
 ## Comments About the Code
 O código foi feito utilizando o `React.js`.
-No contexto do Milestone2, para o sistema de login dos usuários foi utilizado o local storage com armazenamento de novos usuários. Pela existência de diversos
-produtos e limite de armazenamento do localstorage, os produtos e o carrinho do usuário foram simulados por meio de um .JSON estático, com indicações na tela das
-funcionalidades requisitadas. Será alterado para a entrega final, integrando com o banco de dados.
+No contexto do Milestone2, para o sistema de login dos usuários, foi utilizado o local storage com armazenamento de novos usuários e do admin. Pela existência de diversos produtos e limite de armazenamento do localstorage, os produtos foram adicionados por meio de um json estático, com indicações na tela das funcionalidades requisitadas. Será alterado para a entrega final, integrando com o banco de dados.
 
 ## Test Plan
-Foram utilizados os navegadores Brave e Chrome para a navegação e teste do projeto. Sendo utilizado os sistemas operacionais Linux e Windowns.
+Foram utilizados os navegadores Brave e Chrome para a navegação e teste do projeto. Sendo utilizado os sistemas operacionais Linux e Windows.
+Ainda, para testar a dinamicidade do funcionamento, foi criado um arquivo estático de produtos que, posteriormente, será removido, sendo então as funcionalidades integradas ao servidor.
 
 ## Test Results
 Para a entrega do Milestone 2, todas as funcionalidades foram testadas e desempenharam seu papel.
@@ -69,8 +68,13 @@ Para abrir o cliente:
 - `npm start`
 - No terminal será indicado em qual local o site pode ser acessado.
 
+Existe uma conta administrador:
+- email: `admin`
+- senha: `admin`
+
 ## Problems
-Como comentado acima, não foi possivel de utilizar o localstorage para o armazenamento do produtos e carrinho do usuário.
+Utilizamos um json estático para testar os produtos (será alterado para requests quando o servidor estiver finalizado).
 
 ## Comments
-TODO
+Algumas operações estão apenas com popups de alerta devido à ausência de um servidor.
+Na entrega final, esses detalhes serão resolvidos.
