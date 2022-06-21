@@ -6,18 +6,23 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 
-
+// função que define o dashboard do admin
+// confere autentificação
+// return: pagina do admin 
+// milestone2: envia um alert sobre o produto criado
 function Admin () {
 
     const { signout } = useAuth();
 
     const navigate = useNavigate();
 
+    // armazenamento dinámico dos dados do produto criado
     const [name, setName] = useState('');
     const [text, setText] = useState('');
     const [price, setPrice] = useState('');
     const [stock, setStock] = useState('');
 
+    //arrow function para a criação do produto
     const createProduct = (e) => {
         e.preventDefault();
         if (!name || !text || !price || !stock) {

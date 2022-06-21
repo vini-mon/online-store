@@ -4,15 +4,18 @@ import useAuth from "../hooks/useAuth";
 import styles from './Forms.module.css';
 import userIcon from '../img/account/login.png';
 
+// função que comanda ações da página de usuário
+// return: HTML com form para alterar informacoes do usuarios
 function UserAccount() {
-
+    //requisita funções do hook
     const { signout, getInfo, updateInfo } = useAuth();
-
     const email = useAuth();
     const navigate = useNavigate();
 
+    //recupera valor de email
     let info = getInfo(email.email);
 
+    //variaveis dinamicas com armazenam auterações nos dados dos usuários
     const [name, setName] = useState(info.name);
     const [adress, setAdress] = useState(info.adress);
     const [phone, setPhone] = useState(info.phone);
@@ -20,20 +23,20 @@ function UserAccount() {
     const [confirmPassword, setConfirmPassword] = useState();
     const [error, setError] = useState();
 
+    //função que realiza a atualização dos dados do usuário
+    //acionada ao clica no botão "Salvar Alterações"
     const handleUpdate = (e) => {
-        
         e.preventDefault();
 
+        //validaçoes
         if (!name || !adress || !phone || !password || !confirmPassword) {
             setError('Preencha todos os campos')
             return
         }
-
         if (password !== confirmPassword) {
             setError('As senhas não conferem')
             return
         }
-
         if (password !== info.password) {
             setError('Senha incorreta')
             return
@@ -45,6 +48,7 @@ function UserAccount() {
             phone
         }
 
+        //atualização no localestorage
         const res = updateInfo(newInfo)
         setError(res)
     }
@@ -79,6 +83,7 @@ function UserAccount() {
                         <p>{error}</p> <br/>
 
                         <button className={styles.btn} onClick={handleUpdate}> Salvar alterações</button><br/>
+                        {/* redirecionamento para a pagina inicial e saida da conta */}
                         <button className={styles.btn} onClick={() => [signout(), navigate('/')]}>Sair da conta</button><br/>
                     </form>
                 </div>
