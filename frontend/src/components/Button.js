@@ -7,6 +7,7 @@ function Button({text, event, eventTarget}){
     )
 }
 
+//valor apenas para facilitar o desenvolvimento
 Button.defaultProps = {
     texto: "Texto Vazio",
 }
