@@ -9,7 +9,7 @@ function Cart() {
     // target usado para re-rederizar a o componente de cada produto
     // totalSoma usado para re-rederizar a o componente de cada produto
     const [target, setTarget] = useState({});
-    const [totalSoma, setTotalSoma] = useState(0);
+    let [totalSoma, setTotalSoma] = useState(-1);
 
     // variável que auxilia no calculo do valor total da compra
     let total = 0;
@@ -20,6 +20,8 @@ function Cart() {
     
     // função que calcula o valor total da compra
     function calculateTotal(){
+
+        setTotalSoma(0);
 
         for (let productId in cart) {
             total += parseInt(cart[productId] * cartList[productId-1].price);
@@ -33,7 +35,7 @@ function Cart() {
     }
 
     // ao iniciar a página, chama a função para calcular o valor total da compra
-    if( totalSoma === 0 ){
+    if( totalSoma === -1 ){
 
         calculateTotal();
 
