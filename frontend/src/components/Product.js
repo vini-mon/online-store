@@ -13,46 +13,28 @@ import sino from '../components/sounds/bolinha.mp3';
 //renderizado apenas se houver mais de uma unidade
 function Product({source, name, description, price, sound, qnt, event, eventTarget}){
     
-    if (qnt <= 0){
-        return null;
-    }
+    if (qnt <= 0) return null;
 
     const BoopButton = (sound) => {
-
         let toy, vol, playIcon;
 
-        if (sound === "undefined"){
+        (sound === "undefined") ? playIcon = "fa-solid fa-volume-xmark" : playIcon = "fa-solid fa-play";
 
-            playIcon = "fa-solid fa-volume-xmark";
-            
-        }else{
-
-            playIcon = "fa-solid fa-play";
-
-        }
-
-        if (sound === "borracha"){
-
+        if (sound === "borracha") {
             toy = borracha;
             vol = 0.25;
-
-        }else if(sound === "sino"){
-
+        } else if (sound === "sino") {
             toy = sino;
             vol = 1;
-
         }
 
         const [play] = useSound(toy, {volume: vol});
       
         return <button style={{marginLeft: "85px"}} onClick={play}><i className={playIcon}></i></button>;
-
     };
 
-    return(
-
+    return (
         <div className={styles.box}>
-
             <img width="250px" height="300px" src={source} alt="Foto do Produto" className={styles.image}/>
 
             <div className={styles.star}>
@@ -66,14 +48,12 @@ function Product({source, name, description, price, sound, qnt, event, eventTarg
             <h4>{name}</h4>
             <p>{description}</p>
             <p>Quantidade em estoque: {qnt}</p>
-            <p>{price}</p>
+            <p>R&#36;&nbsp;{price}</p>
 
             { BoopButton(sound) }
 
             <div className={styles.btnBox}>
-
                 <Button text="Add to cart" event={event} eventTarget={eventTarget}/>
-
             </div>
         </div>
     )
