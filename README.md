@@ -1,4 +1,13 @@
 # PetStore
+## ATENÇÃO REVIEWER
+Entrar em contato com um dos membros do projeto para que possamos te conceder acesso ao banco de dados.
+
+Telegrams:
+
+- João Pedro: `@joaoprfreitas`
+- Gabriel: `@Gabriel_Akio`
+- Vinicius: `@Jamal_USP`
+
 ## About
 
 Este é um projeto de uma loja online para a disciplina SCC0219 - Introdução ao Desenvolvimento Web.
