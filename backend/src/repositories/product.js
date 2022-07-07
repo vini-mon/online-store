@@ -24,27 +24,8 @@ exports.getInStock = async() => {
 
 exports.getById = async(id) => {
     const res = await Product.findById(id);
-
     return res;
 }
-
-// exports.getBySlug = async(slug) => {
-//     const res = await Product.findOne({
-//         slug: slug,
-//         active: true
-//     }, 'title description price slug tags');
-
-//     return res;
-// }
-
-// exports.getByTag = async(tag) => {
-//     const res = await Product.find({
-//         tags: tag,
-//         active: true
-//     }, 'title description price slug tags');
-
-//     return res;
-// }
 
 exports.create = async(data) => {
     let product = new Product(data);
