@@ -4,26 +4,35 @@ import productData from '../json/products.json';
 
 import capa from '../img/products/Products.png';
 
-import axios from 'axios'
+import useAxios from "../hooks/useAxios";
+import axios from "../api/axiosInstance";
 
-let products = [];
-
-const getProducts = async () => {
-    let promise = await axios.get("product/");
-    let productData = await promise.data;
-    let i = 0;
-    productData.forEach((product) => {
-        products[i] = product;
-        i += 1;
-    });
-} 
-getProducts();
-console.log(products);
 
 // função que comanda as ações da paginas de produtos
 // realiza a adição de produtos ao carrinho (armazenamento no localstorage)
 // return: HTML da pagina de Products
 function Products() {
+    // const [products, setProducts] = useState([]);
+    // const getProducts = async () => {
+    //     let promise = await axios.get("product/");
+    //     let productData = await promise.data;
+    //     productData.forEach((product) => {
+    //         setProducts(old => [...old, product])
+    //     });
+    // } 
+    // getProducts();
+
+    // console.log(products);
+
+    // const [products, error, loading] = useAxios({
+    //     axiosInstance: axios,
+    //     method: 'GET',
+    //     url: 'product/',
+    //     requestConfig: {
+
+    //     }
+    // })
+
     let cartList = JSON.parse(localStorage.getItem('ProductList'));
 
     // Adiciona no ProductList do localStorage o id do produto e a quantidade
@@ -37,6 +46,9 @@ function Products() {
     
     return (
         <div>
+            {/* <h1>{products.data}</h1>
+            <h1>{error}</h1>
+            <h1>{loading}</h1> */}
             <div className={styles.intro}>
                 <div className={styles.text}>
                     <h1>Conheça nossos produtos<br/>para seu PET</h1>
