@@ -4,6 +4,16 @@ import productData from '../json/products.json';
 
 import capa from '../img/products/Products.png';
 
+import axios from 'axios'
+
+function getProducts() {
+    axios.get("product/")
+    .then(response => {
+        console.log(response);
+    })
+}
+getProducts();
+
 // função que comanda as ações da paginas de produtos
 // realiza a adição de produtos ao carrinho (armazenamento no localstorage)
 // return: HTML da pagina de Products
