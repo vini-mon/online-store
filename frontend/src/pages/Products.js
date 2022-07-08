@@ -12,26 +12,14 @@ import axios from "../api/axiosInstance";
 // realiza a adição de produtos ao carrinho (armazenamento no localstorage)
 // return: HTML da pagina de Products
 function Products() {
-    // const [products, setProducts] = useState([]);
-    // const getProducts = async () => {
-    //     let promise = await axios.get("product/");
-    //     let productData = await promise.data;
-    //     productData.forEach((product) => {
-    //         setProducts(old => [...old, product])
-    //     });
-    // } 
-    // getProducts();
+    const [products, error, loading] = useAxios({
+        axiosInstance: axios,
+        method: 'GET',
+        url: 'product/',
+        requestConfig: {
 
-    // console.log(products);
-
-    // const [products, error, loading] = useAxios({
-    //     axiosInstance: axios,
-    //     method: 'GET',
-    //     url: 'product/',
-    //     requestConfig: {
-
-    //     }
-    // })
+        }
+    })
 
     let cartList = JSON.parse(localStorage.getItem('ProductList'));
 
@@ -46,9 +34,6 @@ function Products() {
     
     return (
         <div>
-            {/* <h1>{products.data}</h1>
-            <h1>{error}</h1>
-            <h1>{loading}</h1> */}
             <div className={styles.intro}>
                 <div className={styles.text}>
                     <h1>Conheça nossos produtos<br/>para seu PET</h1>
@@ -62,16 +47,16 @@ function Products() {
                 <h2 className={styles.title}>Nossos Produtos</h2>
                 <div className={styles.display}>
                     {/* Percorre o json adicionando cada produto em um componente */}
-                    {productData.map((product) => (    
+                    {products.map((product) => (    
                         <Product 
                             name={product.name} 
                             price={product.price} 
                             qnt = {product.qnt}
                             source={product.img}
                             sound={product.sound}
-                            key={product.id} 
+                            key={product._id} 
                             event={handleClick} 
-                            eventTarget={product.id}
+                            eventTarget={product._id}
                         />   
                     ))}
                 </div>
