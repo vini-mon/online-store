@@ -6,13 +6,19 @@ import capa from '../img/products/Products.png';
 
 import axios from 'axios'
 
-function getProducts() {
-    axios.get("product/")
-    .then(response => {
-        console.log(response);
-    })
-}
+let products = [];
+
+const getProducts = async () => {
+    let promise = await axios.get("product/");
+    let productData = await promise.data;
+    let i = 0;
+    productData.forEach((product) => {
+        products[i] = product;
+        i += 1;
+    });
+} 
 getProducts();
+console.log(products);
 
 // função que comanda as ações da paginas de produtos
 // realiza a adição de produtos ao carrinho (armazenamento no localstorage)
