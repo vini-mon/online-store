@@ -1,6 +1,7 @@
 'use strict'
 
 const express = require('express');
+const cors = require('cors');
 const bodyPaser = require('body-parser');
 const mongoose = require('mongoose');
 
@@ -19,6 +20,10 @@ const User = require('./models/user');
 const index = require('./routes/index');
 const product = require('./routes/product');
 const user = require('./routes/user');
+
+app.use(cors({
+    origin: '*'
+}));
 
 app.use(bodyPaser.json());
 app.use(bodyPaser.urlencoded({ extended: false }));
