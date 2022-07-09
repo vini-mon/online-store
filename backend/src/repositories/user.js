@@ -55,3 +55,10 @@ exports.updateAdmin = async(email, data) => {
         }
     });
 }
+
+exports.authenticate = async(data) => {
+    const res = await User.findOne({
+        email: data.email, password: data.password
+    });
+    return res;
+}
