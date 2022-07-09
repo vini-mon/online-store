@@ -1,6 +1,5 @@
 import Product from '../components/Product';
 import styles from './Products.module.css';
-import productData from '../json/products.json';
 
 import capa from '../img/products/Products.png';
 

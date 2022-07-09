@@ -3,7 +3,24 @@ import styles from "./Payment.module.css"
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
+import useAxios from "../hooks/useAxios";
+import axios from "../api/axiosInstance";
+
 function Payment(){
+    // que pega os produtos da localStorage
+    let cartStorage = localStorage.getItem('ProductList');
+    let cart = cartStorage ? JSON.parse(cartStorage) : {};
+    let cartData = Object.entries(cart);
+
+    const [products, err, loading] = useAxios({
+        axiosInstance: axios,
+        method: 'GET',
+        url: 'http://localhost:3500/product/',
+        requestConfig: {
+
+        }
+    })
+
     const navigate = useNavigate();
 
     const [cardNumber, setCardNumber] = useState('');
@@ -19,6 +36,19 @@ function Payment(){
     const cancel = () => {
         navigate('/cart');
     }
+    const modify = async(id, newQnt) =>{
+        let oldQnt = -1;
+        products.map((prod)=>{
+            if (prod._id == id){
+                oldQnt = prod.stock;
+            }
+        })
+
+        await axios.put("http://localhost:3500/product/" + id, {
+            "stock": oldQnt - newQnt,
+            "sold": newQnt
+        });
+    }
 
     const ahead = (e) => {
         e.preventDefault();
@@ -28,6 +58,12 @@ function Payment(){
             return
         }
 
+        
+        for (let i = 0; i < cartData.length; i+=1){
+            modify(cartData[i][0], cartData[i][1]);
+        }
+        
+        localStorage.setItem('ProductList', JSON.stringify({}));
         alert("Pagamento realizado com sucesso!");
     }
 
