@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 
+
+
 // função que define o dashboard do admin
 // confere autentificação
 // return: pagina do admin 
@@ -73,29 +75,6 @@ function Admin () {
                             </thead>
                             <tbody>
                                 <ProductList/>
-                                <tr>
-                                    <td></td>
-                                    <td>
-                                        <textarea className={styles.name} placeholder="Nome do produto" type="text"
-                                        onChange={(e) => setName(e.target.value)} />
-                                    </td>
-                                    <td>
-                                        <textarea className={styles.text} placeholder="Descrição do produto" type="text"
-                                        onChange={(e) => setText(e.target.value)} />
-                                    </td>
-                                    <td>
-                                        <textarea className={styles.number} placeholder="0" type="text"
-                                        onChange={(e) => setPrice(e.target.value)} />
-                                    </td>
-                                    <td></td>
-                                    <td>
-                                        <textarea className={styles.price} placeholder="0" type="text"
-                                        onChange={(e) => setStock(e.target.value)} />
-                                    </td>
-                                    <td>
-                                        <i className={styles.confirmIcon} onClick={createProduct}><i className="fa-solid fa-check"></i></i>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
