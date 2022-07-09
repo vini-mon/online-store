@@ -3,9 +3,14 @@
 const ValidationContract = require('../validators/fluent-validator');
 const repository = require('../repositories/product');
 
+/*
+ * Busca os produtos do banco de dados
+ * Se existitem, retorna esses produtos
+ * Se não existirem, retorna um erro
+ */
 exports.get = async(req, res, next) => {
     try {
-        let data = await repository.get();
+        const data = await repository.get();
         res.status(200).send(data);
     } catch(e) {
         res.status(500).send({
@@ -14,9 +19,14 @@ exports.get = async(req, res, next) => {
     }
 }
 
+/*
+ * Busca os produtos em estoque do banco de dados
+ * Se existitem, retorna esses produtos
+ * Se não existirem, retorna um erro
+ */
 exports.getInStock = async(req, res, next) => {
     try {
-        let data = await repository.getInStock();
+        const data = await repository.getInStock();
         res.status(200).send(data);
     } catch(e) {
         res.status(500).send({
@@ -25,9 +35,14 @@ exports.getInStock = async(req, res, next) => {
     }
 }
 
+/*
+ * Busca no banco de dados um produto específico pelo id
+ * Se existir, retorna o produto
+ * Se não existir, retorna um erro
+ */
 exports.getById = async(req, res, next) => {
     try {
-        let data = await repository.getById(req.params.id);
+        const data = await repository.getById(req.params.id);
         res.status(200).send(data);
     } catch(e) {
         res.status(500).send({
@@ -36,6 +51,12 @@ exports.getById = async(req, res, next) => {
     }
 }
 
+/*
+ * Insere um novo produto no banco de dados, fazendo algumas validações
+ * antes de inserir
+ * 
+ * Se não houver erros, retorna um status 201 (Created)
+ */
 exports.post = async(req, res, next) => {
     let contract = new ValidationContract();
 
@@ -60,6 +81,10 @@ exports.post = async(req, res, next) => {
     }
 }
 
+/*
+ * Altera as informações de um determinado produto no banco de dados
+ * buscando o produto pelo ID
+ */
 exports.put = async(req, res, next) => {
     try {
         await repository.update(req.params.id, req.body);
@@ -73,7 +98,9 @@ exports.put = async(req, res, next) => {
     }
 }
 
-// verificar se é id ou _id
+/*
+ * Remove um produto do banco de dados por meio do ID
+ */
 exports.delete = async(req, res, next) => {
     try {
         await repository.delete(req.body.id);

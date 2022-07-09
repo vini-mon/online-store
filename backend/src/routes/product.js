@@ -5,6 +5,10 @@ const router = express.Router();
 const controller = require('../controllers/product');
 const authService = require('../services/auth');
 
+/*
+ * Gerencia as rotas de produtos
+ */
+
 router.get('/', controller.getInStock);
 
 router.get('/:id', authService.isAdmin, controller.getById);

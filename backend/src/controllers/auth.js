@@ -3,19 +3,13 @@
 const repository = require('../repositories/user');
 const authService = require('../services/auth');
 
+/*
+ * Realiza a autenticação do usuário
+ * Se as informações não baterem, retorna um erro
+ * Se as informações baterem, cria um token e o retorna
+ * com outras informações do usuário
+ */
 exports.authenticate = async(req, res, next) => {
-    // let contract = new ValidationContract();
-
-    // contract.hasMinLen(req.body.name, 3, 'O nome deve conter pelo menos 3 caracteres');
-    // contract.isEmail(req.body.email, 'E-mail inválido');
-    // contract.hasMinLen(req.body.password, 6, 'A senha deve conter pelo menos 6 caracteres');
-    // contract.hasMinLen(req.body.address, 3, 'O endereço deve conter pelo menos 3 caracteres');
-    
-    // if (!contract.isValid()) {
-    //     res.status(400).send(contract.errors()).end();
-    //     return;
-    // }
-
     try {
         const user = await repository.authenticate({
             email: req.body.email,

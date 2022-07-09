@@ -1,5 +1,10 @@
 'use strict';
 
+/*
+ * Valida dados de entrada de acordo com parâmetros especificados
+ * Retorna um array com os erros, caso existam
+ */
+
 let errors = [];
 
 function ValidationContract() {
