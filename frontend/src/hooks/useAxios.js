@@ -30,7 +30,6 @@ const useAxios = (configObj) => {
         }
 
         fetchData();
-
         return () => controller.abort();
     },[])
 

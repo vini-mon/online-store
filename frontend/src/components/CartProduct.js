@@ -1,9 +1,11 @@
 import styles from './CartProduct.module.css'
 import Button from './Button'
-import ProductList from '../json/products.json';
+
+import { useState, useEffect } from 'react';
+import useAxios from "../hooks/useAxios";
+import axios from "../api/axiosInstance";
 
 function CartProduct({ eventAdd, eventRemove, eventTarget, id}){
-
     let name = ""
     let qnt = -1
     let price = -1
@@ -12,15 +14,23 @@ function CartProduct({ eventAdd, eventRemove, eventTarget, id}){
 
     // pega o produto do localStorage
     const cartStorage = localStorage.getItem('ProductList');
-    const cart = cartStorage ? JSON.parse(cartStorage) : {}; 
+    const cart = cartStorage ? JSON.parse(cartStorage) : {};
 
-    // pega o produto do JSON
-    ProductList.map( product => {
+    // pega o produto do banco
+    const [products, error, loading] = useAxios({
+        axiosInstance: axios,
+        method: 'GET',
+        url: 'http://localhost:3500/product/',
+        requestConfig: {
+
+        }
+    })
+    products.map( product => {
 
         // se o produto do json for o mesmo do localStorage, pega os dados
-        if(product.id === id){
+        if(product._id === id){
             for (let productId in cart) {
-                if( parseInt(productId) === id ){
+                if(productId === id ){
                     qnt = cart[productId]
                 }
             }

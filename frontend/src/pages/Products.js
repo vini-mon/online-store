@@ -7,7 +7,6 @@ import capa from '../img/products/Products.png';
 import useAxios from "../hooks/useAxios";
 import axios from "../api/axiosInstance";
 
-
 // função que comanda as ações da paginas de produtos
 // realiza a adição de produtos ao carrinho (armazenamento no localstorage)
 // return: HTML da pagina de Products
@@ -15,16 +14,13 @@ function Products() {
     const [products, error, loading] = useAxios({
         axiosInstance: axios,
         method: 'GET',
-        url: 'product/',
+        url: 'http://localhost:3500/product/',
         requestConfig: {
 
         }
     })
 
     let cartList = JSON.parse(localStorage.getItem('ProductList'));
-
-    // Adiciona no ProductList do localStorage o id do produto e a quantidade
-    // Essa ProductList será utilizada como carrinho
     const handleClick = (id) => {
         if (cartList === null) cartList = {};
         
@@ -51,7 +47,7 @@ function Products() {
                         <Product 
                             name={product.name} 
                             price={product.price} 
-                            qnt = {product.qnt}
+                            qnt = {product.stock}
                             source={product.img}
                             sound={product.sound}
                             key={product._id} 
