@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom';
 
 import styles from './Navbar.module.css';
 import logo from '../../img/PetLogo.png';
-import catLogo from '../../img/CatLogo.png';
 
 import useAuth from '../../hooks/useAuth';
 
@@ -22,7 +21,6 @@ function Navbar() {
         <nav>
             <div>
                 <NavLink to="/"  >
-                    <img className={styles.catLogo} src={catLogo} alt="Logo da PetStore" width="150" />
                     <img className={styles.logo} src={logo} alt="Logo da PetStore" width="150" />
                 </NavLink>
             </div>

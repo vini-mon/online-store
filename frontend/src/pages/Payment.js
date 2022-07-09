@@ -70,7 +70,7 @@ function Payment(){
 
     return (
         <div>
-            <p className={styles.breadcrumb}><span className={styles.green} >Carrinho <i className="fa-solid fa-circle-right"></i> Pagamento</span></p>
+            <p className={styles.breadcrumb}><span className={styles.green} >Carrinho  <i className="fa-solid fa-circle-right"></i> Resumo  <i className="fa-solid fa-circle-right"></i>Pagamento</span></p>
             <h1 className={styles.title}>Finalize seu Pedido</h1>
             <div className={styles.box}>
                 <form onSubmit={pay}>

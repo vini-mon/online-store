@@ -12,6 +12,7 @@ import Register from './pages/Register';
 import Admin from './pages/Admin';
 import UserAccount from './pages/UserAccount';
 import Cart from './pages/Cart';
+import Confirm from './pages/Confirm';
 import Payment from './pages/Payment';
 
 // Components
@@ -51,6 +52,7 @@ function App() {
                     <Route exact path='/about' element={<About/>}></Route>
                     <Route exact path='/products' element={<Products/>}></Route>
                     <Route exact path='/cart' element={<Cart/>}></Route>
+                    <Route exact path='/confirm' element={<Confirm/>}></Route>
                     <Route exact path='/payment' element={<Payment/>}></Route>
 
                     <Route exact path='/login' element={<Login/>}></Route>
