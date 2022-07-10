@@ -7,6 +7,8 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "glamor": "^2.20.40",
+    "howler": "^2.2.3",
     "json-server": "^0.17.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -14,6 +16,8 @@
     "react-modal": "^3.15.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
+    "react-toastify": "^9.0.5",
+    "styled-components": "^5.3.5",
     "use-sound": "^4.0.1",
     "web-vitals": "^2.1.4"
   },
