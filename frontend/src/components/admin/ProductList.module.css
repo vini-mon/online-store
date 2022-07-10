@@ -1,20 +1,25 @@
-.form label{
-
-    font-size: 20px;
-    padding-right: 20px;
-    text-align: center;
-
+.in{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.form input{
+.form{
+    display: flex;
+    flex-direction: column;
+}
 
+.form label{
+    font-size: 20px;
+    text-align: center;
+}
+
+.in input{
     height: 30px;
     width: 250px;
     font-size: 20px;
     border-radius: 10px;
-    margin-left: 10px;
     text-align: center;
-
 }
 
 .form textarea{
@@ -23,22 +28,19 @@
     width: 250px;
     font-size: 15px;
     border-radius: 10px;
+    border: 2px solid #d2bdff;
     margin-left: 10px;
     text-align: center;
 
 }
 
 .readOnly{
-
     background-color: rgb(254, 212, 254);
     cursor: not-allowed; 
-
 }
 
 .inline{
-
     display: inline-block;
-
 }
 
 .submit{
@@ -81,4 +83,24 @@
     background-color: #ff8282;
     border: 2px solid #000;
     transition: all 0.4s ease-in-out;
+}
+
+.end{
+    display: flex;
+    align-content: center;
+}
+
+.btn{
+    padding: 10px 25px 10px 25px;
+    border: 2px solid #d2bdff;
+    border-radius: 5px;
+    background-color: #fbfbfb;
+    max-width: 20vw;
+    margin: 0 auto;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background-color: #fbc2eb;
+    transition: all 0.5s ease-in-out;
 }

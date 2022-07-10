@@ -23,37 +23,36 @@ function Products() {
         }
     })
 
-    const notify = () => toast('Produto adicionado ao carrinho!', {
+    const notify = (msg) => toast(msg, {
         position: "bottom-left",
         autoClose: 2000,
-        hideProgressBar: false,
+        hideProgressBar: true,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
-        theme: "dark",
+        theme: "light",
     });
 
     const stylesToast = {
-
-        backgroundColor: '#fbc2eb',
-        boxShadow: '0 0 50px 1px #f296d8',
-        border: '1px solid #f296d8',
-        color: '#9d52f9',
-
+        backgroundColor: '#ff8ae2',
+        border: '2px solid #d2bdff',
+        color: 'black',
     }
 
     let cartList = JSON.parse(localStorage.getItem('ProductList'));
 
-    const handleClick = (id) => {
-
-        notify();
-
+    const handleClick = (id, stock) => {
         if (cartList === null) cartList = {};
-        
-        cartList[id] = cartList[id] ? cartList[id] + 1 : 1;
-        localStorage.setItem('ProductList', JSON.stringify(cartList))
 
+        if (cartList[id] >= stock){
+            notify('Estoque insuficiente!');
+        }
+        else{
+            cartList[id] = cartList[id] ? cartList[id] + 1 : 1;
+            localStorage.setItem('ProductList', JSON.stringify(cartList))
+            notify('Produto adicionado ao carrinho!');
+        }
     }
     
     return (
@@ -80,8 +79,7 @@ function Products() {
                             source={product.img}
                             sound={product.sound}
                             key={product._id} 
-                            event={handleClick} 
-                            eventTarget={product._id}
+                            event={() => handleClick(product._id, product.stock)} 
                         />   
                     ))}
                 </div>

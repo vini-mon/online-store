@@ -16,11 +16,11 @@ function Product({source, name, description, price, sound, qnt, event, eventTarg
 
         if( sound === '' ){
 
-            return <button disabled style={button}><i class="fa-solid fa-play"></i></button>
+            return <button disabled style={button}><i className="fa-solid fa-play"></i></button>
 
         }else{
 
-            return <button style={button}><i class="fa-solid fa-play"></i></button>
+            return <button style={button}><i className="fa-solid fa-play"></i></button>
 
         }
 
