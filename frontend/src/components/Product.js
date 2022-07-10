@@ -1,6 +1,4 @@
 import styles from './Product.module.css'
-import {FaStar} from 'react-icons/fa'
-import {FaStarHalfAlt} from 'react-icons/fa'
 import Button from './Button'
 
 //componente com um produto e suas informações
