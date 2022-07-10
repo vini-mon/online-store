@@ -18,26 +18,29 @@ function Products() {
         axiosInstance: axios,
         method: 'GET',
         url: 'http://localhost:3500/product/',
-        requestConfig: {
-
-        }
+        requestConfig: {}
     })
 
-    const notify = (msg) => toast(msg, {
+    const toastConfig = {
         position: "bottom-left",
         autoClose: 2000,
-        hideProgressBar: true,
+        hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: false,
         draggable: true,
         progress: undefined,
-        theme: "light",
-    });
+        theme: "dark",
+    }
+
+    const notify = (msg) => toast(msg, toastConfig);
+    const notifyError = (msg) => toast.error(msg, toastConfig);
 
     const stylesToast = {
-        backgroundColor: '#ff8ae2',
+        backgroundColor: '#fbc2eb',
         border: '2px solid #d2bdff',
+        borderRadius: '5px',
         color: 'black',
+        textAlign: 'center',
     }
 
     let cartList = JSON.parse(localStorage.getItem('ProductList'));
@@ -46,7 +49,7 @@ function Products() {
         if (cartList === null) cartList = {};
 
         if (cartList[id] >= stock){
-            notify('Estoque insuficiente!');
+            notifyError('Estoque insuficiente!');
         }
         else{
             cartList[id] = cartList[id] ? cartList[id] + 1 : 1;
