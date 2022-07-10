@@ -96,7 +96,7 @@ function Cart() {
 
     return (
         <div>
-            <p className={styles.breadcrumb}><span className={styles.green}>Carrinho</span> <i className="fa-solid fa-circle-right"></i> Resumo <i className="fa-solid fa-circle-right"></i> Pagamento</p>
+            <p className={styles.breadcrumb}><span className={styles.green}> Carrinho </span> <i className="fa-solid fa-circle-right"></i> Resumo <i className="fa-solid fa-circle-right"></i> Pagamento </p>
             <h1 className={styles.title}>Carrinho</h1>
             <div className={styles.box}>
                 {Object.keys(cart).map((index, key) => {

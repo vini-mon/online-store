@@ -1,0 +1,61 @@
+.boxProduct{
+    max-width: 1080px;
+    margin: 0 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.boxProduct::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 650px;
+    border-radius: 2px;
+    background-color: #ff00b7;
+}
+
+.name{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 200px;
+}
+.price{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 150px;
+}
+.qnt{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 200px;
+}
+.subtotal{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100px;
+}
+
+.add{
+    margin-top: -20px;
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.add p{
+    width: 200px;
+    padding-top: 20px;
+    padding-left: 35px;
+}

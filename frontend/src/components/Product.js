@@ -3,11 +3,6 @@ import {FaStar} from 'react-icons/fa'
 import {FaStarHalfAlt} from 'react-icons/fa'
 import Button from './Button'
 
-import useSound from 'use-sound';
-
-import borracha from '../components/sounds/brinqBorracha.mp3';
-import sino from '../components/sounds/bolinha.mp3';
-
 //componente com um produto e suas informações
 //reutilizado n vezes para mostrar todos os produtos da loja
 //renderizado apenas se houver mais de uma unidade
@@ -15,23 +10,33 @@ function Product({source, name, description, price, sound, qnt, event, eventTarg
     
     if (qnt <= 0) return null;
 
-    const BoopButton = (sound) => {
-        let toy, vol, playIcon;
+    const button = { marginLeft: '45%'}
 
-        (sound === "undefined") ? playIcon = "fa-solid fa-volume-xmark" : playIcon = "fa-solid fa-play";
+    const setButton = () => {
 
-        if (sound === "borracha") {
-            toy = borracha;
-            vol = 0.25;
-        } else if (sound === "sino") {
-            toy = sino;
-            vol = 1;
+        if( sound === '' ){
+
+            return <button disabled style={button}><i className="fa-solid fa-play"></i></button>
+
+        }else{
+
+            return <button style={button}><i className="fa-solid fa-play"></i></button>
+
         }
 
-        const [play] = useSound(toy, {volume: vol});
-      
-        return <button style={{marginLeft: "85px"}} onClick={play}><i className={playIcon}></i></button>;
-    };
+    }
+
+    const playSound = (soundSrc) => {
+
+        console.log(soundSrc)
+
+        if( soundSrc === '') console.log('sound track unvailable');
+
+        var audioElement = new Audio(soundSrc);
+
+        audioElement.play();
+
+    }
 
     return (
         <div className={styles.box}>
@@ -50,7 +55,7 @@ function Product({source, name, description, price, sound, qnt, event, eventTarg
             <p>Quantidade em estoque: {qnt}</p>
             <p>R&#36;&nbsp;{price}</p>
 
-            { BoopButton(sound) }
+            <div onClick={ () => playSound(sound) } > { setButton() } </div>
 
             <div className={styles.btnBox}>
                 <Button text="Add to cart" event={event} eventTarget={eventTarget}/>

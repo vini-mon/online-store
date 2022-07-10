@@ -34,7 +34,7 @@ function Payment(){
     }
     
     const cancel = () => {
-        navigate('/cart');
+        navigate('/confirm');
     }
     const modify = async(id, newQnt) =>{
         let oldQnt = -1;
