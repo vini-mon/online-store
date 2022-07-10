@@ -14,17 +14,8 @@ function Payment(){
     let cartStorage = localStorage.getItem('ProductList');
     let cart = cartStorage ? JSON.parse(cartStorage) : {};
     let cartData = Object.entries(cart);
-    let user = localStorage.getItem('token');
+    let user = JSON.parse(localStorage.getItem('token'));
     let userId = user._id;
-    console.log(userId);
-
-    // const [users, err, loading] = useAxios({
-    //     axiosInstance: axios,
-    //     method: 'GET',
-    //     url: 'http://localhost:3500/product/',
-    //     requestConfig: {
-    //     }
-    // })
 
     const toastConfig = {
         position: "bottom-left",
@@ -71,15 +62,15 @@ function Payment(){
         }
 
         let output = [];
-        console.log(cartData.length)
         for (let i = 0; i < cartData.length; i+=1){
             const target = {"quantity":cartData[i][1], "product":cartData[i][0]};
             output.push(target);
         }
         localStorage.setItem('ProductList', JSON.stringify({}));
 
-        axios.post("http://localhost:3500/older", {
-
+        axios.post("http://localhost:3500/order", {
+            "user": userId,
+            "items": output
         })
 
         notify("Pagamento realizado com sucesso!");
