@@ -3,6 +3,10 @@
 const ValidationContract = require('../validators/fluent-validator');
 const repository = require('../repositories/user');
 
+/*
+ * Busca um usuário no banco de dados pelo email e senha
+ * e retorna se o usuário existe ou não
+ */
 exports.authenticate = async(req, res, next) => {
     try {
         const user = await repository.authenticate(req.body);
