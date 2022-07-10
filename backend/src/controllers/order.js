@@ -1,7 +1,6 @@
 'use strict';
 
 const repository = require('../repositories/order');
-const authService = require('../services/auth');
 
 /*
  * Faz a busca da lista de pedidos e retorna, caso exista
@@ -24,11 +23,8 @@ exports.get = async(req, res, next) => {
  */
 exports.post = async(req, res, next) => {
     try {
-        const token = req.body.token || req.query.token || req.headers['x-access-token']; // Busca o token
-        const data = await authService.decodeToken(token); // Decodifica o token do usuário
-
         await repository.create({
-            user: data.id,
+            user: req.body.id,
             items: req.body.items
         });
         res.status(201).send({

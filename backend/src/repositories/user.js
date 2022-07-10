@@ -23,7 +23,7 @@ exports.getAll = async() => {
 exports.getByEmail = async(email) => {
     const res = await User.findOne(
         { email: email },
-        'name email admin phone address'
+        '_id name email admin phone address'
     );
 
     return res;
@@ -54,10 +54,8 @@ exports.updateUser = async(email, data) => {
     await User.findOneAndUpdate({ email: email }, {
         $set: {
             name: data.name,
-            email: data.email,
-            password: data.password,
-            phone: data.phone,
-            address: data.address
+            address: data.address,
+            phone: data.phone
         }
     });
 }
@@ -86,6 +84,6 @@ exports.updateAdmin = async(email, data) => {
 exports.authenticate = async(data) => {
     const res = await User.findOne({
         email: data.email, password: data.password
-    });
+    }, '-__v -password');
     return res;
 }

@@ -22,7 +22,6 @@ const index = require('./routes/index');
 const product = require('./routes/product');
 const order = require('./routes/order');
 const user = require('./routes/user');
-const auth = require('./routes/auth');
 
 // Habilita no cors o acesso de qualquer origem
 app.use(function (req, res, next) {
@@ -40,7 +39,6 @@ app.use(bodyPaser.urlencoded({ extended: false }));
 app.use('/', index);
 app.use('/product', product);
 app.use('/user', user);
-app.use('/auth', auth)
 app.use('/order', order);
 
 module.exports = app;

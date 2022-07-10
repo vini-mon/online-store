@@ -3,6 +3,24 @@
 const ValidationContract = require('../validators/fluent-validator');
 const repository = require('../repositories/user');
 
+exports.authenticate = async(req, res, next) => {
+    try {
+        const user = await repository.authenticate(req.body);
+        if (user === null) {
+            res.status(404).send({
+                message: 'Usuário ou senha inválidos'
+            });
+            return;
+        }
+        res.status(200).send(user);
+    }
+    catch (e) {
+        res.status(401).send({
+            message: 'Falha na autenticação'
+        });
+    }
+}
+
 /*
  * Busca todos os usuários cadastrados no banco de dados
  */
@@ -25,7 +43,7 @@ exports.getByEmail = async(req, res, next) => {
         const data = await repository.getByEmail(req.params.email);
         res.status(200).send(data);
     } catch (e) {
-        res.status(500).send({
+        res.status(404).send({
             message: 'Falha ao processar sua requisição'
         });
     }
