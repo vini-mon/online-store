@@ -57,12 +57,20 @@ function Cart() {
     // função que soma +1 na quantidade de um produto
     const handleAdd = (product) => {
         let cartData = Object.entries(cart);
+        let stock;
+        for (let i = 0; i < products.length; i += 1) {
+            if (products[i]._id === product){
+                stock = products[i].stock;
+            }
+        }
         for (let i = 0; i < cartData.length; i += 1) {
             if (product == cartData[i][0]){
-                if( cartData[i][1] + 1 <= products[i].stock ){
+                if( cartData[i][1] + 1 <= stock){
                     cartData[i][1] = cartData[i][1] + 1;
                     // salva o carrinho no localStorage
                     localStorage.setItem('ProductList', JSON.stringify(Object.fromEntries(cartData)));
+                    // re-renderiza o componente
+                    setTarget(localStorage.getItem('ProductList'));
                     // recalcula o valor total da compra
                     calculateTotal();
         
