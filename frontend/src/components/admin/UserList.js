@@ -1,13 +1,19 @@
 import User from './User';
-import useAuth from '../../hooks/useAuth';
+import useAxios from "../../hooks/useAxios";
+import axios from "../../api/axiosInstance";
 
 //componente que renderiza todos os usuários no dashboard do admin
 //milestone2: as funções so emitem um aviso para simular a função
 function UserList() {
 
-    const { getUsers } = useAuth();
+    const [users, error, loading] = useAxios({
+        axiosInstance: axios,
+        method: 'GET',
+        url: 'http://localhost:3500/user',
+        requestConfig: {
 
-    const users = getUsers()
+        }
+    })
 
     function editUser() {
         alert('Usuário se tornou admin');
