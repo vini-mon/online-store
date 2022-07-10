@@ -29,16 +29,15 @@ const Private = ({ Item }) => {
 }
 
 // Verificar se o usuário é admin
-const isAdmin = ({ Item }) => {
+const IsAdmin = ({ Item }) => {
     const user = localStorage.getItem('token');
 
     if (user) {
         const userInfo = JSON.parse(user);
         if (userInfo.admin) {
-            alert("FOI")
             return <Item/>
         }
-        return <UserAccount/>
+        return <Home/>
     }
 
     return <Login/>
@@ -64,7 +63,7 @@ function App() {
 
                     <Route exact path='/login' element={<Login/>}></Route>
                     <Route exact path='/register' element={<Register/>}></Route>
-                    <Route exact path='/admin' element={<Admin/>}></Route>
+                    <Route exact path='/admin' element={<IsAdmin Item={Admin}/>}></Route>
                     <Route exact path='/account' element={<Private Item={UserAccount}/>}></Route>
 
                     <Route path='*' element={<Home/>}></Route>

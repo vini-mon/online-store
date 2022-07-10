@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 import styles from './Navbar.module.css';
 import logo from '../../img/PetLogo.png';
+import { disabled } from 'glamor';
 
 function Navbar() {
 
@@ -27,10 +28,25 @@ function Navbar() {
         const userInfo = JSON.parse(user)
 
         if (user && userInfo.admin) {
+
+            if (document.getElementById("dash")) {
+
+                document.getElementById("dash").style.display = 'inline-block';
+    
+            }
+
             return "Dashboard";
+
         }
 
-        return false;
+        if (document.getElementById("dash")) {
+
+            document.getElementById("dash").style.display = 'none';
+
+        }
+
+        return "";
+        
     }
 
     return (
@@ -55,7 +71,7 @@ function Navbar() {
                 <li className={styles.item}>
                     <NavLink to="/account" className={({ isActive }) => isActive ? styles.link_active : styles.link }>{accountName}</NavLink>
                 </li>
-                <li className={styles.item}>
+                <li id='dash' className={styles.item}>
                     <NavLink to="/admin" className={({ isActive }) => isActive ? styles.link_active : styles.link }>{isAdmin}</NavLink>
                 </li>
                 <li className={styles.item}>
