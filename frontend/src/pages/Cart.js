@@ -18,7 +18,7 @@ function Cart() {
 
         }
     })
-
+    
     const toastConfig = {
         position: "bottom-left",
         autoClose: 2000,
@@ -30,7 +30,7 @@ function Cart() {
         theme: "dark",
     }
     const notifyError = (msg) => toast.error(msg, toastConfig);
-
+    const navigate = useNavigate();
     // target usado para re-rederizar a o componente de cada produto
     // totalSoma usado para re-rederizar o componente de cada produto
     const [target, setTarget] = useState({});
@@ -39,6 +39,8 @@ function Cart() {
     // variável que auxilia no calculo do valor total da compra
     let total = 0;
     
+    let user = JSON.parse(localStorage.getItem('token'));
+
     // que pega os produtos da localStorage
     let cartStorage = localStorage.getItem('ProductList');
     let cart = cartStorage ? JSON.parse(cartStorage) : {};
@@ -58,16 +60,22 @@ function Cart() {
         })
     }
 
+    
+    
+
     useEffect(() => {
         calculateTotal();
     })
 
-    // navegação para a página de pagamento
-    const navigate = useNavigate();
     
     const payment = () => {
         if (!cartStorage || cartStorage === '{}' || total === 0){
             notifyError("Carrinho Vazio!");
+            return;
+        }
+        if (!user){
+            notifyError("Faça login ou cadastre um novo usuário!");
+            navigate('/login');
             return;
         }
         navigate('/confirm');
