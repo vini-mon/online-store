@@ -133,21 +133,6 @@ textarea:focus {
     height: 2vh;
 }
 
-.btn{
-    padding: 10px 25px 10px 25px;
-    border: 2px solid #d2bdff;
-    border-radius: 5px;
-    background-color: #fbfbfb;
-    max-width: 20vw;
-    margin: 0 auto;
-}
-
-.btn:hover{
-    cursor: pointer;
-    background-color: #fde1f6;
-    transition: all 0.5s ease-in-out;
-}
-
 .btn2{
     padding: 10px 25px 10px 25px;
     border: 2px solid #d2bdff;
@@ -155,6 +140,7 @@ textarea:focus {
     background-color: #ff8ae2;
     max-width: 20vw;
     margin: 0 auto;
+    margin-bottom: 50px;
 }
 
 .btn2:hover{
