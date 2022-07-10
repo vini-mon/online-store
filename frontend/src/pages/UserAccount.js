@@ -1,27 +1,73 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from "react";
-import useAuth from "../hooks/useAuth";
+import { useState, useEffect } from "react";
 import styles from './Forms.module.css';
 import userIcon from '../img/account/login.png';
+import axios from 'axios';
 
-// função que comanda ações da página de usuário
-// return: HTML com form para alterar informacoes do usuarios
 function UserAccount() {
-    //requisita funções do hook
-    const { signout, getInfo, updateInfo } = useAuth();
-    const email = useAuth();
+
     const navigate = useNavigate();
 
-    //recupera valor de email
-    let info = getInfo(email.email);
+    let user = JSON.parse(localStorage.getItem('token'));
 
     //variaveis dinamicas com armazenam auterações nos dados dos usuários
-    const [name, setName] = useState(info.name);
-    const [adress, setAdress] = useState(info.adress);
-    const [phone, setPhone] = useState(info.phone);
+    const [name, setName] = useState(user.name);
+    const [address, setAddress] = useState(user.address);
+    const [phone, setPhone] = useState(user.phone);
     const [password, setPassword] = useState();
     const [confirmPassword, setConfirmPassword] = useState();
     const [error, setError] = useState();
+
+    const [didClickButton, setDidClickButton] = useState(false);
+
+    useEffect(() => {
+        async function checkPassword(userEmail, userPassword) {
+            try {
+                await axios.post('http://localhost:3500/user/auth', {
+                    email: userEmail,
+                    password: userPassword
+                });
+                setError('')
+            } catch(e) {
+                setError(e.response.data.message)
+            }
+        }
+
+        async function update(userEmail, info) {
+            try {
+                await axios.put('http://localhost:3500/user/' + userEmail, info);
+                setError('Alterações realizadas') // OBS COLOCAR UM TOAST AQUI
+            } catch(e) {
+                console.log(e)
+            }
+        }
+
+        async function getUser(userEmail) {
+            try {
+                const res = await axios.get('http://localhost:3500/user/' + userEmail);
+                localStorage.setItem('token', JSON.stringify(res.data))
+            } catch(e) {
+                localStorage.removeItem('token')
+            }
+        }
+
+
+        if (didClickButton) {
+            console.log("AAAAAA")
+            checkPassword(user.email, password);
+            if (error === '') {
+                update(user.email, {
+                    name: name,
+                    address: address,
+                    phone: phone
+                });
+                getUser(user.email);
+            }
+        }
+
+        setDidClickButton(false);
+
+    }, [didClickButton]);
 
     //função que realiza a atualização dos dados do usuário
     //acionada ao clica no botão "Salvar Alterações"
@@ -29,7 +75,7 @@ function UserAccount() {
         e.preventDefault();
 
         //validaçoes
-        if (!name || !adress || !phone || !password || !confirmPassword) {
+        if (!name || !address || !phone || !password || !confirmPassword) {
             setError('Preencha todos os campos')
             return
         }
@@ -37,20 +83,13 @@ function UserAccount() {
             setError('As senhas não conferem')
             return
         }
-        if (password !== info.password) {
-            setError('Senha incorreta')
-            return
-        }
 
-        const newInfo = {
-            name,
-            adress,
-            phone
-        }
+        setDidClickButton(true);
+    }
 
-        //atualização no localestorage
-        const res = updateInfo(newInfo)
-        setError(res)
+    const signOut = () => {
+        localStorage.removeItem('token');
+        navigate('/login');
     }
 
     return (
@@ -64,8 +103,8 @@ function UserAccount() {
                         onChange={(e) => [setName(e.target.value), setError('')]}  
                         className={styles.loginField}/> <br/>
                                 
-                        <input id="adress" type="text" value={adress} placeholder="Endereço"
-                        onChange={(e) => [setAdress(e.target.value), setError('')]}  
+                        <input id="address" type="text" value={address} placeholder="Endereço"
+                        onChange={(e) => [setAddress(e.target.value), setError('')]}  
                         className={styles.loginField}/> <br/>
 
                         <input id="phone" type="text" value={phone} placeholder="Telefone"
@@ -84,7 +123,7 @@ function UserAccount() {
 
                         <button className={styles.btn} onClick={handleUpdate}> Salvar alterações</button><br/>
                         {/* redirecionamento para a pagina inicial e saida da conta */}
-                        <button className={styles.btn} onClick={() => [signout(), navigate('/')]}>Sair da conta</button><br/>
+                        <button className={styles.btn} onClick={signOut}>Sair da conta</button><br/>
                     </form>
                 </div>
             </div>

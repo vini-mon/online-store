@@ -19,20 +19,26 @@ import Payment from './pages/Payment';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 
-// Hooks
-import useAuth from './hooks/useAuth';
-
-// Verificar se o usuário está logado e se é admin ou não
+// Verificar se o usuário está logado
 const Private = ({ Item }) => {
-    const signed = useAuth();
-    const email = useAuth();
-    const {isAdmin} = useAuth();
+    const user = localStorage.getItem('token');
 
-    if (signed.signed) {
-        if (isAdmin(email.email)) {
-            return <Admin/>
+    if (user) return <Item/>
+
+    return <Login/>
+}
+
+// Verificar se o usuário é admin
+const isAdmin = ({ Item }) => {
+    const user = localStorage.getItem('token');
+
+    if (user) {
+        const userInfo = JSON.parse(user);
+        if (userInfo.admin) {
+            alert("FOI")
+            return <Item/>
         }
-        return <Item/>
+        return <UserAccount/>
     }
 
     return <Login/>
@@ -46,6 +52,7 @@ function App() {
             <Router>
                 {/* Importação na Navbar */}
                 <Navbar/>
+
                 <Routes>
                     {/* Rotas */}
                     <Route exact path='/' element={<Home/>}></Route>
