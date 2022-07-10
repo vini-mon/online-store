@@ -41,15 +41,7 @@ function Product({source, name, description, price, sound, qnt, event, eventTarg
     return (
         <div className={styles.box}>
             <img width="250px" height="300px" src={source} alt="Foto do Produto" className={styles.image}/>
-
-            <div className={styles.star}>
-                <FaStar/>
-                <FaStar/>
-                <FaStar/>
-                <FaStar/>
-                <FaStarHalfAlt/>
-            </div>
-
+            
             <h4>{name}</h4>
             <p>{description}</p>
             <p>Quantidade em estoque: {qnt}</p>
