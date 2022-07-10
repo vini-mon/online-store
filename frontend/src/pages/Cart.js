@@ -6,6 +6,9 @@ import { useState, useEffect } from 'react';
 import useAxios from "../hooks/useAxios";
 import axios from "../api/axiosInstance";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Cart() {  
     const [products, error, loading] = useAxios({
         axiosInstance: axios,
@@ -15,6 +18,18 @@ function Cart() {
 
         }
     })
+
+    const toastConfig = {
+        position: "bottom-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    }
+    const notifyError = (msg) => toast.error(msg, toastConfig);
 
     // target usado para re-rederizar a o componente de cada produto
     // totalSoma usado para re-rederizar o componente de cada produto
@@ -51,18 +66,30 @@ function Cart() {
     const navigate = useNavigate();
     
     const payment = () => {
+        if (!cartStorage || cartStorage === '{}' || total === 0){
+            notifyError("Carrinho Vazio!");
+            return;
+        }
         navigate('/confirm');
     }
 
     // função que soma +1 na quantidade de um produto
     const handleAdd = (product) => {
         let cartData = Object.entries(cart);
+        let stock;
+        for (let i = 0; i < products.length; i += 1) {
+            if (products[i]._id === product){
+                stock = products[i].stock;
+            }
+        }
         for (let i = 0; i < cartData.length; i += 1) {
             if (product == cartData[i][0]){
-                if( cartData[i][1] + 1 <= products[i].stock ){
+                if( cartData[i][1] + 1 <= stock){
                     cartData[i][1] = cartData[i][1] + 1;
                     // salva o carrinho no localStorage
                     localStorage.setItem('ProductList', JSON.stringify(Object.fromEntries(cartData)));
+                    // re-renderiza o componente
+                    setTarget(localStorage.getItem('ProductList'));
                     // recalcula o valor total da compra
                     calculateTotal();
         
