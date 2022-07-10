@@ -6,6 +6,9 @@ import { useState, useEffect } from 'react';
 import useAxios from "../hooks/useAxios";
 import axios from "../api/axiosInstance";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Cart() {  
     const [products, error, loading] = useAxios({
         axiosInstance: axios,
@@ -15,6 +18,25 @@ function Cart() {
 
         }
     })
+
+    const toastConfig = {
+        position: "bottom-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    }
+    const notifyError = (msg) => toast.error(msg, toastConfig);
+    const stylesToast = {
+        backgroundColor: '#fbc2eb',
+        border: '2px solid #d2bdff',
+        borderRadius: '5px',
+        color: 'black',
+        textAlign: 'center',
+    }
 
     // target usado para re-rederizar a o componente de cada produto
     // totalSoma usado para re-rederizar o componente de cada produto
@@ -51,6 +73,10 @@ function Cart() {
     const navigate = useNavigate();
     
     const payment = () => {
+        if (!cartStorage){
+            notifyError("Carrinho Vazio!");
+            return;
+        }
         navigate('/confirm');
     }
 
@@ -102,6 +128,7 @@ function Cart() {
 
     return (
         <div>
+            <div><ToastContainer toastStyle={stylesToast} pauseOnFocusLoss={false} /></div>
             <p className={styles.breadcrumb}><span className={styles.green}> Carrinho </span> <i className="fa-solid fa-circle-right"></i> Resumo <i className="fa-solid fa-circle-right"></i> Pagamento </p>
             <h1 className={styles.title}>Carrinho</h1>
             <div className={styles.box}>
