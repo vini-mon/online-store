@@ -41,8 +41,8 @@ exports.create = async(data) => {
  * Busca no banco de dados um usuário pelo email
  * Realiza o delete do usuário
  */
-exports.delete = async(email) => {
-    await User.findOneAndRemove({ email: email });
+exports.delete = async(id) => {
+    await User.findByIdAndRemove(id);
 }
 
 /*
@@ -65,12 +65,11 @@ exports.updateUser = async(email, data) => {
  * Realiza o update do usuário com os dados passados
  * Altera, também, o campo admin
  */
-exports.updateAdmin = async(email, data) => {
-    await User.findOneAndUpdate({ email: email }, {
+exports.updateAdmin = async(id, data) => {
+    await User.findByIdAndUpdate(id, {
         $set: {
             name: data.name,
             email: data.email,
-            password: data.password,
             phone: data.phone,
             address: data.address,
             admin: data.admin

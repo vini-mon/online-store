@@ -1,13 +1,10 @@
 import Product from './Product';
 import styles from './ProductList.module.css';
 
-import React from 'react';
 import Modal from 'react-modal';
 
-
-import useAxios from "../../hooks/useAxios";
 import axios from "../../api/axiosInstance";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const customStyles = {
     content: {
@@ -29,68 +26,53 @@ const customStyles = {
 
 Modal.setAppElement('body');
 
-//componente que rederiza todos os produtos para edição no dashboard do admin
-//milestone2: funções so produzem alertas
 function ProductList() {
-    const [products, error, loading] = useAxios({
-        axiosInstance: axios,
-        method: 'GET',
-        // url: 'http://localhost:3500/product/admin',
-        url: 'http://localhost:3500/product/',
-        requestConfig: {
+    const [updated, setUpdated] = useState(false);
+    const [products, setProducts] = useState([]);
 
+    const [modalValue, setValue] = useState("-");
+    const [modalDescription, setD] = useState("-");
+    const [modalStock, setStock] = useState(-1);
+    const [modalPrice, setPrice] = useState(-1);
+    const [modalSold, setSold] = useState(-1);
+    const [modalImg, setImg] = useState("");
+    const [modalSrc, setSrc] = useState("");
+    const [id, setId] = useState(-1);
+
+    const [didClickButton, setDidClickButton] = useState(false);
+
+    const [modalIsOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        async function getProductList() {
+            try {
+                const res = await axios.get('http://localhost:3500/product/admin');
+                setProducts(res.data);
+            } catch (e) {
+                console.log(e);
+            }
         }
-    })
-    
-    // let [modalId, setId] = useState(-1);
-    let [modalValue, setValue] = useState("-");
-    let [modalDescription, setD] = useState("-");
-    let [modalStock, setStock] = useState(-1);
-    let [modalPrice, setPrice] = useState(-1);
-    let [modalSold, setSold] = useState(-1);
-    let [modalImg, setImg] = useState("");
-    let [modalSrc, setSrc] = useState("");
 
-    const [modalIsOpen, setIsOpen] = React.useState(false);
+        getProductList();
+    }, [updated]);
 
     function openModal() {
         setIsOpen(true);
     }
 
-    function afterOpenModal() {
-        // references are now sync'd and can be accessed.
-    
-    }
-
     function closeModal(e) {
-
         e.preventDefault();
         setIsOpen(false);
-
     }
 
-    function handleChange(e){
-        if (e.target.id === "0"){
-            setValue(e.target.value);
-        }
-        if (e.target.id === "1"){
-            setStock(e.target.value);
-        }
-        if (e.target.id === "2"){
-            setSold(e.target.value);
-        }
-        if (e.target.id === "3"){
-            setPrice(e.target.value);
-        }
-        if (e.target.id === "4"){
-            setImg(e.target.value);
-        }
-        if (e.target.id === "5"){
-            setSrc(e.target.value);
-        }
-        if (e.target.id === "6"){
-            setD(e.target.value);
-        }
+    function handleChange(e) {
+        if (e.target.id === "0") setValue(e.target.value);
+        if (e.target.id === "1") setStock(e.target.value);
+        if (e.target.id === "2") setSold(e.target.value);
+        if (e.target.id === "3") setPrice(e.target.value);
+        if (e.target.id === "4") setImg(e.target.value);
+        if (e.target.id === "5") setSrc(e.target.value);
+        if (e.target.id === "6") setD(e.target.value);
     }
 
     function editProduct(id, name, description, stock, price, sold, img, src) {
@@ -101,23 +83,55 @@ function ProductList() {
         setSold(sold);
         setImg(img);
         setSrc(src);
+        setId(id);
 
         openModal();
     }
 
-    function removeProduct(id) {
-        console.log("removendo produto: " + id);
+    function removeProduct(productId) {
+        async function deleteProduct(productId) {
+            try {
+                await axios.delete('http://localhost:3500/product/' + productId);
+                setUpdated(true);
+            } catch (e) {
+                console.log(e);
+            }
+        }
+
+        deleteProduct(productId);
+
+        setUpdated(false)
     }
 
-    function updateProduct(e){
-        console.log(modalValue);
-        console.log(modalDescription);
-        console.log(modalStock);
-        console.log(modalPrice);
-        console.log(modalSold);
-        console.log(modalImg);
-        console.log(modalSrc);
+    useEffect(() => {
+        async function updateRequest() {
+            try {
+                await axios.put('http://localhost:3500/product/' + id, {
+                    name: modalValue,
+                    description: modalDescription,
+                    price: modalPrice,
+                    stock: modalStock,
+                    img: modalImg,
+                    sound: modalSrc
+                });
+            } catch(e) {}
+        }
+
+        if (didClickButton) {
+            updateRequest();
+            setUpdated(true)
+        }
+
+        setDidClickButton(false);
+
+    }, [didClickButton]);
+
+    function updateProduct(e) {
         e.preventDefault();
+
+        setDidClickButton(true);
+        setIsOpen(false);
+        setUpdated(false);
     }
 
     return (
@@ -140,7 +154,7 @@ function ProductList() {
             })}
             
             <Modal
-                isOpen={modalIsOpen} onAfterOpen={afterOpenModal} onRequestClose={closeModal}
+                isOpen={modalIsOpen} onRequestClose={closeModal}
                 style={customStyles} contentLabel="Example Modal"
             >
 

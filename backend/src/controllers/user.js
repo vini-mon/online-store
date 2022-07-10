@@ -83,11 +83,11 @@ exports.post = async(req, res, next) => {
 }
 
 /*
- * Remove um usuário do banco de dados, buscando-o pelo email
+ * Remove um usuário do banco de dados, buscando-o pelo id
  */
 exports.delete = async(req, res, next) => {
     try {
-        await repository.delete(req.body.email);
+        await repository.delete(req.params.id);
         res.status(200).send({
             message: 'Usuário removido com sucesso!'
         });
@@ -117,13 +117,13 @@ exports.putUser = async(req, res, next) => {
 
 /*
  * Altera as informações de um usuário no banco de dados,
- * buscando-o pelo email
+ * buscando-o pelo id
  * 
  * Altera, também, as permissões do usuário
  */
 exports.putAdmin = async(req, res, next) => {
     try {
-        await repository.updateAdmin(req.params.email, req.body);
+        await repository.updateAdmin(req.params.id, req.body);
         res.status(200).send({
             message: 'Usuário atualizado com sucesso!'
         });

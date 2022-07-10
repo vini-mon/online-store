@@ -62,12 +62,15 @@ function Confirm() {
                         <div className={styles.qnt}> <h3>Quantidade</h3> </div> 
                         <div className={styles.subtotal}> <h3>Subtotal</h3> </div> 
                     </div>
-                    {Object.keys(cart).map((index, key) => {
+                    <div className={styles.itens}>
+                        {Object.keys(cart).map((index, key) => {
                         return <ConfirmProduct 
                             key={key} 
                             id={index}
                         />
-                    })}
+                        })}
+                    </div>
+                    
                     <div className={styles.info}>
                         <p>Frete: Grátis</p>
                         <p>Total: R${totalSoma}.00</p>

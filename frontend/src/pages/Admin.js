@@ -5,9 +5,9 @@ import ProductList from '../components/admin/ProductList';
 import React from 'react';
 import Modal from 'react-modal';
 
-import {useNavigate} from 'react-router-dom'
-import {useState} from 'react';
-import useAuth from "../hooks/useAuth";
+import {useState, useEffect} from 'react';
+
+import axios from 'axios';
 
 const customStyles = {
     content: {
@@ -33,42 +33,65 @@ Modal.setAppElement('body');
 // confere autentificação
 // return: pagina do admin 
 // milestone2: envia um alert sobre o produto criado
-function Admin () {
-    const { signout } = useAuth();
-
-    const navigate = useNavigate();
+function Admin() {
 
     // armazenamento dinámico dos dados do produto criado
     const [name, setName] = useState('');
-    const [text, setText] = useState('');
-    const [price, setPrice] = useState('');
     const [stock, setStock] = useState('');
+    const [price, setPrice] = useState('');
+    const [image, setImage] = useState('');
+    const [sound, setSound] = useState('');
+    const [description, setDescription] = useState('');
     
-    const [modalIsOpen, setIsOpen] = React.useState(false);
+    const [modalIsOpen, setIsOpen] = useState(false);
+    const [didClickButton, setDidClickButton] = useState(false);
+
+    useEffect(() => {
+        async function updateRequest() {
+            try {
+                await axios.post('http://localhost:3500/product', {
+                    name: name,
+                    description: description,
+                    price: price,
+                    stock: stock,
+                    img: image,
+                    sound: sound
+                });
+            } catch(e) {}
+        }
+
+        if (didClickButton) {
+            updateRequest();
+        }
+
+        setDidClickButton(false);
+
+    }, [didClickButton]);
+
     
     function openModal() {
         setIsOpen(true);
     }
 
-    function afterOpenModal() {
-        // references are now sync'd and can be accessed.
-    
-    }
-
     function closeModal(e) {
-
         e.preventDefault();
         setIsOpen(false);
-
     }
 
-    function updateProduct(e){
+    function createProduct(e){
         e.preventDefault();
+
+        setDidClickButton(true);
+        setIsOpen(false);
     }
 
-    //arrow function para a criação do produto
-    const createProduct = (e) => {
-        openModal();
+    function handleChange(e) {
+        if (e.target.id === "0") setName(e.target.value);
+        if (e.target.id === "1") setStock(e.target.value);
+        if (e.target.id === "2") setPrice(e.target.value);
+        if (e.target.id === "3") setImage(e.target.value);
+        if (e.target.id === "4") setSound(e.target.value);
+        if (e.target.id === "5") setDescription(e.target.value);
     }
 
     return (
@@ -91,15 +114,15 @@ function Admin () {
                         </tbody>
                     </table>
                 </div>
-                <div className={styles.center}>
-                    <button className={styles.btn} onClick={() => [signout(), navigate('/login')]}>Sair da conta</button><br/> 
-                </div>
             </div>
             <div className={styles.dashboardProducts}>
                 <div className="small-container">
                     <h2 className={styles.adminTitle}>Tabela de produtos</h2>
+                    <div className={styles.center}>
+                        <button className={styles.btn2} onClick={openModal}>Adicionar novo produto</button>
+                    </div>
                     <div className="col-2">
-                        <table cellSpacing="7" className={styles.adminTable}   >
+                        <table cellSpacing="7" className={styles.adminTable}>
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -116,14 +139,11 @@ function Admin () {
                             </tbody>
                         </table>
                     </div>
-                    <div className={styles.center}>
-                        <button className={styles.btn2} onClick={createProduct}>Adicionar novo produto</button>
-                    </div>
                 </div>
             </div>
 
             <Modal
-                isOpen={modalIsOpen} onAfterOpen={afterOpenModal} onRequestClose={closeModal}
+                isOpen={modalIsOpen} onRequestClose={closeModal}
                 style={customStyles} contentLabel="Example Modal"
             >
 
@@ -133,37 +153,38 @@ function Admin () {
                     {/* <input readOnly className={styles.readOnly} type="text" defaultValue={modalId} /> <br /> */}
                     <div className={styles.in}>
                         <label>Nome</label>
-                        <input type="text" defaultValue="" />
+                        <input type="text" onChange={handleChange} id="0" defaultValue="" />
                     </div>
                     <div className={styles.in}>
                         <label>Estoque</label>
-                        <input type="number" step="1" defaultValue="" />
+                        <input type="number" onChange={handleChange} id="1" step="1" defaultValue="" />
                     </div>
                     <div className={styles.in}>
                         <label>Vendidos</label>
                         <input readOnly className={styles.readOnly} type="number" defaultValue="" />
                     </div>
+
                     <div className={styles.in}>
                         <label>Preço</label>
-                        <input type="number" step="0.01" defaultValue="" />
+                        <input type="number" onChange={handleChange} id="2" step="0.01" defaultValue="" />
                     </div>
                     <div className={styles.in}>
                         <label>Imagem</label>
-                        <input type="text" step="0.01" defaultValue="" />
+                        <input type="text" onChange={handleChange} id="3" step="0.01" defaultValue="" />
                     </div>
                     <div className={styles.in}>
                         <label>Som</label>
-                        <input type="text" step="0.01" defaultValue="" />
+                        <input type="text" onChange={handleChange} id="4" step="0.01" defaultValue="" />
                     </div>
                     <div className={styles.in}>
                         <label>Descrição</label>
-                        <textarea type="text" defaultValue=""></textarea>
+                        <textarea type="text" onChange={handleChange} id="5" defaultValue=""></textarea>
                     </div>
                     
                     <br/>
 
                     <div className={styles.inline}>
-                        <input type="submit" className={styles.submit} onClick={(e)=>updateProduct(e)} value="Salvar mudanças" />
+                        <input type="submit" className={styles.submit} onClick={(e)=>createProduct(e)} value="Salvar mudanças" />
                         <button className={styles.cancel} onClick={(e) => closeModal(e)}>Cancelar</button>
                     </div>
 

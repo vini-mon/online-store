@@ -79,6 +79,7 @@ function Products() {
                             name={product.name} 
                             price={product.price} 
                             qnt = {product.stock}
+                            description = {product.description}
                             source={product.img}
                             sound={product.sound}
                             key={product._id} 
