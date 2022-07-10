@@ -1,36 +1,10 @@
-import { useState } from 'react';
 import styles from './About.module.css'
-import contact from '../img/Contact.png'
+
+import imgG from '../img/people/gabriel.jpg'
+import imgJ from '../img/people/joao.jpg'
+import imgV from '../img/people/vinicius.jpeg'
 
 function About() {
-
-    // Função para "enviar" email para contato
-    // milestone2: imprime no console as informações recebidas via form
-    //             imprime mensagem de sucesso        
-    function sendMail(event){
-        event.preventDefault();
-
-        console.log(nome);
-        console.log(email);
-        console.log(telefone);
-        console.log(texto);
-
-        // Reset dos values do formulário
-        document.getElementById('nome').value = "";
-        document.getElementById('email').value = "";
-        document.getElementById('tel').value = "";
-        document.getElementById('texto').value = "";
-
-        // alerta de sucesso
-        console.log("Mensagem enviada!");
-        alert("Mensagem enviada!");
-    }
-
-    //armazenamento dinámico dos campos do form
-    const [nome, setNome] = useState('')
-    const [email, setEmail] = useState('')
-    const [telefone, setTel] = useState('')
-    const [texto, setTexto] = useState('')
 
     return(
         <div className={styles.box}>
@@ -50,23 +24,49 @@ function About() {
                     das novidades do mundo pet e levá-las até você.
                 </p>
             </div>
-            <div className={styles.box_contact}>
-                <h2 className={styles.title}>Entre em contato conosco</h2>
-                <div className={styles.contact}>
-                    <img src={contact} alt="contact" className={styles.image}></img>
-                    <div className={styles.forms}>
-                        <input id="nome" type="text" className={styles.field} name="user-name"
-                        onChange={event => setNome(event.target.value)} placeholder="Nome"/><br/>
-                        <input id="email" type="email" className={styles.field} name="user-mail"
-                        onChange={event => setEmail(event.target.value)} placeholder="Email"/><br/>
-                        <input id="tel" type="text" className={styles.field} name="user-phone"
-                        onChange={event => setTel(event.target.value)} placeholder="Telefone"/><br/>
-                        <textarea id="texto" className={styles.field} name="user-text"
-                        onChange={event => setTexto(event.target.value)} placeholder="Digite sua Mensagem"></textarea><br/>
-                        <button className={styles.btn} onClick={sendMail}>Enviar</button><br/>
+
+            <div className={styles.people}>
+
+                <h2 className={styles.title}>Desenvolvedores</h2>
+
+                <div className={styles.row}>
+
+                    <div className={styles.col3}>
+                        <img src={imgG} />
+                        <h4>Gabriel Akio Urakawa</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <div className={styles.social}>
+                            <a href="https://www.instagram.com/gabriel.akio/" target="_blank"><i className="fab fa-instagram"></i></a>
+                            <a href="" target="_blank"><i className="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/GabrielAkioUrakawa" target="_blank"><i className="fab fa-github"></i></a>
+                        </div>
                     </div>
+
+                    <div className={styles.col3}>
+                        <img src={imgJ} />
+                        <h4>João Pedro Rodrigues Freitas</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <div className={styles.social}>
+                            <a href="https://www.instagram.com/joaoprfreitas/" target="_blank"><i className="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/joaoprf/" target="_blank"><i className="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/joaoprfreitas" target="_blank"><i className="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <div className={styles.col3}>
+                        <img src={imgV} />
+                        <h4>Vinicius Santos Monteiro</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <div className={styles.social}>
+                            <a href="https://www.instagram.com/vini.moon/" target="_blank"><i className="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/vinicius-santos-monteiro-a3a88a1aa/" target="_blank"><i className="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/vini-mon" target="_blank"><i className="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
+            
         </div>
     )
 }
