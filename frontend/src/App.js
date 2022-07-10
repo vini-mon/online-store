@@ -56,10 +56,6 @@ const IsAdmin = ({ Item }) => {
 }
 
 function App() {
-    useEffect(() => {
-        localStorage.clear();
-    });
-
     return (
         <AuthProvider>
             {/* Conjunto de rotas dos componentes relacionados com a Navbar */}
