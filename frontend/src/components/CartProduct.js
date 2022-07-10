@@ -50,7 +50,7 @@ function CartProduct({ eventAdd, eventRemove, eventTarget, id}){
             <div>
                 <div>
                     <h2>{name}</h2> 
-                    <span>{price}</span>
+                    <span>R${price}.00</span>
                 </div>
                 <p>{description}</p>
                 <div className={styles.add}>  

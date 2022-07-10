@@ -63,8 +63,6 @@ function Cart() {
                     cartData[i][1] = cartData[i][1] + 1;
                     // salva o carrinho no localStorage
                     localStorage.setItem('ProductList', JSON.stringify(Object.fromEntries(cartData)));
-                    // re-renderiza o componente
-                    setTarget(localStorage.getItem('ProductList'));
                     // recalcula o valor total da compra
                     calculateTotal();
         
