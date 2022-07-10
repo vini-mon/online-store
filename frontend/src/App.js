@@ -3,6 +3,9 @@ import { AuthProvider } from './context/auth'
 
 import './App.css';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // Routes
 import Home from './pages/Home';
 import About from './pages/About';
@@ -26,6 +29,14 @@ const Private = ({ Item }) => {
     if (user) return <Item/>
 
     return <Login/>
+}
+
+const stylesToast = {
+    backgroundColor: '#fbc2eb',
+    border: '2px solid #d2bdff',
+    borderRadius: '5px',
+    color: 'black',
+    textAlign: 'center',
 }
 
 // Verificar se o usuário é admin
@@ -53,6 +64,7 @@ function App() {
                 {/* Importação na Navbar */}
                 <Navbar/>
 
+                <div><ToastContainer toastStyle={stylesToast} pauseOnFocusLoss={false} /></div>
                 <Routes>
                     {/* Rotas */}
                     <Route exact path='/' element={<Home/>}></Route>
