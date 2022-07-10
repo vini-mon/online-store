@@ -10,19 +10,21 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Payment(){
-    // que pega os produtos da localStorage
+    // que pega info do localStorage
     let cartStorage = localStorage.getItem('ProductList');
     let cart = cartStorage ? JSON.parse(cartStorage) : {};
     let cartData = Object.entries(cart);
+    let user = localStorage.getItem('token');
+    let userId = user._id;
+    console.log(userId);
 
-    const [products, err, loading] = useAxios({
-        axiosInstance: axios,
-        method: 'GET',
-        url: 'http://localhost:3500/product/',
-        requestConfig: {
-
-        }
-    })
+    // const [users, err, loading] = useAxios({
+    //     axiosInstance: axios,
+    //     method: 'GET',
+    //     url: 'http://localhost:3500/product/',
+    //     requestConfig: {
+    //     }
+    // })
 
     const toastConfig = {
         position: "bottom-left",
@@ -59,34 +61,27 @@ function Payment(){
     const cancel = () => {
         navigate('/confirm');
     }
-    const modify = async(id, newQnt) =>{
-        let oldQnt = -1;
-        products.map((prod)=>{
-            if (prod._id == id){
-                oldQnt = prod.stock;
-            }
-        })
-
-        await axios.put("http://localhost:3500/product/" + id, {
-            "stock": oldQnt - newQnt,
-            "sold": newQnt
-        });
-    }
 
     const ahead = (e) => {
         e.preventDefault();
         
         if (!cardNumber || !cardName || !cardExpiry || !cardCvv) {
-            setError('Preencha todos os campos')
-            return
+            setError('Preencha todos os campos');
+            return;
         }
 
-        
+        let output = [];
+        console.log(cartData.length)
         for (let i = 0; i < cartData.length; i+=1){
-            modify(cartData[i][0], cartData[i][1]);
+            const target = {"quantity":cartData[i][1], "product":cartData[i][0]};
+            output.push(target);
         }
-        
         localStorage.setItem('ProductList', JSON.stringify({}));
+
+        axios.post("http://localhost:3500/older", {
+
+        })
+
         notify("Pagamento realizado com sucesso!");
         navigate('/');
     }
@@ -94,7 +89,6 @@ function Payment(){
 
     return (
         <div>
-            <div><ToastContainer toastStyle={stylesToast} pauseOnFocusLoss={false} /></div>
             <p className={styles.breadcrumb}><span className={styles.green} >Carrinho  <i className="fa-solid fa-circle-right"></i> Resumo  <i className="fa-solid fa-circle-right"></i>Pagamento</span></p>
             <h1 className={styles.title}>Finalize seu Pedido</h1>
             <div className={styles.box}>

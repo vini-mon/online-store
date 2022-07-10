@@ -58,7 +58,7 @@ function CartProduct({ eventAdd, eventRemove, eventTarget, id}){
                     <p style={{marginRight: "25px"}}>{qnt}</p>
                     <Button text="+" event={eventAdd} eventTarget={eventTarget}></Button>
                 </div> 
-                <p>Subtotal: R${qnt * price}.00</p>
+                <p>Subtotal: R${qnt * price}</p>
             </div>  
             
         </div>
