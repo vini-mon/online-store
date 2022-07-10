@@ -9,6 +9,8 @@ function CartProduct({id}){
     let name = ""
     let qnt = -1
     let price = -1
+    let img = ""
+    let description = ""
 
     // pega o produto do localStorage
     const cartStorage = localStorage.getItem('ProductList');
@@ -32,6 +34,8 @@ function CartProduct({id}){
                 }
             }
 
+            img = product.img
+            description = product.description
             name = product.name
             price = product.price
         }
@@ -39,20 +43,28 @@ function CartProduct({id}){
     })
 
     return(
-        <div className={styles.boxProduct}>
-            <div className={styles.name}>
-                <p>{name}</p> 
-            </div>
-            <div className={styles.price}>
-                <p>R${price}</p>
-            </div>
-            <div className={styles.qnt}>  
-                <p>{qnt}</p>
-            </div> 
-            <div className={styles.subtotal}>  
-                <p>R${qnt * price}.00</p> 
-            </div> 
-        </div>
+        <>
+            {qnt > 0 &&
+                <div className={styles.boxProduct}>
+                    <div className={styles.prod}>
+                        <img src={img} alt="Sem foto." className={styles.image}/>
+                        <div className={styles.info}>
+                            <p>{name}</p> 
+                        </div>
+                    </div>
+                    <div className={styles.price}>
+                        <p>R${price}</p>
+                    </div>
+                    <div className={styles.qnt}>  
+                        <p>{qnt}</p>
+                    </div> 
+                    <div className={styles.subtotal}>  
+                        <p>R${qnt * price}.00</p> 
+                    </div> 
+                </div>
+            }
+        </>
+        
     )
 }
 

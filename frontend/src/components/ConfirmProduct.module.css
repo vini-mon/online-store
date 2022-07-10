@@ -8,24 +8,24 @@
     align-items: center;
 }
 
-.boxProduct::after{
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    height: 2px;
-    width: 650px;
-    border-radius: 2px;
-    background-color: #ff00b7;
+.info{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
-.name{
+.prod{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    width: 200px;
+    width: 300px;
 }
+
+.image{
+    height: 100px;
+    margin-right: 10px;
+}
+
 .price{
     display: flex;
     flex-wrap: wrap;
