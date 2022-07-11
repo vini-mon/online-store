@@ -1,22 +1,14 @@
 # PetStore
-## ATENÇÃO REVIEWER
-Entrar em contato com um dos membros do projeto para que possamos te conceder acesso ao banco de dados.
-
-Telegrams:
-
-- João Pedro: `@joaoprfreitas`
-- Gabriel: `@Gabriel_Akio`
-- Vinicius: `@Jamal_USP`
 
 ## About
 
 Este é um projeto de uma loja online para a disciplina SCC0219 - Introdução ao Desenvolvimento Web.
 
-| Nome | Número USP |
-| ------ | ------ |
-| João Pedro Rodrigues Freitas | 11316552 |
-| Vinícius Santos Monteiro | 11932463 |
-| Gabriel Akio Urakawa | 11795912 |
+| Nome | Número USP | Telegram |
+| ------ | ------ | ------ |
+| João Pedro Rodrigues Freitas | 11316552 | `@joaoprfreitas` |
+| Vinícius Santos Monteiro | 11932463 | `@Jamal_USP` |
+| Gabriel Akio Urakawa | 11795912 | `@Gabriel_Akio` |
 
 
 ## Requirements
@@ -30,7 +22,7 @@ O registro de produtos contém: nome, id, photo, descrição, preço, quantidade
 Venda de produtos: os produtos são selecionados, as quantidades são escolhidas, e adicionadas ao carrinho. Tais produtos são comprados por meio do cartão de crédito (qualquer número é aceito pelo sistema). A quantidade de produtos vendidos é subtraída da quantidade em estoque e adicionada a quantidade vendida. Carrinhos são esvaziados apenas após pagamento por parte do cliente.\
 Gerenciamento de produtos: admins podem criar/atualizar/ler/deletar novos produtos. Por exemplo, eles podem alterar a quantidade em estoque.\
 Como funcionalidade extra, nosso sistema reproduzirá o som dos brinquedos dos pets.\
-O sistema será responsivo e proverá uma boa acessibilidade e usabilidade.\
+O sistema proverá uma boa acessibilidade e usabilidade.
 
 ## Project Description
 O objetivo deste projeto é criar uma sistema de vendas online de um PetShop com foco em produtos para animais domésticos.
@@ -54,15 +46,16 @@ A seguir, as imagens das páginas de `mockup`, que também estão em `/mockup`:
 
 
 ## Comments About the Code
-O código foi feito utilizando o `React.js`.
-No contexto do Milestone2, para o sistema de login dos usuários, foi utilizado o local storage com armazenamento de novos usuários e do admin. Pela existência de diversos produtos e limite de armazenamento do localstorage, os produtos foram adicionados por meio de um json estático, com indicações na tela das funcionalidades requisitadas. Será alterado para a entrega final, integrando com o banco de dados.
+O código foi feito utilizando `React.js`, `Node.js` e `MongoDB`.
+As informações do dashboard, do account e dos products são obtidas e alteradas por meio de requests à nossa API que está conectada a um banco de dados hospedado em AWS (MongoDB Atlas).
+Em relação ao frontend, o código é composto por diversos componentes, atuando, então, como Single Page Application.
 
 ## Test Plan
 Foram utilizados os navegadores Brave e Chrome para a navegação e teste do projeto. Sendo utilizado os sistemas operacionais Linux e Windows.
-Ainda, para testar a dinamicidade do funcionamento, foi criado um arquivo estático de produtos que, posteriormente, será removido, sendo então as funcionalidades integradas ao servidor.
+Ainda, para testar as funcionalidades, foram criados no banco de dados alguns usuários e produtos, sendo também, editados, removidos e lidos. Ainda, foram finalizadas algumas compras, gerando o relatório de pedidos no banco de dados.
 
 ## Test Results
-Para a entrega do Milestone 2, todas as funcionalidades foram testadas e desempenharam seu papel.
+Todas as funcionalidades foram testadas e desempenharam seu papel.
 
 ## Build Procedures
 ##### Requisitos
@@ -70,6 +63,13 @@ Para a entrega do Milestone 2, todas as funcionalidades foram testadas e desempe
 
 ##### Procedimento
 Inicialmente, clone o repositório.
+Primeiro, abra o servidor:
+- Vá para o local onde o projeto foi clonado.
+- `cd backend/`
+- `npm install`
+- `npm start`
+- No terminal será indicada a porta de conexão.
+
 Para abrir o cliente:
 - Vá para o local onde o projeto foi clonado.
 - `cd frontend/`
@@ -82,8 +82,7 @@ Existe uma conta administrador:
 - senha: `admin`
 
 ## Problems
-Utilizamos um json estático para testar os produtos (será alterado para requests quando o servidor estiver finalizado).
+Nenhum problema.
 
 ## Comments
-Algumas operações estão apenas com popups de alerta devido à ausência de um servidor.
-Na entrega final, esses detalhes serão resolvidos.
+Utilizamos o Toast para criar alguns popus de alerta, por exemplo, ao adicionar um produto ao carrinho, finalizar a compra, entre outras formas.
