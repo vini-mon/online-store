@@ -43,6 +43,7 @@ function Confirm() {
         })
     }
 
+    //calculo do valor do carrinho sempre q o componente eh carregado
     useEffect(() => {
         calculateTotal();
     })

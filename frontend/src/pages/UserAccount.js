@@ -7,7 +7,6 @@ import axios from 'axios';
 function UserAccount() {
 
     const navigate = useNavigate();
-
     let user = JSON.parse(localStorage.getItem('token'));
 
     //variaveis dinamicas com armazenam auterações nos dados dos usuários
@@ -20,7 +19,9 @@ function UserAccount() {
 
     const [didClickButton, setDidClickButton] = useState(false);
 
+    //requisicoes ao banco de dados toda vez q o componente eh atualizado
     useEffect(() => {
+        //manda os dados do usuario e checa se eh existente
         async function checkPassword(userEmail, userPassword) {
             try {
                 await axios.post('http://localhost:3500/user/auth', {
@@ -32,16 +33,17 @@ function UserAccount() {
                 setError(e.response.data.message)
             }
         }
-
+        
+        //atualizacao dos dados do usuario
         async function update(userEmail, info) {
             try {
                 await axios.put('http://localhost:3500/user/' + userEmail, info);
                 setError('Alterações realizadas') // OBS COLOCAR UM TOAST AQUI
             } catch(e) {
-                console.log(e)
             }
         }
-
+        
+        //recupera os dados do usuario logado
         async function getUser(userEmail) {
             try {
                 const res = await axios.get('http://localhost:3500/user/' + userEmail);
@@ -51,9 +53,8 @@ function UserAccount() {
             }
         }
 
-
+        //quando o botao eh clicado atualiza os dados por meio das requisicoes
         if (didClickButton) {
-            console.log("AAAAAA")
             checkPassword(user.email, password);
             if (error === '') {
                 update(user.email, {
@@ -87,6 +88,7 @@ function UserAccount() {
         setDidClickButton(true);
     }
 
+    //logout do usuario e navegacao pro login
     const signOut = () => {
         localStorage.removeItem('token');
         navigate('/login');

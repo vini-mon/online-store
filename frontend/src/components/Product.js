@@ -8,6 +8,7 @@ function Product({source, name, description, price, sound, qnt, event, eventTarg
 
     const button = { marginLeft: '45%'}
 
+    //adicao do botao de som
     const setButton = () => {
         if( sound === '' ){
             return <button disabled style={button}><i className="fa-solid fa-play"></i></button>
@@ -16,13 +17,10 @@ function Product({source, name, description, price, sound, qnt, event, eventTarg
         }
     }
 
+    //criacao do som
     const playSound = (soundSrc) => {
-        if (soundSrc === '') console.log('sound track unvailable');
-
         var audioElement = new Audio(soundSrc);
-
         audioElement.play();
-
     }
 
     return (

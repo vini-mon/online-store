@@ -7,6 +7,7 @@ import styles from './ProductList.module.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+//customizacao do popup
 const customStyles = {
     content: {
         top: '50%',
@@ -24,42 +25,38 @@ const customStyles = {
     overlay: {
     }
 };
-
 Modal.setAppElement('body');
 
 function UserList() {
+    //variaveis para armazenamento do dados e estados
     const [modalIsOpen, setIsOpen] = useState(false);
-
     const [updated, setUpdated] = useState(false);
     const [didClickButton, setDidClickButton] = useState(false);
-
     const [id, setId] = useState(-1);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [address, setAddress] = useState('');
     const [admin, setAdmin] = useState('');
-
     const [users, setUsers] = useState([]);
 
+    //requisicao dos usuarios toda vez q um usuario eh atualizado  
     useEffect(() => {
         async function getProductList() {
             try {
                 const res = await axios.get('http://localhost:3500/user');
                 setUsers(res.data);
             } catch (e) {
-                console.log(e);
             }
         }
 
         getProductList();
     }, [updated]);
 
+    //criacao dos toasts e customizacao
     const notify = (msg) => toast(msg, toastConfig);
     const notifyInfo = (msg) => toast.info(msg, toastConfig);
-
     const notifyInfoI = (id) => {
-
         let msg = "-";
         
         switch(id) {
@@ -81,11 +78,8 @@ function UserList() {
             default:
                 break;
         }
-
         toast.info(msg, toastConfigInfo)
-    
     };
-
     const toastConfig = {
         position: "bottom-left",
         autoClose: 2000,
@@ -96,7 +90,6 @@ function UserList() {
         progress: undefined,
         theme: "dark",
     }
-
     const toastConfigInfo = {
         position: "bottom-left",
         autoClose: 5000,
@@ -108,15 +101,16 @@ function UserList() {
         theme: "dark",
     }
 
+    //funcoes para abrir e fechar o popup
     function openModal() {
         setIsOpen(true);
     }
-
     function closeModal(e) {
         e.preventDefault();
         setIsOpen(false);
     }
 
+    //alteracao no bd dos dados dos usuarios todas as vezes que o botao eh clicado
     useEffect(() => {
         async function updateRequest() {
             try {
@@ -128,7 +122,6 @@ function UserList() {
                     admin: admin
                 });
             } catch(e) {
-                console.log(e)
             }
         }
 
@@ -141,6 +134,7 @@ function UserList() {
 
     }, [didClickButton]);
 
+    //funcao de edicao do usuario
     function editUser(e) {
         e.preventDefault();
 
@@ -151,6 +145,7 @@ function UserList() {
         setUpdated(false);
     }
 
+    //evento de edicao do usuario
     function editClick(id, name, email, admin, phone, address) {
         setId(id);
         setName(name);
@@ -162,6 +157,7 @@ function UserList() {
         openModal();
     }
 
+    //evento de remocao do usuario
     function removeUser(userId) {
         async function deleteProduct(userId) {
             try {
@@ -173,12 +169,11 @@ function UserList() {
         }
 
         deleteProduct(userId);
-
         notifyInfo("Usuário removido com sucesso!");
-
         setUpdated(false)
     }
 
+    //atualizacao dos dados do usuario dinamicamente com a escrita
     function handleChange(e) {
         if (e.target.id === "0") setName(e.target.value);
         if (e.target.id === "1") setEmail(e.target.value);

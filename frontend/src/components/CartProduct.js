@@ -25,7 +25,7 @@ function CartProduct({ eventAdd, eventRemove, eventTarget, id}){
         }
     })
     products.map( product => {
-        // se o produto do json for o mesmo do localStorage, pega os dados
+        // se o produto do bd for o mesmo do localStorage, pega os dados
         if(product._id === id){
             for (let productId in cart) {
                 if(productId === id){

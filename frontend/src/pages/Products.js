@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // realiza a adição de produtos ao carrinho (armazenamento no localstorage)
 // return: HTML da pagina de Products
 function Products() {
-
+    //requisicao dos dados de produtos do bd
     const [products, error, loading] = useAxios({
         axiosInstance: axios,
         method: 'GET',
@@ -21,6 +21,7 @@ function Products() {
         requestConfig: {}
     })
 
+    //configuracoes para o toast
     const toastConfig = {
         position: "bottom-left",
         autoClose: 2000,
@@ -31,10 +32,8 @@ function Products() {
         progress: undefined,
         theme: "dark",
     }
-
     const notify = (msg) => toast(msg, toastConfig);
     const notifyError = (msg) => toast.error(msg, toastConfig);
-
     const stylesToast = {
         backgroundColor: '#fbc2eb',
         border: '2px solid #d2bdff',
@@ -43,11 +42,15 @@ function Products() {
         textAlign: 'center',
     }
 
+    //recupera os dados do carrinho
     let cartList = JSON.parse(localStorage.getItem('ProductList'));
 
+    //evento de adicao de produto ao carrinho
     const handleClick = (id, stock) => {
+        //tratamento dos dados caso o carrinho esteja vazio
         if (cartList === null) cartList = {};
 
+        //verificacao de quantidade para adicao e adicao ao carrinho
         if (cartList[id] >= stock){
             notifyError('Estoque insuficiente!');
         }

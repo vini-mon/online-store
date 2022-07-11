@@ -36,14 +36,17 @@ function Payment() {
     const [cardCvv, setCardCvv] = useState('');
     const [error, setError] = useState('');
 
+    //redirecionamento pro pagamento
     const pay = () => {
         console.log("pay");
     }
     
+    //volta para pagina anterior
     const cancel = () => {
         navigate('/confirm');
     }
 
+    //processa a compra, enviando os dados pro servidor e alterando os dados
     const ahead = (e) => {
         e.preventDefault();
         

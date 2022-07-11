@@ -46,6 +46,7 @@ function ProductList() {
 
     const [modalIsOpen, setIsOpen] = useState(false);
 
+    //requisicao dos produtos todas as vez que o componente eh recarregado
     useEffect(() => {
         async function getProductList() {
             try {
@@ -59,6 +60,7 @@ function ProductList() {
         getProductList();
     }, [updated]);
 
+    //criacao dos toasts e testagem
     const notify = (msg) => toast(msg, toastConfig);
     const notifyInfo = (msg) => toast.info(msg, toastConfig);
     const notifyInfoI = (id) => {
@@ -90,7 +92,6 @@ function ProductList() {
         }
         toast.info(msg, toastConfigInfo)
     };
-
     const toastConfig = {
         position: "bottom-left",
         autoClose: 2000,
@@ -101,7 +102,6 @@ function ProductList() {
         progress: undefined,
         theme: "dark",
     }
-
     const toastConfigInfo = {
         position: "bottom-left",
         autoClose: 5000,
@@ -113,15 +113,16 @@ function ProductList() {
         theme: "dark",
     }
 
+    //criacao dos pop-ups
     function openModal() {
         setIsOpen(true);
     }
-
     function closeModal(e) {
         e.preventDefault();
         setIsOpen(false);
     }
 
+    //alteracao das variaveis em relacao a escrita no popup
     function handleChange(e) {
         if (e.target.id === "0") setValue(e.target.value);
         if (e.target.id === "1") setStock(e.target.value);
@@ -132,6 +133,7 @@ function ProductList() {
         if (e.target.id === "6") setD(e.target.value);
     }
 
+    //evento de alterar os valores dos produtos
     function editProduct(id, name, description, stock, price, sold, img, src) {
         setValue(name);
         setD(description);
@@ -145,6 +147,7 @@ function ProductList() {
         openModal();
     }
 
+    //evento de remover um produto
     function removeProduct(productId) {
         async function deleteProduct(productId) {
             try {
@@ -162,6 +165,7 @@ function ProductList() {
         setUpdated(false)
     }
 
+    //envia para o banco de dados toda vez q o ha uma alteracao
     useEffect(() => {
         async function updateRequest() {
             try {
@@ -185,6 +189,7 @@ function ProductList() {
 
     }, [didClickButton]);
 
+    //funcao para salvar as alteracoes
     function updateProduct(e) {
         e.preventDefault();
 
