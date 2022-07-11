@@ -64,6 +64,7 @@ function App() {
                 <Navbar/>
 
                 <div><ToastContainer toastStyle={stylesToast} pauseOnFocusLoss={false} /></div>
+                
                 <Routes>
                     {/* Rotas */}
                     <Route exact path='/' element={<Home/>}></Route>

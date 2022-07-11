@@ -4,6 +4,9 @@ import Modal from 'react-modal';
 import { useState, useEffect } from 'react';
 import styles from './ProductList.module.css';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const customStyles = {
     content: {
         top: '50%',
@@ -52,6 +55,59 @@ function UserList() {
         getProductList();
     }, [updated]);
 
+    const notify = (msg) => toast(msg, toastConfig);
+    const notifyInfo = (msg) => toast.info(msg, toastConfig);
+
+    const notifyInfoI = (id) => {
+
+        let msg = "-";
+        
+        switch(id) {
+
+            case 0:
+                msg = "Nome do usário";
+                break;
+            case 1:
+                msg = "Email do usário";
+                break;
+            case 2:
+                msg = "Telefone do usário";
+                break;
+            case 3:
+                msg = "Endereço do usário";
+                break;
+            case 4:
+                msg = "Permissão do usário. Pode assumir valor [true] ou [false]";  
+                break;
+           
+        }
+
+        toast.info(msg, toastConfigInfo)
+    
+    };
+
+    const toastConfig = {
+        position: "bottom-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    }
+
+    const toastConfigInfo = {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    }
+
     function openModal() {
         setIsOpen(true);
     }
@@ -88,6 +144,8 @@ function UserList() {
     function editUser(e) {
         e.preventDefault();
 
+        notify("Usuário atualizado com sucesso!");
+
         setDidClickButton(true);
         setIsOpen(false);
         setUpdated(false);
@@ -115,6 +173,8 @@ function UserList() {
         }
 
         deleteProduct(userId);
+
+        notifyInfo("Usuário removido com sucesso!");
 
         setUpdated(false)
     }
@@ -148,25 +208,43 @@ function UserList() {
                 >
 
                 <form className={styles.form}>
+
+                    <h1>Alteração de usuário</h1>
+
                     <div className={styles.in}>
                         <label>Nome</label>
-                        <input type="text" onChange={handleChange} id="0" value={name} />
+                        <div>
+                            <input type="text" placeholder="Nome do usário" onChange={handleChange} id="0" value={name} />
+                            <i onClick={ () => notifyInfoI(0) } className="fa-solid fa-circle-info"></i>
+                        </div>
                     </div>
                     <div className={styles.in}>
                         <label>Email</label>
-                        <input type="text" onChange={handleChange} id="1" value={email} />
+                        <div>
+                            <input type="text" placeholder="Email do usuário" onChange={handleChange} id="1" value={email} />
+                            <i onClick={ () => notifyInfoI(1) } className="fa-solid fa-circle-info"></i>
+                        </div>
                     </div>
                     <div className={styles.in}>
                         <label>Phone</label>
-                        <input type="text" onChange={handleChange} id="2" value={phone} />
+                        <div>
+                            <input type="text" placeholder="Telefone do usuário" onChange={handleChange} id="2" value={phone} />
+                            <i onClick={ () => notifyInfoI(2) } className="fa-solid fa-circle-info"></i>
+                        </div>
                     </div>
                     <div className={styles.in}>
                         <label>Address</label>
-                        <input type="text" onChange={handleChange} id="3" value={address} />
+                        <div>
+                            <input type="text" placeholder="Endereço do usuário" onChange={handleChange} id="3" value={address} />
+                            <i onClick={ () => notifyInfoI(3) } className="fa-solid fa-circle-info"></i>
+                        </div>
                     </div>
                     <div className={styles.in}>
                         <label>Admin</label>
-                        <input type="text" onChange={handleChange} id="4" value={admin} />
+                        <div>
+                            <input type="text" placeholder="[true] ou [false]" onChange={handleChange} id="4" value={admin} />
+                            <i onClick={ () => notifyInfoI(4) } className="fa-solid fa-circle-info"></i>
+                        </div>
                     </div>
                     
                     <br/>

@@ -9,6 +9,9 @@ import {useState, useEffect} from 'react';
 
 import axios from 'axios';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const customStyles = {
     content: {
         top: '50%',
@@ -22,6 +25,7 @@ const customStyles = {
         borderRadius: '20px',
         color: 'black',
         boxShadow: '0 0 1em #ff8ae2',
+        margin: 'auto',
     },
     overlay: {
     }
@@ -81,6 +85,8 @@ function Admin() {
     function createProduct(e){
         e.preventDefault();
 
+        notify("Produto criado com sucesso!");
+
         setDidClickButton(true);
         setIsOpen(false);
     }
@@ -93,6 +99,63 @@ function Admin() {
         if (e.target.id === "4") setSound(e.target.value);
         if (e.target.id === "5") setDescription(e.target.value);
     }
+
+    const toastConfig = {
+        position: "bottom-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    }
+
+    const toastConfigInfo = {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    }
+
+    const notify = (msg) => toast(msg, toastConfig);
+    const notifyInfo = (id) => {
+
+        let msg = "-";
+        
+        switch(id) {
+
+            case 0:
+                msg = "Nome descritivo do produto.";
+                break;
+            case 1:
+                msg = "Estoque do produto disponível no sistema.";
+                break;
+            case 2:
+                msg = "Quantidade dos produtos vendidos é calculado automaticamente.";
+                break;
+            case 3:
+                msg = "Preço do produto deve ser inserido usando virgula como separador de casas decimais.";
+                break;
+            case 4:
+                msg = "A imagem do produto deve ser um arquivo de imagem com link público na internet. Recomenda-se a utilização do AWS S3. (Deixar vazio caso não queira imagem).";
+                break;
+            case 5:
+                msg = "O áudio do produto deve ser um arquivo de áudio com link público na internet. Recomenda-se a utilização do AWS S3. (Deixar vazio caso não queira áudio).";
+                break;
+            case 6:
+                msg = "Descrição completa e detalhada sobre o produto.";
+                break;
+
+        }
+
+        toast.info(msg, toastConfigInfo)
+    
+    };
 
     return (
         <div>
@@ -149,36 +212,58 @@ function Admin() {
 
                 <form className={styles.form}>
 
-                    {/* <label>Id</label> */}
-                    {/* <input readOnly className={styles.readOnly} type="text" defaultValue={modalId} /> <br /> */}
+                    <h1>Cadastrar produto</h1>
+
                     <div className={styles.in}>
                         <label>Nome</label>
-                        <input type="text" onChange={handleChange} id="0" defaultValue="" />
+                        <div>
+                            <input type="text" placeholder="Bolinha com sino" onChange={handleChange} id="0" defaultValue="" />
+                            <i onClick={ () => notifyInfo(0) } className="fa-solid fa-circle-info"></i>
+                        </div>
                     </div>
                     <div className={styles.in}>
                         <label>Estoque</label>
-                        <input type="number" onChange={handleChange} id="1" step="1" defaultValue="" />
+                        <div>
+                            <input type="number" min="0" placeholder="15" onChange={handleChange} id="1" step="1" defaultValue="" />
+                            <i onClick={ () => notifyInfo(1) } className="fa-solid fa-circle-info"></i>
+                        </div>
                     </div>
                     <div className={styles.in}>
                         <label>Vendidos</label>
-                        <input readOnly className={styles.readOnly} type="number" defaultValue="" />
+                        <div>
+                            <input readOnly placeholder="N/A" className={styles.readOnly} type="number" defaultValue="" />
+                            <i onClick={ () => notifyInfo(2) } className="fa-solid fa-circle-info"></i>
+                        </div>
                     </div>
 
                     <div className={styles.in}>
                         <label>Preço</label>
-                        <input type="number" onChange={handleChange} id="2" step="0.01" defaultValue="" />
+                        <div>
+                            <input type="number" placeholder="15,00" min="0.10" onChange={handleChange} id="2" step="0.10" defaultValue="" />
+                            <i onClick={ () => notifyInfo(3) } className="fa-solid fa-circle-info"></i>
+                        </div>
                     </div>
                     <div className={styles.in}>
                         <label>Imagem</label>
-                        <input type="text" onChange={handleChange} id="3" step="0.01" defaultValue="" />
+                        <div>
+                            <input type="text" placeholder="URL público aws s3" onChange={handleChange} id="3" defaultValue="" />
+                            <i onClick={ () => notifyInfo(4) } className="fa-solid fa-circle-info"></i>
+                        </div>
                     </div>
                     <div className={styles.in}>
                         <label>Som</label>
-                        <input type="text" onChange={handleChange} id="4" step="0.01" defaultValue="" />
+                        <div>
+                            <input type="text" placeholder="URL público aws s3" onChange={handleChange} id="4" defaultValue="" />
+                            <i onClick={ () => notifyInfo(5) } className="fa-solid fa-circle-info"></i>
+                        </div>
+                        
                     </div>
                     <div className={styles.in}>
                         <label>Descrição</label>
-                        <textarea type="text" onChange={handleChange} id="5" defaultValue=""></textarea>
+                        <div>
+                            <textarea type="text" placeholder="Uma descrição detalhada do produto" onChange={handleChange} id="5" defaultValue=""></textarea>
+                            <i onClick={ () => notifyInfo(6) } className="fa-solid fa-circle-info"></i>
+                        </div>
                     </div>
                     
                     <br/>

@@ -6,6 +6,9 @@ import Modal from 'react-modal';
 import axios from "../../api/axiosInstance";
 import { useState, useEffect } from 'react';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const customStyles = {
     content: {
         top: '50%',
@@ -56,6 +59,64 @@ function ProductList() {
         getProductList();
     }, [updated]);
 
+    const notify = (msg) => toast(msg, toastConfig);
+    const notifyInfo = (msg) => toast.info(msg, toastConfig);
+    const notifyInfoI = (id) => {
+
+        let msg = "-";
+        
+        switch(id) {
+
+            case 0:
+                msg = "Nome descritivo do produto.";
+                break;
+            case 1:
+                msg = "Estoque do produto disponível no sistema.";
+                break;
+            case 2:
+                msg = "Quantidade dos produtos vendidos é calculado automaticamente.";
+                break;
+            case 3:
+                msg = "Preço do produto deve ser inserido usando virgula como separador de casas decimais.";
+                break;
+            case 4:
+                msg = "A imagem do produto deve ser um arquivo de imagem com link público na internet. Recomenda-se a utilização do AWS S3. (Deixar vazio caso não queira imagem).";
+                break;
+            case 5:
+                msg = "O áudio do produto deve ser um arquivo de áudio com link público na internet. Recomenda-se a utilização do AWS S3. (Deixar vazio caso não queira áudio).";
+                break;
+            case 6:
+                msg = "Descrição completa e detalhada sobre o produto.";
+                break;
+
+        }
+
+        toast.info(msg, toastConfigInfo)
+    
+    };
+
+    const toastConfig = {
+        position: "bottom-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    }
+
+    const toastConfigInfo = {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    }
+
     function openModal() {
         setIsOpen(true);
     }
@@ -100,6 +161,8 @@ function ProductList() {
 
         deleteProduct(productId);
 
+        notifyInfo("Produto removido com sucesso!");
+
         setUpdated(false)
     }
 
@@ -128,6 +191,8 @@ function ProductList() {
 
     function updateProduct(e) {
         e.preventDefault();
+
+        notify("Produto atualizado com sucesso!");
 
         setDidClickButton(true);
         setIsOpen(false);
@@ -159,33 +224,57 @@ function ProductList() {
             >
 
                 <form className={styles.form}>
+
+                    <h1>Alterar produto</h1>
+
                     <div className={styles.in}>
                         <label>Nome</label>
-                        <input type="text" onChange={handleChange} id="0" value={modalValue} />
+                        <div>
+                            <input type="text" placeholder="Bolinha com sino" onChange={handleChange} id="0" value={modalValue} />
+                            <i onClick={ () => notifyInfoI(0) } className="fa-solid fa-circle-info"></i>
+                        </div>
                     </div>
                     <div className={styles.in}>
                         <label>Estoque</label>
-                        <input type="number" onChange={handleChange} id="1" step="1" value={modalStock} />
+                        <div>
+                            <input type="number" min="0" placeholder="15" onChange={handleChange} id="1" step="1" value={modalStock} />
+                            <i onClick={ () => notifyInfoI(1) } className="fa-solid fa-circle-info"></i>
+                        </div>
                     </div>
                     <div className={styles.in}>
                         <label>Vendidos</label>
-                        <input readOnly onChange={handleChange} id="2" className={styles.readOnly} type="number" value={modalSold} />
+                        <div>
+                            <input readOnly placeholder="N/A" onChange={handleChange} id="2" className={styles.readOnly} type="number" value={modalSold} />
+                            <i onClick={ () => notifyInfoI(2) } className="fa-solid fa-circle-info"></i>
+                        </div>
                     </div>
                     <div className={styles.in}>
                         <label>Preço</label>
-                        <input type="number" onChange={handleChange} id="3" step="0.01" value={modalPrice} />
+                        <div>
+                            <input type="number" placeholder="15,00" min="0.10" onChange={handleChange} id="3" step="0.10" value={modalPrice} />
+                            <i onClick={ () => notifyInfoI(3) } className="fa-solid fa-circle-info"></i>
+                        </div>
                     </div>
                     <div className={styles.in}>
                         <label>Imagem</label>
-                        <input type="text" onChange={handleChange} id="4" step="0.01" value={modalImg} />
+                        <div>
+                            <input type="text" placeholder="URL público aws s3" onChange={handleChange} id="4" value={modalImg} />
+                            <i onClick={ () => notifyInfoI(4) } className="fa-solid fa-circle-info"></i>
+                        </div>
                     </div>
                     <div className={styles.in}>
                         <label>Som</label>
-                        <input type="text" onChange={handleChange} id="5" step="0.01" value={modalSrc} />
+                        <div>
+                            <input type="text" placeholder="URL público aws s3" onChange={handleChange} id="5" value={modalSrc} />
+                            <i onClick={ () => notifyInfoI(5) } className="fa-solid fa-circle-info"></i>
+                        </div>
                     </div>
                     <div className={styles.in}>
                         <label>Descrição</label>
-                        <textarea type="text" onChange={handleChange} id="6" value={modalDescription}></textarea>
+                        <div>
+                            <textarea type="text" placeholder="Uma descrição detalhada do produto" onChange={handleChange} id="6" value={modalDescription}></textarea>
+                            <i onClick={ () => notifyInfoI(6) } className="fa-solid fa-circle-info"></i>
+                        </div>
                     </div>
                     
                     <br/>
