@@ -62,11 +62,8 @@ function ProductList() {
     const notify = (msg) => toast(msg, toastConfig);
     const notifyInfo = (msg) => toast.info(msg, toastConfig);
     const notifyInfoI = (id) => {
-
         let msg = "-";
-        
-        switch(id) {
-
+        switch (id) {
             case 0:
                 msg = "Nome descritivo do produto.";
                 break;
@@ -88,11 +85,10 @@ function ProductList() {
             case 6:
                 msg = "Descrição completa e detalhada sobre o produto.";
                 break;
-
+            default:
+                break;
         }
-
         toast.info(msg, toastConfigInfo)
-    
     };
 
     const toastConfig = {

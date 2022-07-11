@@ -1,6 +1,7 @@
 # frontend
 
 ### Setup
+`cd frontend/`
 `npm install`
 
 ### Iniciar cliente

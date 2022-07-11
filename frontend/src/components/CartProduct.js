@@ -1,7 +1,6 @@
 import styles from './CartProduct.module.css'
 import Button from './Button'
 
-import { useState, useEffect } from 'react';
 import useAxios from "../hooks/useAxios";
 import axios from "../api/axiosInstance";
 
@@ -49,7 +48,7 @@ function CartProduct({ eventAdd, eventRemove, eventTarget, id}){
             <div  className={styles.box}>
                 <div>
                     <h2>{name}</h2> 
-                    <span>R${price}.00</span>
+                    <span>R${price.toFixed(2)}</span>
                 </div>
                 <p>{description}</p>
                 <div className={styles.add}>  
@@ -57,7 +56,7 @@ function CartProduct({ eventAdd, eventRemove, eventTarget, id}){
                     <p style={{marginRight: "25px"}}>{qnt}</p>
                     <Button text="+" event={eventAdd} eventTarget={eventTarget}></Button>
                 </div> 
-                <p>Subtotal: R${qnt * price}</p>
+                <p>Subtotal: R${(qnt * price).toFixed(2)}</p>
             </div>  
             
         </div>

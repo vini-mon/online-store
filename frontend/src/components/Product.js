@@ -1,34 +1,23 @@
 import styles from './Product.module.css'
-import Button from './Button'
 
 //componente com um produto e suas informações
 //reutilizado n vezes para mostrar todos os produtos da loja
 //renderizado apenas se houver mais de uma unidade
 function Product({source, name, description, price, sound, qnt, event, eventTarget}){
-    
     if (qnt <= 0) return null;
 
     const button = { marginLeft: '45%'}
 
     const setButton = () => {
-
         if( sound === '' ){
-
             return <button disabled style={button}><i className="fa-solid fa-play"></i></button>
-
-        }else{
-
+        } else{
             return <button style={button}><i className="fa-solid fa-play"></i></button>
-
         }
-
     }
 
     const playSound = (soundSrc) => {
-
-        console.log(soundSrc)
-
-        if( soundSrc === '') console.log('sound track unvailable');
+        if (soundSrc === '') console.log('sound track unvailable');
 
         var audioElement = new Audio(soundSrc);
 

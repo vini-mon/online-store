@@ -3,14 +3,12 @@ import styles from "./Payment.module.css"
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-import useAxios from "../hooks/useAxios";
 import axios from "../api/axiosInstance";
 
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function Payment(){
-    // que pega info do localStorage
+function Payment() {
     let cartStorage = localStorage.getItem('ProductList');
     let cart = cartStorage ? JSON.parse(cartStorage) : {};
     let cartData = Object.entries(cart);
@@ -28,14 +26,7 @@ function Payment(){
         theme: "dark",
     }
     const notify = (msg) => toast(msg, toastConfig);
-    const notifyError = (msg) => toast.error(msg, toastConfig);
-    const stylesToast = {
-        backgroundColor: '#fbc2eb',
-        border: '2px solid #d2bdff',
-        borderRadius: '5px',
-        color: 'black',
-        textAlign: 'center',
-    }
+    
 
     const navigate = useNavigate();
 
@@ -67,16 +58,14 @@ function Payment(){
             output.push(target);
         }
         localStorage.setItem('ProductList', JSON.stringify({}));
-
         axios.post("http://localhost:3500/order", {
-            "user": userId,
+            "id": userId,
             "items": output
         })
 
         notify("Pagamento realizado com sucesso!");
         navigate('/');
     }
-
 
     return (
         <div>

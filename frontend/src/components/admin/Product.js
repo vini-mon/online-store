@@ -8,7 +8,6 @@ function Product(props) {
             return styles.trColored;
         }
     }
-
     return (
 
         <tr className={getStyle()}>

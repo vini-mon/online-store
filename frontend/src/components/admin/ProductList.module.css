@@ -9,11 +9,9 @@
     flex-direction: column;
 }
 
-.form h1{
-
+.form h1 {
     font-size: 30px;
     text-align: center;
-
 }
 
 .form label{
@@ -35,16 +33,12 @@
 }
 
 .in div{
-
     display: flex;
     align-items: center;
-
 }
 
 .form textarea{
-
     height: 100px;
-
 }
 
 .adminTitle {

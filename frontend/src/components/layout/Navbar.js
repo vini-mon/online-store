@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom';
 
 import styles from './Navbar.module.css';
 import logo from '../../img/PetLogo.png';
-import { disabled } from 'glamor';
 
 function Navbar() {
 
@@ -16,7 +15,6 @@ function Navbar() {
         if (user && userInfo.name) {
             return "Hey, " + userInfo.name;
         }
-
         return "Login";
     }
 
@@ -28,29 +26,19 @@ function Navbar() {
         const userInfo = JSON.parse(user)
 
         if (user && userInfo.admin) {
-
             if (document.getElementById("dash")) {
-
                 document.getElementById("dash").style.display = 'inline-block';
-    
             }
-
             return "Dashboard";
-
         }
-
         if (document.getElementById("dash")) {
-
             document.getElementById("dash").style.display = 'none';
-
         }
 
         return "";
-        
     }
 
     return (
-
         <nav>
             <div>
                 <NavLink to="/"  >

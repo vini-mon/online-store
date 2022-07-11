@@ -63,7 +63,6 @@ function UserList() {
         let msg = "-";
         
         switch(id) {
-
             case 0:
                 msg = "Nome do usário";
                 break;
@@ -79,7 +78,8 @@ function UserList() {
             case 4:
                 msg = "Permissão do usário. Pode assumir valor [true] ou [false]";  
                 break;
-           
+            default:
+                break;
         }
 
         toast.info(msg, toastConfigInfo)

@@ -1,9 +1,6 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import { AuthProvider } from './context/auth'
-
 import './App.css';
-
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Routes
@@ -21,7 +18,6 @@ import Payment from './pages/Payment';
 // Components
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-import { useEffect } from 'react';
 
 // Verificar se o usuário está logado
 const Private = ({ Item }) => {
@@ -57,34 +53,30 @@ const IsAdmin = ({ Item }) => {
 
 function App() {
     return (
-        <AuthProvider>
-            {/* Conjunto de rotas dos componentes relacionados com a Navbar */}
-            <Router>
-                {/* Importação na Navbar */}
-                <Navbar/>
+        <Router>
+            <Navbar/>
 
-                <div><ToastContainer toastStyle={stylesToast} pauseOnFocusLoss={false} /></div>
-                
-                <Routes>
-                    {/* Rotas */}
-                    <Route exact path='/' element={<Home/>}></Route>
-                    <Route exact path='/about' element={<About/>}></Route>
-                    <Route exact path='/products' element={<Products/>}></Route>
-                    <Route exact path='/cart' element={<Cart/>}></Route>
-                    <Route exact path='/confirm' element={<Confirm/>}></Route>
-                    <Route exact path='/payment' element={<Payment/>}></Route>
+            <div><ToastContainer toastStyle={stylesToast} pauseOnFocusLoss={false} /></div>
+            
+            <Routes>
+                {/* Rotas */}
+                <Route exact path='/' element={<Home/>}></Route>
+                <Route exact path='/about' element={<About/>}></Route>
+                <Route exact path='/products' element={<Products/>}></Route>
+                <Route exact path='/cart' element={<Cart/>}></Route>
+                <Route exact path='/confirm' element={<Confirm/>}></Route>
+                <Route exact path='/payment' element={<Payment/>}></Route>
 
-                    <Route exact path='/login' element={<Login/>}></Route>
-                    <Route exact path='/register' element={<Register/>}></Route>
-                    <Route exact path='/admin' element={<IsAdmin Item={Admin}/>}></Route>
-                    <Route exact path='/account' element={<Private Item={UserAccount}/>}></Route>
+                <Route exact path='/login' element={<Login/>}></Route>
+                <Route exact path='/register' element={<Register/>}></Route>
+                <Route exact path='/admin' element={<IsAdmin Item={Admin}/>}></Route>
+                <Route exact path='/account' element={<Private Item={UserAccount}/>}></Route>
 
-                    <Route path='*' element={<Home/>}></Route>
-                </Routes>
-                {/* Importação do rodapé */}
-                <Footer/>
-            </Router>
-        </AuthProvider>
+                <Route path='*' element={<Home/>}></Route>
+            </Routes>
+            
+            <Footer/>
+        </Router>
     )
 }
 

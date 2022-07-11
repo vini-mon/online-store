@@ -1,7 +1,4 @@
 import styles from './ConfirmProduct.module.css'
-import Button from './Button'
-
-import { useState, useEffect } from 'react';
 import useAxios from "../hooks/useAxios";
 import axios from "../api/axiosInstance";
 
@@ -59,7 +56,7 @@ function CartProduct({id}){
                         <p>{qnt}</p>
                     </div> 
                     <div className={styles.subtotal}>  
-                        <p>R${qnt * price}.00</p> 
+                        <p>R${(qnt * price).toFixed(2)}</p> 
                     </div> 
                 </div>
             }

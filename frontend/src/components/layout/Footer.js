@@ -2,8 +2,6 @@ import { FaFacebookSquare, FaInstagram, FaWhatsapp } from 'react-icons/fa'
 
 import styles from './Footer.module.css'
 
-
-
 function Footer() {
     return (
         <footer className={styles.footer}>

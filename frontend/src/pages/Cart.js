@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import useAxios from "../hooks/useAxios";
 import axios from "../api/axiosInstance";
 
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Cart() {  
@@ -46,13 +46,13 @@ function Cart() {
     let cart = cartStorage ? JSON.parse(cartStorage) : {};
     
     // função que calcula o valor total da compra
-    function calculateTotal(){
+    function calculateTotal() {
         setTotalSoma(0);
         products.map((prod)=>{
             let cartValues = Object.values(cart);
             let cartId = Object.keys(cart);
             for (let i = 0; i < cartValues.length; i+=1) {
-                if (prod._id == cartId[i]){
+                if (prod._id === cartId[i]){
                     total += cartValues[i] * prod.price;
                     setTotalSoma(total);
                 }
@@ -60,14 +60,10 @@ function Cart() {
         })
     }
 
-    
-    
-
     useEffect(() => {
         calculateTotal();
     })
 
-    
     const payment = () => {
         if (!cartStorage || cartStorage === '{}' || total === 0){
             notifyError("Carrinho Vazio!");
@@ -91,7 +87,7 @@ function Cart() {
             }
         }
         for (let i = 0; i < cartData.length; i += 1) {
-            if (product == cartData[i][0]){
+            if (product === cartData[i][0]){
                 if( cartData[i][1] + 1 <= stock){
                     cartData[i][1] = cartData[i][1] + 1;
                     // salva o carrinho no localStorage
@@ -111,7 +107,7 @@ function Cart() {
     const handleRemove = (product) => {
         let cartData = Object.entries(cart);
         for (let i = 0; i < cartData.length; i += 1) {
-            if (product == cartData[i][0]){
+            if (product === cartData[i][0]){
                 if( cartData[i][1] - 1 >= 0){
                     cartData[i][1] = cartData[i][1] - 1;
                     // salva o carrinho no localStorage
@@ -141,7 +137,7 @@ function Cart() {
                     />
                 })}
                 <div className={styles.end}>
-                    <span className={styles.total}> Total: R${totalSoma}.00 </span>
+                    <span className={styles.total}> Total: R${totalSoma.toFixed(2)} </span>
                     <button text="Finalizar Compra" className={styles.btn} onClick={payment}>Finalizar compra</button>
                 </div>
             </div>

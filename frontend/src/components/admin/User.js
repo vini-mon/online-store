@@ -10,7 +10,6 @@ function User(props) {
     }
 
     return (
-
         <tr className={getStyle()}>
             <td>{props.id}</td>
             <td>{props.name}</td>

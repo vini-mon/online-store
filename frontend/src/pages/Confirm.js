@@ -26,7 +26,7 @@ function Confirm() {
             let cartValues = Object.values(cart);
             let cartId = Object.keys(cart);
             for (let i = 0; i < cartValues.length; i+=1) {
-                if (prod._id == cartId[i]){
+                if (prod._id === cartId[i]){
                     total += cartValues[i] * prod.price;
                     setTotalSoma(total);
                 }
@@ -73,7 +73,7 @@ function Confirm() {
                     
                     <div className={styles.info}>
                         <p>Frete: Grátis</p>
-                        <p>Total: R${totalSoma}.00</p>
+                        <p>Total: R${totalSoma.toFixed(2)}</p>
                     </div>
                     <button className={styles.btn} text="Pagar" onClick={payment}>Pagar</button>    
                 </div>
