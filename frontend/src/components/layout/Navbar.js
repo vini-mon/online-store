@@ -31,6 +31,7 @@ function Navbar() {
             }
             return "Dashboard";
         }
+
         if (document.getElementById("dash")) {
             document.getElementById("dash").style.display = 'none';
         }
@@ -59,7 +60,7 @@ function Navbar() {
                 <li className={styles.item}>
                     <NavLink to="/account" className={({ isActive }) => isActive ? styles.link_active : styles.link }>{accountName}</NavLink>
                 </li>
-                <li id='dash' className={styles.item}>
+                <li id='dash' style={{display:'none'}} className={styles.item}>
                     <NavLink to="/admin" className={({ isActive }) => isActive ? styles.link_active : styles.link }>{isAdmin}</NavLink>
                 </li>
                 <li className={styles.item}>
