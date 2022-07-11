@@ -1,7 +1,9 @@
 # PetStore
 
-## About
+## Atenção reviewers
+Nosso banco de dados está hospedado no Atlas, rodando em AWS, então é possível que vocês não tenham acesso ao banco de dados. Caso isso ocorra, entre em contato conosco por meio do telegram (conforme o About).
 
+## About
 Este é um projeto de uma loja online para a disciplina SCC0219 - Introdução ao Desenvolvimento Web.
 
 | Nome | Número USP | Telegram |
@@ -62,7 +64,7 @@ Todas as funcionalidades foram testadas e desempenharam seu papel.
 É necessário ter o `npm` instalado.
 
 ##### Procedimento
-Inicialmente, clone o repositório.
+Inicialmente, clone o repositório.\
 Primeiro, abra o servidor:
 - Vá para o local onde o projeto foi clonado.
 - `cd backend/`
