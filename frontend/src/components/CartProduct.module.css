@@ -9,6 +9,10 @@
     padding: 20px;
 }
 
+.box{
+    width: 400px;
+}
+
 .img{
     margin: auto;
     max-height: 200px;

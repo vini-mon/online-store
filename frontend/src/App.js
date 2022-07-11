@@ -21,6 +21,7 @@ import Payment from './pages/Payment';
 // Components
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import { useEffect } from 'react';
 
 // Verificar se o usuário está logado
 const Private = ({ Item }) => {
@@ -55,7 +56,6 @@ const IsAdmin = ({ Item }) => {
 }
 
 function App() {
-    
     return (
         <AuthProvider>
             {/* Conjunto de rotas dos componentes relacionados com a Navbar */}

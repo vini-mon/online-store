@@ -41,14 +41,15 @@ function Product({source, name, description, price, sound, qnt, event, eventTarg
             <img width="250px" height="300px" src={source} alt="Foto do Produto" className={styles.image}/>
             
             <h4>{name}</h4>
-            <p>{description}</p>
-            <p>Quantidade em estoque: {qnt}</p>
-            <p>R&#36;&nbsp;{price}</p>
-
-            <div onClick={ () => playSound(sound) } > { setButton() } </div>
-
+            <div className={styles.desc}>
+                <p>{description}</p>
+            </div>
+            <p>Estoque: {qnt}</p>
+            <p>Unidade: R&#36;&nbsp;{price}</p>
+            <br />
+            <div onClick={() => playSound(sound)} className={styles.soundBox}> { setButton() }  </div>
             <div className={styles.btnBox}>
-                <Button text="Add to cart" event={event} eventTarget={eventTarget}/>
+                <button onClick={() => event(eventTarget)} className={styles.btn}>Add to cart</button>
             </div>
         </div>
     )
