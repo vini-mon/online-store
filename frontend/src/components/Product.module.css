@@ -1,10 +1,40 @@
 .box{
+    display: flex;
+    flex-direction: column;
     padding: 30px;
     width: 200px;
+    height: 700px;
     margin-bottom: 50px;
     transition: all 0.4s ease-in-out;
     border: 2px solid #ff8ae2;
     border-radius: 20px;
+}
+
+.btn{
+    margin-top: 20px;
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+    background-color: rgb(247, 240, 245);
+    box-shadow: 2px 2px 2px rga(0, 0, 0, 0.2);
+    border: 2px solid #d2bdff;
+    background-color: #fbfbfb;
+    border-radius: 8px;
+}
+
+.btn:hover{
+    background-color: #fde1f6;
+    transition: all 0.8s ease-in-out;
+}
+
+.soundBox{
+    padding: 0;
+}
+
+.desc{
+    border: 0;
+    padding: 0;
+    height: 200px;
 }
 
 .star{

@@ -26,12 +26,11 @@ function CartProduct({ eventAdd, eventRemove, eventTarget, id}){
         }
     })
     products.map( product => {
-
         // se o produto do json for o mesmo do localStorage, pega os dados
         if(product._id === id){
             for (let productId in cart) {
-                if(productId === id ){
-                    qnt = cart[productId]
+                if(productId === id){
+                    qnt = cart[productId];
                 }
             }
 
@@ -39,15 +38,15 @@ function CartProduct({ eventAdd, eventRemove, eventTarget, id}){
             price = product.price
             source = product.img
             description = product.description
-
         }
+
         return null;
     })
 
     return(
         <div className={styles.boxProduct}>
             <img src={source} alt={name} className={styles.img}></img>
-            <div>
+            <div  className={styles.box}>
                 <div>
                     <h2>{name}</h2> 
                     <span>R${price}.00</span>
