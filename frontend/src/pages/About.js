@@ -7,6 +7,12 @@ import imgV from '../img/people/vinicius.jpeg'
 function About() {
 
     return(
+
+        /**
+         * About do site
+         * Lógica de exibição de informações sobre os desenvolvedores
+         */
+
         <div className={styles.box}>
             <div className={styles.about}>
                 <div className={styles.title}>

@@ -10,6 +10,10 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Cart() {  
+    /**
+     * Requisição para obter os produtos do carrinho
+     */
+
     const [products, error, loading] = useAxios({
         axiosInstance: axios,
         method: 'GET',
@@ -19,6 +23,9 @@ function Cart() {
         }
     })
     
+    /**
+     * Funcão de configuração de layout do componente toast de sucesso
+     */
     const toastConfig = {
         position: "bottom-left",
         autoClose: 2000,
@@ -29,7 +36,12 @@ function Cart() {
         progress: undefined,
         theme: "dark",
     }
+
+    /**
+     * Função de notificação que chama o componente toast de erro
+     */
     const notifyError = (msg) => toast.error(msg, toastConfig);
+
     const navigate = useNavigate();
     // target usado para re-rederizar a o componente de cada produto
     // totalSoma usado para re-rederizar o componente de cada produto
@@ -60,15 +72,24 @@ function Cart() {
         })
     }
 
+    /**
+     * UseEffect que chama a função de calculo do valor total da compra
+     */
     useEffect(() => {
         calculateTotal();
     })
 
     const payment = () => {
+        /**
+         * Caso o carrinho esteja vazio, exibe um toast de erro
+         */
         if (!cartStorage || cartStorage === '{}' || total === 0){
             notifyError("Carrinho Vazio!");
             return;
         }
+        /**
+         * Caso o usuário não esteja logado, exibe um toast de erro
+         */
         if (!user){
             notifyError("Faça login ou cadastre um novo usuário!");
             navigate('/login');
@@ -128,6 +149,9 @@ function Cart() {
             <p className={styles.breadcrumb}><span className={styles.green}> Carrinho </span> <i className="fa-solid fa-circle-right"></i> Resumo <i className="fa-solid fa-circle-right"></i> Pagamento </p>
             <h1 className={styles.title}>Carrinho</h1>
             <div className={styles.box}>
+                { /**
+                 * Função que exibe uma lista com os produtos no carrinho
+                 */ }
                 {Object.keys(cart).map((index, key) => {
                     return <CartProduct 
                         eventAdd={ () => handleAdd(index) } 

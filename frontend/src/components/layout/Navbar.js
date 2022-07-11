@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import logo from '../../img/PetLogo.png';
 
+import { useState, useEffect } from 'react';
+
 function Navbar() {
 
     /*
@@ -18,8 +20,11 @@ function Navbar() {
         return "Login";
     }
 
+    const [hiddenDash, setHiddenDash] = useState('none');
+
     /*
      * Verifica se o usuário é administrador
+     * e exibe o menu de administração
      */
     const isAdmin = () => {
         const user = localStorage.getItem('token');
@@ -29,17 +34,19 @@ function Navbar() {
             if (document.getElementById("dash")) {
                 document.getElementById("dash").style.display = 'inline-block';
             }
+            setHiddenDash('inline-block');
             return "Dashboard";
         }
 
-        if (document.getElementById("dash")) {
-            document.getElementById("dash").style.display = 'none';
-        }
-
-        return "";
+        setHiddenDash('none');
+        return "--";
     }
 
     return (
+        /*
+        * Navbar do site
+        * Lógica de verificação do nome do usuário e do menu de administração
+        */
         <nav>
             <div>
                 <NavLink to="/"  >
@@ -60,7 +67,7 @@ function Navbar() {
                 <li className={styles.item}>
                     <NavLink to="/account" className={({ isActive }) => isActive ? styles.link_active : styles.link }>{accountName}</NavLink>
                 </li>
-                <li id='dash' style={{display:'none'}} className={styles.item}>
+                <li id='dash' style={{display: hiddenDash}} className={styles.item}>
                     <NavLink to="/admin" className={({ isActive }) => isActive ? styles.link_active : styles.link }>{isAdmin}</NavLink>
                 </li>
                 <li className={styles.item}>

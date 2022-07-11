@@ -12,6 +12,9 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+/**
+ * Estilização do Modal que é exibido ao clicar no botão de adicionar novo produto
+ */
 const customStyles = {
     content: {
         top: '50%',
@@ -31,6 +34,9 @@ const customStyles = {
     }
 };
 
+/**
+ * Definição de inicialização do componente Modal
+ */
 Modal.setAppElement('body');
 
 // função que define o dashboard do admin
@@ -47,10 +53,19 @@ function Admin() {
     const [sound, setSound] = useState('');
     const [description, setDescription] = useState('');
     
+    /**
+     * Função que define o estado inicial do componente Modal
+     */
     const [modalIsOpen, setIsOpen] = useState(false);
     const [didClickButton, setDidClickButton] = useState(false);
 
+    /**
+     * Use Effect que faz a requisição para enviar dados do produto criado
+     */
     useEffect(() => {
+        /**
+         * De forma assíncrona, envia os dados do produto criado
+         */
         async function updateRequest() {
             try {
                 await axios.post('http://localhost:3500/product', {
@@ -64,33 +79,53 @@ function Admin() {
             } catch(e) {}
         }
 
+        /**
+         * Gatilho para a função de envio de dados do produto criado
+         */
         if (didClickButton) {
             updateRequest();
         }
 
+        /**
+         * Volta o estado do botão de envio de dados do produto criado para falso, para que seja possível nova requisição
+         */
         setDidClickButton(false);
 
     }, [didClickButton]);
 
-    
+    /**
+     * Função de abertura do Modal
+     */    
     function openModal() {
         setIsOpen(true);
     }
 
+    /**
+     * Função de fechamento do Modal
+     */
     function closeModal(e) {
         e.preventDefault();
         setIsOpen(false);
     }
 
+    /**
+     * Função de notificação que chama o componente toast
+     */
     function createProduct(e){
         e.preventDefault();
 
+        /**
+         * Funcão que chama o componente toast com a mensgem de sucesso
+         * */
         notify("Produto criado com sucesso!");
 
         setDidClickButton(true);
         setIsOpen(false);
     }
 
+    /**
+     * Função que salva os dados do produto criado
+     */
     function handleChange(e) {
         if (e.target.id === "0") setName(e.target.value);
         if (e.target.id === "1") setStock(e.target.value);
@@ -100,6 +135,9 @@ function Admin() {
         if (e.target.id === "5") setDescription(e.target.value);
     }
 
+    /**
+     * Funcão de configuração de layout do componente toast de sucesso
+     */
     const toastConfig = {
         position: "bottom-left",
         autoClose: 2000,
@@ -111,6 +149,10 @@ function Admin() {
         theme: "dark",
     }
 
+    /**
+     * Funcão de configuração de layout do componente toast de informação
+     */
+    
     const toastConfigInfo = {
         position: "bottom-left",
         autoClose: 5000,
@@ -122,10 +164,21 @@ function Admin() {
         theme: "dark",
     }
 
+    /**
+     * Função de notificação que chama o componente toast de sucesso
+     */
     const notify = (msg) => toast(msg, toastConfig);
+
+    /**
+     * Função de notificação que chama o componente toast de Informação, dependendo da informação requisitada
+     */
     const notifyInfo = (id) => {
 
         let msg = "-";
+
+        /**
+         * Switch que define a mensagem de acordo com o id do elemento clicado
+         */
         
         switch(id) {
 
@@ -152,6 +205,10 @@ function Admin() {
                 break;
 
         }
+
+        /**
+         * Chama o componente toast com a mensagem de informação
+         */
 
         toast.info(msg, toastConfigInfo)
     
@@ -204,7 +261,8 @@ function Admin() {
                     </div>
                 </div>
             </div>
-
+            
+            {/** Modal de criação de produto */}
             <Modal
                 isOpen={modalIsOpen} onRequestClose={closeModal}
                 style={customStyles} contentLabel="Example Modal"

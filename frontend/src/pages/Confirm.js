@@ -7,6 +7,9 @@ import useAxios from "../hooks/useAxios";
 import axios from "../api/axiosInstance";
 
 function Confirm() {  
+    /**
+     * Requisição para obter os produtos do banco
+     */
     const [products, error, loading] = useAxios({
         axiosInstance: axios,
         method: 'GET',
@@ -16,9 +19,15 @@ function Confirm() {
         }
     })
     
+    /**
+     * Inicializa carrinho na localStorage
+     */
     const cartStorage = localStorage.getItem('ProductList');
     const cart = cartStorage ? JSON.parse(cartStorage) : {};
 
+    /**
+     * Fução para calcular o valor total da compra do carrinho
+     */
     let total = 0;
     let [totalSoma, setTotalSoma] = useState(-1);
     function calculateTotal(){
@@ -63,6 +72,7 @@ function Confirm() {
                         <div className={styles.subtotal}> <h3>Subtotal</h3> </div> 
                     </div>
                     <div className={styles.itens}>
+                        {/** Função que exibe todos os carrinho do usuário */}
                         {Object.keys(cart).map((index, key) => {
                         return <ConfirmProduct 
                             key={key} 
@@ -73,6 +83,7 @@ function Confirm() {
                     
                     <div className={styles.info}>
                         <p>Frete: Grátis</p>
+                        {/** Total da soma com duas casas decimais */}
                         <p>Total: R${totalSoma.toFixed(2)}</p>
                     </div>
                     <button className={styles.btn} text="Pagar" onClick={payment}>Pagar</button>    
