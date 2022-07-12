@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import logo from '../../img/PetLogo.png';
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 function Navbar() {
 
