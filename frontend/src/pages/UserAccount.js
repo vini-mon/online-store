@@ -89,7 +89,8 @@ function UserAccount() {
     }
 
     //logout do usuario e navegacao pro login
-    const signOut = () => {
+    const signOut = (e) => {
+        e.preventDefault();
         localStorage.removeItem('token');
         navigate('/login');
     }

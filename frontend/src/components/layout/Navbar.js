@@ -20,24 +20,31 @@ function Navbar() {
         return "Login";
     }
 
-    // const [hiddenDash, setHiddenDash] = useState('none');
-
     /*
      * Verifica se o usuário é administrador
      * e exibe o menu de administração
      */
-    const [admin, setAdmin] = useState(false);
-    useEffect( ()=> {
-        const isAdmin = () => {
-            const user = localStorage.getItem('token');
-            const userInfo = JSON.parse(user)
-            if (userInfo === null){
-                setAdmin(false);
-                return;
-            } 
-            setAdmin(true);    
+    const isAdmin = () => {
+        const user = localStorage.getItem('token');
+        const userInfo = JSON.parse(user)
+
+        if (user && userInfo.admin) {
+            if (document.getElementById("dash")) {
+                document.getElementById("dash").style.display = 'inline-block';
+            }
+            return "Dashboard";
         }
 
+        if (document.getElementById("dash")) {
+            document.getElementById("dash").style.display = 'none';
+        }
+        return "";
+    }
+
+    /*
+     * Roda quando o componente é carregado pela primeira vez
+     */
+    useEffect(() => {
         isAdmin();
     });
     
@@ -66,11 +73,9 @@ function Navbar() {
                 <li className={styles.item}>
                     <NavLink to="/account" className={({ isActive }) => isActive ? styles.link_active : styles.link }>{accountName}</NavLink>
                 </li>
-                {admin &&
-                    <li className={styles.item}>
-                        <NavLink to="/admin" className={({ isActive }) => isActive ? styles.link_active : styles.link }></NavLink>
-                    </li>
-                }
+                <li id="dash" className={styles.item}>
+                    <NavLink to="/admin" className={({ isActive }) => isActive ? styles.link_active : styles.link }>{isAdmin}</NavLink>
+                </li>
                 <li className={styles.item}>
                     <NavLink to="/cart" className={({ isActive }) => isActive ? styles.link_active : styles.link }><i className="fa-solid fa-cart-shopping"></i></NavLink>
                 </li>
