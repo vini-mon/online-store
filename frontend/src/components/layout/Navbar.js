@@ -68,7 +68,7 @@ function Navbar() {
                 </li>
                 {admin &&
                     <li className={styles.item}>
-                        <NavLink to="/admin" className={({ isActive }) => isActive ? styles.link_active : styles.link }></NavLink>
+                        <NavLink to="/admin" className={({ isActive }) => isActive ? styles.link_active : styles.link }>Dashboard</NavLink>
                     </li>
                 }
                 <li className={styles.item}>
